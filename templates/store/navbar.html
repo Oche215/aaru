@@ -1,0 +1,32 @@
+{% load static %}
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container position-relative d-flex align-items-center justify-content-between">
+
+      <a href="{% url 'home' %}" class="logo d-flex align-items-center me-auto me-xl-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+         <img src="{% static 'assets/img/logo/logo-top.png' %}" alt="">
+<!--        <h1 class="sitename">Invent</h1><span>.</span>-->
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+         <li><a href="{% url 'home' %}" class="{% if request.path == '/' %}active{% endif %}">Home</a></li>
+          <li><a href="{% url 'about' %}" class="{% if request.path == '/about/' %}active{% endif %}">About</a></li>
+          <li><a href="{% url 'services' %}" class="{% if request.path == '/services/' %}active{% endif %}">Services</a></li>
+          <li><a href="{% if request.path == '/' %}#product{% else %}{% url 'home' %}#product{% endif %}" class="{% if request.path == '/product/' %}active{% endif %}">Products</a></li>
+
+          <li><a href="{% if request.path == '/' %}#contact{% else %}{% url 'home' %}#contact{% endif %}">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+        {% if request.path == '/' %}
+      <a class="btn-getstarted bg-gradient" href="#product">Get Started</a>
+        {% else %}
+        <a href="{% url 'home' %}#product" class="btn btn-secondary bg-gradient">Continue Shopping</a>
+        {% endif %}
+
+    </div>
+  </header>
+
+

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+{% extends "store/base.html" %}
+
+{% load static %}
+{% load humanize %}
+
+{% block content %}
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title">
+<!--      <div class="heading">-->
+<!--        <div class="container">-->
+<!--          <div class="row d-flex justify-content-center text-center">-->
+<!--            <div class="col-lg-8">-->
+<!--              <h1 class="heading-title">Product Details</h1>-->
+<!--              <p class="mb-0">-->
+<!--                {{ product.name }}-->
+<!--              </p>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+      <nav class="breadcrumbs">
+        <div class="container">
+          <ol>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li class="current">About</li>
+          </ol>
+
+        </div>
+      </nav>
+    </div><!-- End Page Title -->
+
+
+
+      <!-- About Section -->
+    <section id="service-details" class="service-details section">
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>About Avada Couture</h2>
+        <p>Award Winning Fashion Designer.</p>
+      </div><!-- End Section Title -->
+
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-5">
+
+          <div class="col-lg-6">
+            <div class="service-main-image" data-aos="zoom-in" data-aos-delay="200">
+              <img src="{% static 'assets/img/services/about.jpg' %}" alt="" class="img-fluid rounded-4">
+              <div class="experience-badge">
+                <span>20+</span>
+                <p>Years Experience</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="service-main-content">
+
+              <p class="lead" data-aos="fade-up" data-aos-delay="100">
+                Welcome to Avada Couture, a distinguished fashion destination in the heart of Abuja, Nigeria. Renowned for our exquisite designs, Avada Couture seamlessly merges high-end fashion with a commitment to nurturing talent through our esteemed Fashion Academy.
+              </p>
+
+              <p data-aos="fade-up" data-aos-delay="200">
+                At Avada Couture, we take pride in being more than just a fashion brand. Our Fashion Academy stands as a beacon for aspiring designers, offering comprehensive training in the art of fashion design. We believe in shaping the next generation of trendsetters, and our academy is a testament to that commitment.
+              </p>
+              <p data-aos="fade-up" data-aos-delay="200">
+                Explore our store, where Avada Couture brings you a curated collection of fashion accessories that blend style and sophistication. From statement pieces to everyday elegance, our accessories complement every facet of your wardrobe.
+              </p>
+              <p data-aos="fade-up" data-aos-delay="200">
+                As a leading name in the world of fashion, Avada Couture is dedicated to setting trends and defining style. Our emphasis on quality craftsmanship, innovation, and creativity makes us a trusted choice for those seeking a touch of glamour in their lives.
+              </p>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="service-testimonial mt-5" data-aos="fade-up" data-aos-delay="100">
+          <div class="row">
+            <div class="col-lg-10 mx-auto">
+              <div class="testimonial-card">
+                <div class="row align-items-center">
+                  <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="client-info d-flex align-items-center">
+                      <img src="{% static 'assets/img/person/person-m-5.webp' %}" class="img-fluid rounded-circle" alt="">
+                      <div>
+                        <h4>Michael Chen</h4>
+                        <p>Marketing Director</p>
+                        <div class="stars">
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                          <i class="bi bi-star-fill"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-8" data-aos="fade-in" data-aos-delay="300">
+                    <div class="quote">
+                      <i class="bi bi-quote"></i>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    </section>
+
+
+
+  </main>
+{% endblock %}

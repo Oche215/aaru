@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+{% extends "store/base.html" %}
+
+{% load static %}
+{% load humanize %}
+
+{% block content %}
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title">
+<!--      <div class="heading">-->
+<!--        <div class="container">-->
+<!--          <div class="row d-flex justify-content-center text-center">-->
+<!--            <div class="col-lg-8">-->
+<!--              <h1 class="heading-title">Product Details</h1>-->
+<!--              <p class="mb-0">-->
+<!--                {{ product.name }}-->
+<!--              </p>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+      <nav class="breadcrumbs">
+        <div class="container">
+          <ol>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li class="current">Services</li>
+          </ol>
+
+        </div>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <!-- Services Section -->
+    <section id="services" class="services section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Services</h2>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row justify-content-center g-5">
+
+          <div class="col-md-9" data-aos="fade-right" data-aos-delay="100">
+            <div class="service-item">
+              <div class="service-icon">
+                <i class="bi bi-command"></i>
+              </div>
+              <div class="service-content">
+                <h3>Fashion Design</h3>
+                <p>We blend creativity and craftsmanship to redefine elegance. Discover unique, trendsetting pieces that reflect your individuality with us.</p>
+                <a href="#" class="service-link">
+                  <span>Learn More</span>
+                  <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-md-9" data-aos="fade-left" data-aos-delay="100">
+            <div class="service-item">
+              <div class="service-icon">
+                <i class="bi bi-marker-tip"></i>
+              </div>
+              <div class="service-content">
+                <h3>Fashion Design Training</h3>
+                <p>We teach the art of fashion—cultivate your style, refine skills, and step into the world of trendsetting with personalized guidance and expertise.</p>
+                <a href="#" class="service-link">
+                  <span>Learn More</span>
+                  <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-md-9" data-aos="fade-right" data-aos-delay="200">
+            <div class="service-item">
+              <div class="service-icon">
+                <i class="bi bi-gem"></i>
+              </div>
+              <div class="service-content">
+                <h3>Sale of Fashion Accessories</h3>
+                <p>Elevate your style with our accessories collection. Explore and purchase exquisite items that complement your look, defining a unique fashion.</p>
+                <a href="#" class="service-link">
+                  <span>Learn More</span>
+                  <i class="bi bi-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div><!-- End Service Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Services Section -->
+
+
+
+  </main>
+{% endblock %}
