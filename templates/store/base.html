@@ -83,10 +83,10 @@
             <li><a href="{% url 'services' %}">Services</a></li>
              {% if request.path == '/' %}
             <li><a href="#contact">Contact Us</a></li>
-            <li><a href="#product">Privacy policy</a></li>
+            <li><a href="#product">Products</a></li>
             {% else %}
             <li><a href="{% url 'home' %}#contact">Contact Us</a></li>
-            <li><a href="{% url 'home' %}#product">Privacy policy</a></li>
+            <li><a href="{% url 'home' %}#product">Products</a></li>
             {% endif %}
           </ul>
         </div>
