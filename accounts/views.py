@@ -255,12 +255,12 @@ def accounts(request):
         messages.success(request, 'You have been successfully logged in')
         return render(request, 'crm/crm.html',
                       {'catalogs': catalogs, 'total': total, 'total_products': total_products, 'products': products,
-                       'catalog': catalog, 'product': product, 'percentage': percentage})
+                       'catalog': catalog, 'product': product, 'percentage': 'percentage'})
     else:
         return render(request, 'crm/crm.html',
                       {'catalogs': catalogs, 'total': total, 'total_products': total_products, 'products': products,
-                       'catalog': catalog, 'product': product, 'context': context, 'context2': context2,
-                       'percent': percent})
+                       'catalog': catalog, 'product': product, 'context': 'context', 'context2': 'context2',
+                       'percent': 'percent'})
 
 
 
