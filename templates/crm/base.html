@@ -24,13 +24,13 @@
     <!-- PLUGINS CSS STYLE -->
     <link href="{% static 'crm/assets/plugins/simplebar/simplebar.css" rel="stylesheet' %}"/>
     <link href="{% static 'crm/assets/plugins/nprogress/nprogress.css" rel="stylesheet' %}"/>
-    <link href="https://unpkg.com/sleek-dashboard/dist/assets/css/sleek.min.css">
 
     <!-- No Extra plugin used -->
+    <link href="{% static 'crm/assets/plugins/jvectormap/jquery-jvectormap-2.0.3.css' %}" rel='stylesheet'>
+    <link href="{% static 'crm/assets/plugins/daterangepicker/daterangepicker.css' %}" rel='stylesheet'>
 
     <!-- SLEEK CSS -->
     <link id="sleek-css" rel="stylesheet" href="{% static 'crm/assets/css/sleek.css' %}"/>
-    <link href="https://unpkg.com/sleek-dashboard/dist/assets/css/sleek.min.css">
 
     <!-- FAVICON -->
     <link href="{% static 'crm/assets/img/favicon.png' %}" rel="shortcut icon"/>
@@ -761,9 +761,9 @@
 {% block script %}
 {% endblock %}
 
-<script src="{% static 'assets/js/sleek.js' %}"></script>
-<link href="{% static 'assets/options/optionswitch.css' %}" rel="stylesheet">
-<script src="{% static 'assets/options/optionswitcher.js' %}"></script>
+<script src="{% static 'crm/assets/js/sleek.js' %}"></script>
+<link href="{% static 'crm/assets/options/optionswitch.css' %}" rel="stylesheet">
+<script src="{% static 'crm/assets/options/optionswitcher.js' %}"></script>
 
 
 </body>
