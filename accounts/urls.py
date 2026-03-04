@@ -1,9 +1,11 @@
 from django.urls import path
-from .views import (RegistrationView, AddProductView, product_table, my_pdf_view,
+from .views import (RegistrationView, AddProductView, product_table, accounts,
                     ListProductsView, UpdateProductView, product_list, product_detail, edit_user, StaffListView)
 
 
 urlpatterns = [
+    path('', accounts, name='accounts'  ),
+
     path('register/', RegistrationView.as_view(), name='register'),
     path('add_product/', AddProductView.as_view(), name='add_product'),
     path('list_products/', product_list, name='list_products' ),
@@ -13,7 +15,5 @@ urlpatterns = [
     path('product_detail/<slug:slug>', product_detail, name='product_detail'),
     path('user-profile/', edit_user, name='user-profile' ),
     path('list_staff/', StaffListView.as_view(), name='list_staff' ),
-
-    path('table_pdf_view/', my_pdf_view, name='table_pdf_view'),
 
 ]

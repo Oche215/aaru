@@ -10,7 +10,9 @@ from django.contrib import messages
 from .forms import RegistrationForm, AddProductForm, UserUpdateForm, ChangePasswordForm, UserProfileForm
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView, UpdateView, DetailView, DeleteView, TemplateView
-from store.models import Product
+from store.models import Product, Catalog, Category
+from django.db.models import Count
+
 from .models import UserProfile
 from django.contrib.auth.decorators import login_required
 
@@ -142,11 +144,7 @@ def product_table(request):
 def product_detail(request, slug,):
     detail = Product.objects.get(slug=slug)
     name = detail.name
-
-
-    trend = Trending.objects.all()
-    # filtered_name = [item for item in trend if item.name == name]
-    return render(request, 'registration/product_detail.html', {'detail': detail, 'trend': trend})
+    return render(request, 'registration/product_detail.html', {'detail': detail,})
 
 def change_password(request):
     user_profile = UserProfile.objects.get(user_id=request.user.id)
@@ -221,38 +219,53 @@ def link_callback(uri, rel):
     return path
 
 
-def my_pdf_view(request):
-    products = Product.objects.all().order_by('-pk')
-    template = get_template('accounts/table.html')
-    context = {'products': products}
-    html = template.render(context)
-    # html = render(request, 'registration/product_data.html', {'products': products,})
+def accounts(request):
+    catalogs = Catalog.objects.all()
+    products = Product.objects.all()
+    category = Category.objects.all()
+    total = catalogs.count()
+    total_products = products.count()
 
-    response = HttpResponse(content_type='application/pdf')
-    response['Content-Disposition'] = 'attachment; filename="accounts/table.pdf"'
+    catalog = catalogs.annotate(count=Count('name'))
+    product = products.annotate(count=Count('category'))
 
-    pisa_status = pisa.CreatePDF(html, dest=response, link_callback=link_callback)
+    category_counts = []
+    for cat in category:
+        cat_count = Product.objects.filter(category=cat).count()
+        # catlog = Product.objects.get(category__catalog__name=cat.catalog.name)
+        # print(f"Category: {cat}, Count: {cat_count} ")
 
-    if pisa_status.err:
-        return HttpResponse('Error generating PDF')
-    return response
+        category_counts.append([cat, cat_count])
 
-    # generate_pdf(html, file_object=response)
-    # return response
+        context = category_counts
+
+    catalog_counts = []
+    for cat in catalogs:
+        catalog_count = Product.objects.filter(category__catalog__name=cat).count()
+        percent = (catalog_count / total_products) * 100
+
+        catalog_counts.append([cat, catalog_count, percent])
+
+        context2 = catalog_counts
+
+    # Convert to a dictionary for quick lookup
+    # category_count_map = {cat['category']: cat['cat_count'] for cat in category}
+
+    if request.method == "POST":
+        messages.success(request, 'You have been successfully logged in')
+        return render(request, 'crm/crm.html',
+                      {'catalogs': catalogs, 'total': total, 'total_products': total_products, 'products': products,
+                       'catalog': catalog, 'product': product, 'percentage': percentage})
+    else:
+        return render(request, 'crm/crm.html',
+                      {'catalogs': catalogs, 'total': total, 'total_products': total_products, 'products': products,
+                       'catalog': catalog, 'product': product, 'context': context, 'context2': context2,
+                       'percent': percent})
 
 
 
 
 
 
-    # template = get_template('invoice.html')
-    # context = {'customer': 'John Doe', 'amount': 5000}
-    # html = template.render(context)
-    #
-    # response = HttpResponse(content_type='application/pdf')
-    # response['Content-Disposition'] = 'filename="invoice.pdf"'
-    #
-    # generate_pdf(html, file_object=response)
-    # return response
 
 

@@ -22,4 +22,10 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('store.urls')),
+    path("accounts/", include("django.contrib.auth.urls")),  # AAA
+    path("accounts/", include("accounts.urls")), #registartion
+
+    path('crm/', include('crm.urls')),
+    path('schema-viewer/', include('schema_viewer.urls')),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
