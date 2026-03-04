@@ -60,6 +60,7 @@ class CustomLoginView(LoginView):
     template_name = "registration/login.html"
     authentication_form = CustomLoginForm
 
+@login_required
 def logout_user(request):
     logout(request)
     messages.info(request, 'You have been successfully logged out....')
