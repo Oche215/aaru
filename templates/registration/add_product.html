@@ -1,0 +1,84 @@
+{% extends "crm/base.html" %}
+
+{% load static %}
+{% load humanize %}
+{% load crispy_forms_tags %}
+
+
+{% block link %}
+<!-- No Extra plugin used -->
+<link href="{% static 'crm/assets/plugins/jvectormap/jquery-jvectormap-2.0.3.css' %}" rel='stylesheet'>
+<link href="{% static 'crm/assets/plugins/daterangepicker/daterangepicker.css' %}" rel='stylesheet'>
+<link href="{% static 'crm/assets/plugins/toastr/toastr.min.css' }" rel='stylesheet'>
+{% endblock link %}
+
+{% block content %}
+
+<!-- ====================================
+          ——— CONTENT WRAPPER
+          ===================================== -->
+<div class="content-wrapper">
+    <div class="content">
+
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="card card-default">
+                    <div class="card-header card-header-border-bottom bg-primary bg-gradient text-white">
+                        <h2 class="text-white"><span class="mdi mdi-hanger"></span> Add Product Page</h2>
+                    </div>
+                    <div class="card-body p-4">
+                        <form method="POST" enctype="multipart/form-data">{% csrf_token %}
+                            <div class="row">
+                                <div class="form-group col-md-12 mb-4">
+                                    {{ form|crispy }}
+                                </div>
+                                <div class="col-md-12">
+                                    <button type="submit" class="btn btn-lg btn-primary btn-block mb-4">Add Product
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock content %}
+
+{% block script %}
+
+<!-- Javascript -->
+<script src="{% static 'crm/assets/plugins/charts/Chart.min.js' %}"></script>
+<script src="{% static 'crm/assets/js/chart.js' %}"></script>
+
+<script src="{% static 'crm/assets/plugins/jvectormap/jquery-jvectormap-2.0.3.min.js' %}"></script>
+<script src="{% static 'crm/assets/plugins/jvectormap/jquery-jvectormap-world-mill.js' %}"></script>
+<script src="{% static 'crm/assets/js/vector-map.js' %}"></script>
+
+<script src="{% static 'crm/assets/plugins/daterangepicker/moment.min.js' %}"></script>
+<script src="{% static 'crm/assets/plugins/daterangepicker/daterangepicker.js' %}"></script>
+<script src="{% static 'crm/assets/js/date-range.js' %}"></script>
+
+<script src="{% static 'crm/assets/plugins/toastr/toastr.min.js' %}"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const nameInput = document.getElementById("id_name");
+    const slugInput = document.getElementById("id_slug");
+
+    nameInput.addEventListener("input", function() {
+        let slug = nameInput.value
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, '-') // Replace spaces & special chars with -
+            .replace(/(^-|-$)+/g, '');   // Remove leading/trailing hyphens
+        slugInput.value = slug;
+    });
+});
+</script>
+
+{% endblock %}

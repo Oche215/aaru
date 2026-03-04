@@ -1,0 +1,134 @@
+{% extends "crm/base.html" %}
+
+{% load static %}
+{% load humanize %}
+{% load crispy_forms_tags %}
+
+
+{% block link %}
+<!-- Special plugin used -->
+<!--<link href="{% static 'crm/assets/plugins/data-tables/datatables.bootstrap4.min.css' %}" rel="stylesheet">-->
+<!--<link href="https://unpkg.com/sleek-dashboard/dist/assets/css/sleek.min.css">-->
+<link href="{% static 'crm/assets/options/optionswitch.css' %}" rel="stylesheet">
+
+<!-- No Extra plugin used -->
+<link href="{% static 'crm/assets/plugins/jvectormap/jquery-jvectormap-2.0.3.css' %}" rel='stylesheet'>
+<link href="{% static 'crm/assets/plugins/daterangepicker/daterangepicker.css' %}" rel='stylesheet'>
+<link href="{% static 'crm/assets/plugins/toastr/toastr.min.css' %}" rel='stylesheet'>
+{% endblock link %}
+
+{% block content %}
+
+<!-- ====================================
+          ——— CONTENT WRAPPER
+          ===================================== -->
+<div class="content-wrapper">
+    <div class="content">
+
+        <div class="breadcrumb-wrapper">
+            <h1>Tables</h1>
+
+
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb p-0">
+                    <li class="breadcrumb-item">
+                        <a href="index.html">
+                            <span class="mdi mdi-home"></span>
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        data-table
+                    </li>
+                    <li class="breadcrumb-item" aria-current="page">hoverable-data-table</li>
+                </ol>
+            </nav>
+
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card card-default">
+                    <div class="card-header card-header-border-bottom d-flex justify-content-between">
+                        <h2>Hoverable Data Table</h2>
+
+                        <a href="" target="_blank"
+                           class="btn btn-outline-primary btn-sm text-uppercase">
+                            <i class=" mdi mdi-link mr-1"></i> Docs
+                        </a>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="hoverable-data-table">
+                            <table id="hoverable-data-table" class="table table-hover nowrap" style="width:100%">
+                                <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>ID Code</th>
+                                    <th>Category</th>
+                                    <th>Catalog</th>
+                                    <th>Price</th>
+                                    <th>Image</th>
+
+                                </tr>
+                                </thead>
+
+                                <tbody>
+                                {% for product in products %}
+                                <tr>
+                                    <td>{{ product.name }}</td>
+                                    <td>{{ product.id }}</td>
+                                    <td>{{ product.category }}</td>
+                                    <td>{{ product.catalog }}</td>
+                                    <td>{{ product.price }}</td>
+                                    <td>{{ product.photo }}</td>
+
+                                </tr>
+                                {% endfor %}
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div> <!-- End Content -->
+</div> <!-- End Content Wrapper -->
+
+
+{% endblock content %}
+
+{% block script %}
+
+<!-- Javascript -->
+<!--<script src="{% static 'crm/assets/plugins/charts/Chart.min.js' %}"></script>-->
+<!--<script src="{% static 'crm/assets/js/chart.js' %}"></script>-->
+
+<script src="{% static 'crm/assets/plugins/jvectormap/jquery-jvectormap-2.0.3.min.js' %}"></script>
+<script src="{% static 'crm/assets/plugins/jvectormap/jquery-jvectormap-world-mill.js' %}"></script>
+<script src="{% static 'crm/assets/js/vector-map.js' %}"></script>
+
+<script src="{% static 'crm/assets/plugins/daterangepicker/moment.min.js' %}"></script>
+<script src="{% static 'crm/assets/plugins/daterangepicker/daterangepicker.js' %}"></script>
+<script src="{% static 'crm/assets/js/date-range.js' %}"></script>
+
+<script src="{% static 'crm/assets/plugins/toastr/toastr.min.js' %}"></script>
+
+
+
+<!-- Javascript -->
+<!--<script src="{% static 'crm/assets/plugins/jquery/jquery.min.js' %}"></script>-->
+<!--<script src="{% static 'crm/assets/plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>-->
+<script src="{% static 'crm/assets/plugins/simplebar/simplebar.min.js' %}"></script>
+
+<!--<script src="{% static 'crm/assets/plugins/data-tables/jquery.datatables.min.js' %}"></script>-->
+<!--<script src="{% static 'crm/assets/plugins/data-tables/datatables.bootstrap4.min.js' %}"></script>-->
+
+<script src="{% static 'crm/assets/js/sleek.js' %}"></script>
+
+<script src="{% static 'crm/assets/options/optionswitcher.js' %}"></script>
+
+
+{% endblock %}

@@ -1,0 +1,216 @@
+{% extends "crm/base.html" %}
+
+{% load static %}
+{% load humanize %}
+{% load crispy_forms_tags %}
+
+{% block link %}
+<!-- No Extra plugin used -->
+<link href="{% static 'crm/assets/plugins/jvectormap/jquery-jvectormap-2.0.3.css' %}" rel='stylesheet'>
+<link href="{% static 'crm/assets/plugins/daterangepicker/daterangepicker.css' %}" rel='stylesheet'>
+<link href="{% static 'crm/assets/plugins/toastr/toastr.min.css' %}" rel='stylesheet'>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+{% endblock link %}
+
+{% block content %}
+<!-- ====================================
+  ——— CONTENT WRAPPER
+  ===================================== -->
+<div class="content-wrapper">
+    <div class="content">
+
+
+        <div class="bg-white border rounded">
+            <div class="row no-gutters">
+                <div class="col-lg-4 col-xl-3">
+                    <div class="profile-content-left profile-left-spacing pt-5 pb-3 px-3 px-xl-5">
+                        <p class="text-center">PROFILE</p>
+                        <hr class="w-100">
+
+                        <div class="card text-center widget-profile px-0 border-0">
+                            <div class="card-img mx-auto rounded-circle">
+                                <img src="{% if user.profile.pix %}{{ user.profile.pix.url }}{% else %}{% static 'crm/assets/img/user/images.jpg' %}{% endif %}" alt="Profile Picture" class="user-image">
+
+                            </div>
+
+                            <div class="card-body">
+                                <h4 class="py-2 text-dark">{{ user.first_name }} {{ user.last_name }}</h4>
+                                <p>{{ user.email }}</p>
+                                <a class="btn btn-primary btn-pill btn-lg my-2" href="{% url 'user-profile' %}">
+                                    {{ user.username }}
+                                </a>
+                            </div>
+                            <div class="contact-info pt-0">
+                                <h5 class="text-dark mb-1">{{user_profile.phone}}</h5>
+                            </div>
+                            <div class="contact-info pt-1">
+                                <a class="btn btn-warning btn-pill my-4" href="{% url 'password_change' %}">Change
+                                    Password</a>
+                            </div>
+
+
+                        </div>
+
+                        <hr class="w-100">
+
+
+                    </div>
+                </div>
+
+                <div class="col-lg-8 col-xl-9">
+                    <div class="profile-content-right profile-right-spacing py-5">
+                        <ul class="nav nav-tabs px-3 px-xl-5 nav-style-border" id="myTab" role="tablist">
+
+                            <li class="nav-item">
+                                {% if active_tab == 'profile-tab' %}
+                                <a class="nav-link" id="settings-tab" data-toggle="tab" href="#settings"
+                                   role="tab" aria-controls="settings" aria-selected="false">Settings</a>
+                                {% else %}
+                                <a class="nav-link active" id="settings-tab1" data-toggle="tab" href="#settings"
+                                   role="tab" aria-controls="settings" aria-selected="false">Settings</a>
+                                {% endif %}
+                            </li>
+
+                            <li class="nav-item">
+                                {% if active_tab == 'profile-tab' %}
+                                <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                                   aria-controls="profile" aria-selected="false">Profile</a>
+                                {% else %}
+                                <a class="nav-link" id="profile-tab1" data-toggle="tab" href="#profile" role="tab"
+                                   aria-controls="profile" aria-selected="false">Profile</a>
+                                {% endif %}
+                            </li>
+
+                        </ul>
+
+                        <div class="tab-content px-3 px-xl-5" id="myTabContent">
+
+                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                <div class="tab-widget mt-5">
+
+                                   <form  action="{% url 'user-profile' %}#profile" method="POST" enctype="multipart/form-data">{% csrf_token %}
+                                       {% if messages %}
+                                       {% if 'profile_submit' in post_data %}
+
+                                       {% for message in messages %}
+                                       <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+                                           <strong>
+                                               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                                                   <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                                                   <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+                                               </svg>
+                                           <small class="error text-center">{{ message }}</small>
+                                           </strong>
+                                           <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"></button>
+                                       </div>
+                                       {% endfor %}
+                                       {% endif %}
+                                       {% endif %}
+
+                                        <div class="input-group mb-2">
+                                           <div class="input-group-prepend">
+                                               <span class="input-group-text">
+                                                   <i class="mdi mdi-phone"></i>
+                                               </span>
+                                           </div>
+                                           {{form_profile.phone }}
+                                       </div>
+                                       <p style="font-size: 90%">ex. (999) 9999-9999</p>
+                                       <br>
+
+                                      <label>User Photo:</label>
+                                       <div class="input-group mb-2">
+
+                                           {{form_profile.pix}}
+                                           <div class="input-group-append">
+                                               <span class="input-group-text"><i class="mdi mdi-panorama"></i></span>
+                                           </div>
+                                       </div>
+                                       <p style="font-size: 90%">Select a picture of 100px x 100px</p>
+
+                                        <input type="hidden" name="active_tab" value="profile-tab">
+
+                                        <div class="d-flex justify-content-end mt-5">
+                                            <button type="submit" name="profile_submit"
+                                                    class="btn btn-primary mb-2 btn-pill">Update
+                                                Profile
+                                            </button>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade show active" id="settings" role="tabpanel"
+                                 aria-labelledby="settings-tab">
+                                <div class="tab-pane-content mt-5">
+                                    <form action="" method="POST">{% csrf_token %}
+                                        {% if messages %}
+                                       {% if 'setting_submit' in post_data %}
+
+                                       {% for message in messages %}
+                                       <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+                                           <strong>
+                                               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                                                   <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                                                   <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+                                               </svg>
+                                           <small class="error text-center">{{ message }}</small>
+                                           </strong>
+                                           <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"></button>
+                                       </div>
+                                       {% endfor %}
+                                       {% endif %}
+                                       {% endif %}
+
+                                        {{ form| crispy }}
+
+                                        <div class="d-flex justify-content-end mt-5">
+                                            <a type="button" class="btn btn-secondary mb-2 btn-pill" href="{% url 'crm' %}">Cancel</a>
+                                            &nbsp;&nbsp;
+                                            <button type="submit" name="setting_submit"
+                                                    class="btn btn-primary mb-2 btn-pill">Update
+                                                Profile
+                                            </button>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div> <!-- End Content -->
+</div> <!-- End Content Wrapper -->
+
+{% endblock content %}
+
+{% block script %}
+
+<!-- Javascript -->
+
+<script src="{% static 'crm/assets/plugins/daterangepicker/moment.min.js' %}"></script>
+<script src="{% static 'crm/assets/plugins/daterangepicker/daterangepicker.js' %}"></script>
+<script src="{% static 'crm/assets/js/date-range.js' %}"></script>
+
+<script src="{% static 'crm/assets/plugins/toastr/toastr.min.js' %}"></script>
+
+<!-- Include jQuery and Mask Plugin -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $('[data-mask]').each(function(){
+            var maskPattern = $(this).attr('data-mask');
+            $(this).mask(maskPattern);
+        });
+    });
+</script>
+
+{% endblock %}
