@@ -1,0 +1,33 @@
+
+.iso-marquee {
+            padding: 0.8rem 0; font-size: 8vw; overflow: hidden; background-color: black; }
+
+            .iso-marquee--long {
+                font-size: 1vw;
+
+                }
+                 .iso-marquee-linkwrap a {
+                    color:#ffffff;
+
+                    }
+
+                     .iso-marquee span {
+                        display: inline-block; white-space: nowrap; color: #ffffff; width: var(--tw); text-shadow: var(--tw) 0 currentColor, calc(var(--tw) * 2) 0 currentColor, calc(var(--tw) * 3) 0 currentColor, calc(var(--tw) * 4) 0 currentColor; will-change: transform; animation: iso-marquee var(--ad) linear infinite; animation-play-state: play;
+                        }
+                        .iso-marquee span:hover {animation-play-state: paused;}
+
+                        @keyframes iso-marquee {
+                                0% { transform: translateX(0);
+                                }
+                                100% { transform: translateX(-100%); }
+                                }
+                                 /* * on MacOs: System Preferences > * Accessibility > * Display > Reduce motion */
+                                 @media (prefers-reduced-motion: reduce) {
+                                    .iso-marquee span {
+                                     animation: none; text-shadow: none; width: auto; display: block; line-height: 1.5; text-align: center; white-space: normal; }
+
+                                                                    }
+
+
+
+
