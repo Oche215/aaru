@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 from dotenv import load_dotenv
 
+import accounts.apps
 import store.apps
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -47,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.humanize',
     'store.apps.StoreConfig',
+    'accounts.apps.AccountsConfig',
 
     'whitenoise.runserver_nostatic',
 
