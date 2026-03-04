@@ -58,7 +58,7 @@
                 <div class="portfolio-filters-container" data-aos="fade-up" data-aos-delay="200">
                     <ul class="portfolio-filters isotope-filters">
                         <li data-filter="*" class="filter-active">All Work</li>
-                        <li data-filter=".filter-abaya">ABAYA</li>
+                        <li data-filter=".filter-Abaya">ABAYA</li>
                         <li data-filter=".filter-graphics">BATIK</li>
                         <li data-filter=".filter-motion">BOUBOU</li>
                         <li data-filter=".filter-brand">BUBA</li>
@@ -73,7 +73,7 @@
 
                 <div class="row g-4 isotope-container" data-aos="fade-up" data-aos-delay="300">
                     {% for product in products %}
-                    <div class="col-lg-4 col-md-4 portfolio-item isotope-item filter-{{product.category.catalog}}">
+                    <div class="col-lg-4 col-md-4 portfolio-item isotope-item filter-{{product.category}}">
                         <div class="portfolio-card">
                             <div class="portfolio-image">
                                 <img src="{% if product.pix %}{{ product.pix.url }}{% else %}{% static 'assets/img/portfolio/image.jpg' %}{% endif %}" class="img-fluid" alt="{{ product.name }}"
