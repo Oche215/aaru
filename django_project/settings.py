@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
 
     'whitenoise.runserver_nostatic',
-
+    'crispy_forms',
 
 ]
 
@@ -153,4 +153,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 LOGOUT_REDIRECT_URL = "home"
 LOGIN_URL = "/accounts/login/"
 LOGIN_REDIRECT_URL = "/accounts/"
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"  # Optional in newer versions
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 

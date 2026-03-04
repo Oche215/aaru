@@ -63,6 +63,7 @@ class CustomLoginView(LoginView):
 @login_required
 def logout_user(request):
     logout(request)
+    messages.info(request, 'You have been successfully logged out....')
     return redirect('/')
 
 
