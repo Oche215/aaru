@@ -1,24 +1,10 @@
-from http.client import responses
-
-from django.contrib.admin.views.decorators import staff_member_required
-from django.contrib.auth import login
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
 from django.shortcuts import render, redirect, HttpResponseRedirect, reverse, HttpResponse
 from django.contrib import messages
 
-from .forms import RegistrationForm, AddProductForm, UserUpdateForm, ChangePasswordForm, UserProfileForm
-from django.urls import reverse_lazy
-from django.views.generic import CreateView, ListView, UpdateView, DetailView, DeleteView, TemplateView
+
 from store.models import Product, Catalog, Category
 from django.db.models import Count
 
-from .models import UserProfile
-from django.contrib.auth.decorators import login_required
-
-from django_project import settings
-from django.contrib.staticfiles import finders
-import os
 
 
 def accounts(request):
