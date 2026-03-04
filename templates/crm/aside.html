@@ -38,31 +38,31 @@
                   <ul class="collapse " id="app" data-parent="#sidebar-menu">
                     <div class="sub-menu">
                       <li class="">
-                        <a class="sidenav-item-link" href="{% url 'add_product' %}">
+                        <a class="sidenav-item-link" href="{% url 'accounts' %}">
                           <span class="nav-text">Add Product</span>
                         </a>
                       </li>
 
                       <li class="">
-                        <a class="sidenav-item-link" href="{% url 'list_products' %}">
+                        <a class="sidenav-item-link" href="{% url 'accounts' %}">
                           <span class="nav-text">List Products</span>
                         </a>
                       </li>
 
                       <li class="">
-                        <a class="sidenav-item-link" href="{% url 'product_table' %}">
+                        <a class="sidenav-item-link" href="{% url 'accounts' %}">
                           <span class="nav-text">Hoverable Product Table</span>
                         </a>
                       </li>
 
                       <li class="">
-                        <a class="sidenav-item-link" href="{% url 'forms' %}">
+                        <a class="sidenav-item-link" href="#">
                           <span class="nav-text"> Form </span>
                         </a>
                       </li>
 
                       <li class="">
-                        <a class="sidenav-item-link" href="{% url 'list_staff' %}">
+                        <a class="sidenav-item-link" href="{% url 'accounts' %}">
                           <span class="nav-text">Staff List</span>
                         </a>
                       </li>
@@ -80,7 +80,7 @@
                   <ul class="collapse " id="forms" data-parent="#sidebar-menu">
                     <div class="sub-menu">
                       <li class="{% if request.path == '/accounts/register/' %}active{% endif %}">
-                        <a class="sidenav-item-link" href="{% url 'register' %}">
+                        <a class="sidenav-item-link" href="{% url 'accounts' %}">
                           <span class="nav-text">Registration</span>
                         </a>
                       </li>
