@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'store.apps.StoreConfig',
     'accounts.apps.AccountsConfig',
-    'crispy_forms',
+    # 'crispy_forms',
 
     'whitenoise.runserver_nostatic',
 
