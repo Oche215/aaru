@@ -47,7 +47,7 @@ def accounts(request):
     else:
         return render(request, 'crm/crm.html',
                       {'catalogs': catalogs, 'total': total, 'total_products': total_products, 'products': products,
-                       'catalog': catalog, 'product': product, 'context': 'context', 'context2': 'context2',
+                       'catalog': catalog, 'product': product, 'context': context, 'context2': context2,
                        'percent': 'percent'})
 
 
