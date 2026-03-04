@@ -55,7 +55,6 @@ def accounts(request):
 class CustomLoginView(LoginView):
     template_name = "registration/login.html"
     authentication_form = CustomLoginForm
-    success_url = 'accounts'
 
 
 

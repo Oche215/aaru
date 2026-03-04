@@ -152,5 +152,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LOGOUT_REDIRECT_URL = "home/"
 LOGIN_URL = "/accounts/login/"
-LOGIN_REDIRECT_URL = "/crm/"
+LOGIN_REDIRECT_URL = "/accounts/"
 
