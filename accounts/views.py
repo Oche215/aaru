@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect, HttpResponseRedirect, reverse, HttpResponse
 from django.contrib import messages
 
-
+from django.contrib.auth.views import LoginView
 from store.models import Product, Catalog, Category
 from django.db.models import Count
+from .forms import CustomLoginForm
 
 
 
@@ -50,6 +51,11 @@ def accounts(request):
                        'catalog': catalog, 'product': product, 'context': context, 'context2': context2,
                        'percent': 'percent'})
 
+
+class CustomLoginView(LoginView):
+    template_name = "registration/login.html"
+    authentication_form = CustomLoginForm
+    success_url = 'accounts'
 
 
 
