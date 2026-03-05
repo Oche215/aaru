@@ -46,11 +46,11 @@ def accounts(request):
 
     if request.method == "POST":
         messages.success(request, 'You have been successfully logged in')
-        return render(request, 'crm/admin.html',
+        return render(request, 'crm/crm.html',
                       {'catalogs': catalogs, 'total': total, 'total_products': total_products, 'products': products,
                        'catalog': catalog, 'product': product, 'percentage': percent})
     else:
-        return render(request, 'crm/admin.html',
+        return render(request, 'crm/crm.html',
                       {'catalogs': catalogs, 'total': total, 'total_products': total_products, 'products': products,
                        'catalog': catalog, 'product': product, 'context': context, 'context2': context2,
                        'percent': percent})
