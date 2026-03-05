@@ -127,36 +127,28 @@
                                         <li>
                                            <div class="card">
                         <div class="row">
-
                             <div class="col-lg-6 col-xl-4">
-                                <div class="text-white bg-primary">
-                                    <div class="bg-primary">Header</div>
-                                    <div class="card">
-                                        <h5 class="card-title"> </h5>
-                                    </div>
+                                <a href="{% url 'account' %}">
+                                    <div class="card text-white bg-primary my-2">
+                                    <div class="card-header bg-dark">Dashboard</div>
                                 </div>
+                                </a>
                             </div>
 
                             <div class="col-lg-6 col-xl-4">
-                                <div class="text-white bg-secondary">
-                                    <div class="card-header bg-secondary">Header</div>
-
-                                    </div>
+                                <a href="{% url 'list_staff' %}">
+                                <div class="card text-white bg-secondary my-2">
+                                    <div class="card-header bg-dark">Staff</div>
                                 </div>
-
-                            <div class="col-lg-6 col-xl-4">
-                                <div class=" text-white bg-success">
-                                    <div class=" bg-success">Header</div>
-                                    <div class="card-body">
-
-                                    </div>
-                                </div>
+                                </a>
                             </div>
 
                             <div class="col-lg-6 col-xl-4">
-                                <div class="card text-white bg-dark mb-3">
-                                    <div class="card-header bg-dark">Header</div>
+                                 <a href="{% url 'user-profile' %}">
+                                <div class="card text-white bg-dark my-2">
+                                    <div class="card-header bg-dark">Staff</div>
                                 </div>
+                                 </a>
                             </div>
                         </div>
                     </div>
