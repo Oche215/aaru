@@ -163,7 +163,7 @@
                                        {% endif %}
                                        {% endif %}
 
-                                        {{ form| crispy }}
+                                        {{ form.as_p }}
 
                                         <div class="d-flex justify-content-end mt-5">
                                             <a type="button" class="btn btn-secondary mb-2 btn-pill" href="{% url 'crm' %}">Cancel</a>
