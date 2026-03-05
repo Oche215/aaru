@@ -86,7 +86,7 @@ class UserUpdateForm(UserChangeForm):
 
 class UserProfileForm(forms.ModelForm):
 
-    phone = forms.CharField(label="", widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Phone Number', 'data-mask': '(000) 0000-0000',}), required=False)
+    phone = forms.CharField(label="", widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Phone Number', 'data-mask': '(000) 000 000-0000',}), required=False)
     pix = forms.ImageField(label="", widget=forms.FileInput(attrs={'class': 'form-control', 'accept': 'image/*', }), required=False)
 
     def __init__(self, *args, **kwargs):
