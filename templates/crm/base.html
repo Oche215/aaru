@@ -47,6 +47,26 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script src="{% static 'crm/assets/plugins/nprogress/nprogress.js' %}"></script>
+
+    <style>
+    /* Card hover effect */
+    .card-hover {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Optional image zoom effect */
+    .card-hover img {
+      transition: transform 0.4s ease;
+    }
+    .card-hover:hover img {
+      transform: scale(1.05);
+    }
+</style>
+
 </head>
 
 <body class="header-fixed sidebar-fixed sidebar-dark header-light" id="body">
@@ -126,75 +146,90 @@
                                         role="tablist">
                                         <li>
                                             <div class="row container">
-                                                <div class="col-lg-3 col-xl-4 hover-overlay">
+                                                <div class="col-lg-3 col-xl-4">
 
-                                                        <div class="card text-white bg-primary my-1">
-                                                            <a href="{% url 'accounts' %}">
-                                                            <div class="card-header mask" style=" background: linear-gradient(45deg, hsla(168, 85%, 52%, 0.5), hsla(263, 88%, 45%, 0.5) 100%);">Dash</div>
-                                                        </a>
-                                                        </div>
 
-                                                </div>
-
-                                                <div class="col-lg-3 col-xl-4 hover-overlay">
-
-                                                        <div class="card text-white bg-secondary my-1">
-                                                            <a href="{% url 'list_staff' %}">
-                                                            <div class="card-header mask" style=" background: linear-gradient(45deg, hsla(168, 85%, 52%, 0.5), hsla(263, 88%, 45%, 0.5) 100%);">Staff</div>
-                                                        </a>
-                                                        </div>
-
-                                                </div>
-
-                                                <div class="col-lg-3 col-xl-4 hover-overlay">
-
-                                                        <div class="text-white bg-success my-1">
+                                                        <div class="card card-hover">
                                                             <a href="{% url 'user-profile' %}">
+                                                            <img src="{% static 'app/dashboard.jpg' %}"  class="card-img-top" alt="Sample Image">
+                                                            <div class="card-body">
+                                                                <h5 class="card-title">Dashboard</h5>
+
+                                                            </div>
+                                                            </a>
+                                                        </div>
+
+                                                </div>
+
+                                                <div class="col-lg-3 col-xl-4 hover-overlay">
+
+                                                    <div class="card text-white bg-secondary my-1">
+                                                        <a href="{% url 'list_staff' %}">
+                                                            <div class="card-header mask"
+                                                                 style=" background: linear-gradient(45deg, hsla(168, 85%, 52%, 0.5), hsla(263, 88%, 45%, 0.5) 100%);">
+                                                                Staff
+                                                            </div>
+                                                        </a>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="col-lg-3 col-xl-4 hover-overlay">
+
+                                                    <div class="text-white bg-success my-1">
+                                                        <a href="{% url 'user-profile' %}">
                                                             <div class="card-header bg-success">User</div>
                                                         </a>
-                                                        </div>
+                                                    </div>
 
                                                 </div>
 
                                                 <div class="col-lg-3 col-xl-4 hover-overlay">
 
-                                                        <div class="card text-white bg-danger my-1">
-                                                            <a href="{% url 'accounts' %}">
-                                                            <div class="card-header mask" style=" background: linear-gradient(45deg, hsla(168, 85%, 52%, 0.5), hsla(263, 88%, 45%, 0.5) 100%);">Dash</div>
+                                                    <div class="card text-white bg-danger my-1">
+                                                        <a href="{% url 'accounts' %}">
+                                                            <div class="card-header mask"
+                                                                 style=" background: linear-gradient(45deg, hsla(168, 85%, 52%, 0.5), hsla(263, 88%, 45%, 0.5) 100%);">
+                                                                Dash
+                                                            </div>
                                                         </a>
-                                                        </div>
+                                                    </div>
 
                                                 </div>
 
                                                 <div class="col-lg-3 col-xl-4 hover-overlay">
 
-                                                        <div class="card-header text-white bg-warning my-1">
-                                                            <a href="{% url 'list_staff' %}">
-                                                            <div class="mask" style=" background: linear-gradient(45deg, hsla(168, 85%, 52%, 0.5), hsla(263, 88%, 45%, 0.5) 100%);">ADM</div>
+                                                    <div class="card-header text-white bg-warning my-1">
+                                                        <a href="{% url 'list_staff' %}">
+                                                            <div class="mask"
+                                                                 style=" background: linear-gradient(45deg, hsla(168, 85%, 52%, 0.5), hsla(263, 88%, 45%, 0.5) 100%);">
+                                                                ADM
+                                                            </div>
                                                         </a>
-                                                        </div>
+                                                    </div>
 
                                                 </div>
 
                                                 <div class="col-lg-3 col-xl-4 card hover-shadow">
 
-                                                        <div class="card-body text-white my-1 corner">
-                                                            <a href="{% url 'user-profile' %}">
-                                                                <div class="card-text bg-danger text-white">User4</div>
-                                                            <div class="mask" style=" background: linear-gradient(45deg, hsla(168, 85%, 52%, 0.5), hsla(263, 88%, 45%, 0.5) 100%);"></div>
-                                                                </a>
-                                                        </div>
+                                                    <div class="card-body text-white my-1 corner">
+                                                        <a href="{% url 'user-profile' %}">
+                                                            <div class="card-text bg-danger text-white">User4</div>
+                                                            <div class="mask"
+                                                                 style=" background: linear-gradient(45deg, hsla(168, 85%, 52%, 0.5), hsla(263, 88%, 45%, 0.5) 100%);"></div>
+                                                        </a>
+                                                    </div>
 
                                                 </div>
 
                                                 <div class="col-lg-3 col-xl-4">
 
-                                                        <div class="rounded text-white bg-light hover-overlay">
-                                                            <a href="{% url 'accounts' %}">
-                                                                <div class="card-header bg-danger text-white">DHS</div>
-                                                                <div class="mask bg-primary"></div>
-                                                            </a>
-                                                        </div>
+                                                    <div class="rounded text-white bg-light hover-overlay">
+                                                        <a href="{% url 'accounts' %}">
+                                                            <div class="card-header bg-danger text-white">DHS</div>
+                                                            <div class="mask bg-primary"></div>
+                                                        </a>
+                                                    </div>
                                                 </div>
 
                                                 <div class="col-lg-3 col-xl-4 hover-overlay">
@@ -207,11 +242,14 @@
 
                                                 <div class="col-lg-3 col-xl-4 hover-overlay">
 
-                                                        <div class="text-white bg-danger my-1">
-                                                             <a href="{% url 'user-profile' %}">
-                                                            <div class="card-header mask" style=" background: linear-gradient(45deg, hsla(168, 85%, 52%, 0.5), hsla(263, 88%, 45%, 0.5) 100%);">User1</div>
-                                                             </a>
-                                                        </div>
+                                                    <div class="text-white bg-danger my-1">
+                                                        <a href="{% url 'user-profile' %}">
+                                                            <div class="card-header mask"
+                                                                 style=" background: linear-gradient(45deg, hsla(168, 85%, 52%, 0.5), hsla(263, 88%, 45%, 0.5) 100%);">
+                                                                User1
+                                                            </div>
+                                                        </a>
+                                                    </div>
 
                                                 </div>
                                             </div>
