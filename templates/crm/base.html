@@ -145,7 +145,7 @@
                                     <ul class="list-unstyled" id="myTab"
                                         role="tablist">
                                         <li>
-                                            <div class="row justify-content-evenly g1">
+                                            <div class="row justify-content-evenly">
                                                     <div class="col-md-3 p-1">
 
                                                         <div class="w-75 card-header card-hover bg-info">
@@ -294,7 +294,7 @@
                         <li class="dropdown user-menu">
                             <button href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
 
-                                <img src="{% if user.profile.pix %}{{ user.profile.pix.url }}{% else %}{% static 'crm/assets/img/user/images.jpg' %}{% endif %}"
+                                <img src="{% if user.userprofile.pix %}{{ user.userprofile.pix.url }}{% else %}{% static 'crm/assets/img/user/images.jpg' %}{% endif %}"
                                      alt="Profile Picture" class="user-image">
 
                                 <span class="d-none d-lg-inline-block">{{ user }}</span>
