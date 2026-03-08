@@ -7,6 +7,8 @@ admin.site.register(UserProfile)
 
 class ProfileInline(admin.StackedInline):
     model = UserProfile
+    fields = ['phone', 'pix']
+    extra = 0
 
 class UserAdmin(admin.ModelAdmin):
     model = User
