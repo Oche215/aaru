@@ -329,10 +329,11 @@
 
                                 <li class="dropdown-footer">
                                     <i class="bi bi-box-arrow-left"></i>
-                                     <form action="{% url 'logout' %}" method="post">
-                                        {% csrf_token %}
+                                    <a href="javascript:0">
+                                     <form action="{% url 'logout' %}" method="post">{% csrf_token %}
                                         <button type="submit" class="nav-link btn btn-link"><i class="mdi mdi-logout"></i> Log Out</button>
                                     </form>
+                                    </a>
                                 </li>
                             </ul>
                         </li>
