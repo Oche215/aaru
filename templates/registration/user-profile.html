@@ -2,6 +2,7 @@
 
 {% load static %}
 {% load humanize %}
+{% load crispy_forms_tags %}
 
 {% block link %}
 <!-- No Extra plugin used -->
@@ -88,7 +89,7 @@
                             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                                 <div class="tab-widget mt-5">
 
-                                   <form method="POST" enctype="multipart/form-data">{% csrf_token %}
+                                   <form  action="{% url 'user-profile' %}#profile" method="POST" enctype="multipart/form-data">{% csrf_token %}
                                        {% if messages %}
                                        {% if 'profile_submit' in post_data %}
 
@@ -144,7 +145,7 @@
                             <div class="tab-pane fade show active" id="settings" role="tabpanel"
                                  aria-labelledby="settings-tab">
                                 <div class="tab-pane-content mt-5">
-                                    <form action="" enctype="multipart/form-data" method="POST">{% csrf_token %}
+                                    <form action="" method="POST">{% csrf_token %}
                                         {% if messages %}
                                        {% if 'setting_submit' in post_data %}
 
@@ -163,10 +164,10 @@
                                        {% endif %}
                                        {% endif %}
 
-                                        {{ form.as_p }}
+                                        {{ form| crispy }}
 
                                         <div class="d-flex justify-content-end mt-5">
-                                            <a type="button" class="btn btn-secondary mb-2 btn-pill" href="{% url 'accounts' %}">Cancel</a>
+                                            <a type="button" class="btn btn-secondary mb-2 btn-pill" href="{% url 'crm' %}">Cancel</a>
                                             &nbsp;&nbsp;
                                             <button type="submit" name="setting_submit"
                                                     class="btn btn-primary mb-2 btn-pill">Update
