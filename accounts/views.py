@@ -77,9 +77,7 @@ def edit_user(request):
                 form.save()
                 messages.success(request, "Your settings has been updated successfully.")
 
-                return render(request, 'registration/user-profile.html', {'form': form})
-
-                # return redirect('user-profile')  # Redirect to a profile page
+                return redirect('user-profile')  # Redirect to a profile page
             else:
                 for field, errors in form.errors.items():
                     form_profile = UserProfileForm(instance=user_profile)
@@ -96,8 +94,7 @@ def edit_user(request):
                 form_profile.save()
 
                 messages.success(request, "Your profile has been updated successfully.")
-                return render(request, 'registration/user-profile.html', {'form_profile': form_profile, 'user_profile': user_profile, })
-                # return redirect('user-profile')  # Redirect to a profile page
+                return redirect('user-profile')  # Redirect to a profile page
             else:
                 form = UserUpdateForm(instance=request.user)
                 for field, errors in form_profile.errors.items():
