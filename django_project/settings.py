@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'store.apps.StoreConfig',
     'accounts.apps.AccountsConfig',
     'crispy_forms',
+    'crispy_bootstrap5',
 
     'whitenoise.runserver_nostatic',
 
@@ -156,4 +157,5 @@ LOGIN_REDIRECT_URL = "/accounts/"
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"  # Optional in newer versions
 CRISPY_TEMPLATE_PACK = "bootstrap5"
+
 
