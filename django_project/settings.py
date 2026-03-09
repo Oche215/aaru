@@ -49,8 +49,9 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'store.apps.StoreConfig',
     'accounts.apps.AccountsConfig',
-    'crispy_forms',
-    'crispy_bootstrap5',
+
+    "crispy_forms",
+    "crispy_bootstrap5",
 
     'whitenoise.runserver_nostatic',
 
@@ -155,7 +156,8 @@ LOGOUT_REDIRECT_URL = "home"
 LOGIN_URL = "/accounts/login/"
 LOGIN_REDIRECT_URL = "/accounts/"
 
-CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"  # Optional in newer versions
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 
