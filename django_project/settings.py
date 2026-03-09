@@ -33,8 +33,8 @@ SECRET_KEY = 'django-insecure-^19%8(99$@zvb^p=^rpq6$l!0)vk6q5h(ic0ngg^f$1c0w*pqh
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['aaru-production.up.railway.app', 'https://aaru-production.up.railway.app', '127.0.0.1']
-CSRF_TRUSTED_ORIGINS = ['https://aaru-production.up.railway.app', 'https://127.0.0.1']
+ALLOWED_HOSTS = ['avadacouture.com', 'aaru-production.up.railway.app', 'https://aaru-production.up.railway.app', '127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['https://avadacouture.com/', 'https://aaru-production.up.railway.app', 'https://127.0.0.1']
 
 
 # Application definition
