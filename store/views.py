@@ -15,9 +15,33 @@ def home(request):
             messages.success(request, 'You have signed out!')
             return render(request, 'store/home.html', {'products': products, 'form': form })
         else:
-            contact(request)
+            form = ContactUsForm(request.POST, )
 
-    return render(request, 'store/home.html', {'products': products, 'form': form })
+            address = request.POST.get('email')
+            name = request.POST.get('name')
+            message = request.POST.get('message')
+            phone = request.POST.get('phone')
+            service = request.POST.get('service')
+
+            if address and name and message:
+                try:
+                    send_mail(f'Inquiry from {name}',
+                              f'From: {address}\nName: {name} \nPhone: {phone} \nServices: {service} \nMessage: {message}',
+                              DEFAULT_FROM_EMAIL, ['reachus@avadacouture.com', 'avadacouturewebsite@gmail.com'], )
+                    messages.success(request, 'Email sent successfully')
+                except Exception as e:
+                    messages.error(request, f'Error sending email {e}')
+            else:
+                messages.success(request, 'All fields are required to send us a note except for File')
+
+            if form.is_valid():
+                form.save()
+
+                # messages.success(request, 'Your messages uploaded successfully!')
+                return render(request, 'store/home.html', {'products': products, 'form': form })
+
+    else:
+        return render(request, 'store/home.html', {'products': products, 'form': form })
 
 def contact(request):
     form = ContactUsForm()
