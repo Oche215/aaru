@@ -97,9 +97,18 @@ class ContactUs(models.Model):
 
     )
     message = models.TextField(max_length=360, blank=True)
-    service = models.CharField(max_length=120, blank=True)
+    service = models.ForeignKey('Service', related_name='services', on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name_plural = 'Contact Us'
 
 
     def __str__(self):
         return f"{self.name} ({self.email})"
+
+class Service(models.Model):
+    name = models.CharField(max_length=220)
+
+    def __str__(self):
+        return self.name
 
