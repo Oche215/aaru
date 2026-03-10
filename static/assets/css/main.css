@@ -3041,7 +3041,7 @@ section,
   }
 }
 
-.hero1 .hero1-title {
+.hero1 .hero-title {
   font-size: 2.5rem;
   font-weight: 600;
   line-height: 1.2;
@@ -3050,18 +3050,18 @@ section,
 }
 
 @media (max-width: 991.98px) {
-  .hero1 .hero1-title {
+  .hero1 .hero-title {
     font-size: 2rem;
   }
 }
 
 @media (max-width: 767.98px) {
-  .hero1 .hero1-title {
+  .hero1 .hero-title {
     font-size: 1.75rem;
   }
 }
 
-.hero1 .hero1-description {
+.hero1 .hero-description {
   font-size: 1.125rem;
   line-height: 1.6;
   color: var(--default-color);
@@ -3090,17 +3090,17 @@ section,
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.hero1 .hero1-image {
+.hero1 .hero-image {
   border-radius: 8px;
   overflow: hidden;
   transition: transform 0.3s ease;
 }
 
-.hero1 .hero1-image:hover {
+.hero1 .hero-image:hover {
   transform: translateY(-5px);
 }
 
-.hero1 .hero1-image img {
+.hero1 .hero-image img {
   width: 100%;
   height: auto;
   border-radius: 8px;
