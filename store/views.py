@@ -9,69 +9,56 @@ from django_project.settings import DEFAULT_FROM_EMAIL
 
 def home(request):
     products = Product.objects.all()
-    form = ContactUsForm()
-    if request.method == "POST":
-        if 'logout' in request.POST:
-            messages.success(request, 'You have signed out!')
-            return render(request, 'store/home.html', {'products': products, 'form': form })
-        else:
-            form = ContactUsForm(request.POST, )
+    # form = ContactUsForm()
+    # if request.method == "POST":
+    #     if 'logout' in request.POST:
+    #         messages.success(request, 'You have signed out!')
+    #         return render(request, 'store/home.html', {'products': products, 'form': form })
+    #     else:
+    #         form = ContactUsForm(request.POST, )
+    #
+    #         address = request.POST.get('email')
+    #         name = request.POST.get('name')
+    #         message = request.POST.get('message')
+    #         phone = request.POST.get('phone')
+    #         service = request.POST.get('service')
+    #
+    #         if address and name and message:
+    #             try:
+    #                 send_mail(f'Inquiry from {name}',
+    #                           f'From: {address}\nName: {name} \nPhone: {phone} \nServices: {service} \nMessage: {message}',
+    #                           DEFAULT_FROM_EMAIL, ['reachus@avadacouture.com', 'oche215@gmail.com'], )
+    #                 messages.success(request, 'Email sent successfully')
+    #             except Exception as e:
+    #                 messages.error(request, f'Error sending email {e}')
+    #         else:
+    #             messages.success(request, 'All fields are required to send us a note except for File')
+    #
+    #         if form.is_valid():
+    #             form.save()
+    #
+    #             # messages.success(request, 'Your messages uploaded successfully!')
+    #             return render(request, 'store/home.html', {'products': products, 'form': form })
+    #
+    # else:
+    #     return render(request, 'store/home.html', {'products': products, 'form': form })
+    return render(request, 'store/home.html', {'products': products, })
 
-            address = request.POST.get('email')
-            name = request.POST.get('name')
-            message = request.POST.get('message')
-            phone = request.POST.get('phone')
-            service = request.POST.get('service')
-
-            if address and name and message:
-                try:
-                    send_mail(f'Inquiry from {name}',
-                              f'From: {address}\nName: {name} \nPhone: {phone} \nServices: {service} \nMessage: {message}',
-                              DEFAULT_FROM_EMAIL, ['reachus@avadacouture.com', 'oche215@gmail.com'], )
-                    messages.success(request, 'Email sent successfully')
-                except Exception as e:
-                    messages.error(request, f'Error sending email {e}')
-            else:
-                messages.success(request, 'All fields are required to send us a note except for File')
-
-            if form.is_valid():
-                form.save()
-
-                # messages.success(request, 'Your messages uploaded successfully!')
-                return render(request, 'store/home.html', {'products': products, 'form': form })
-
-    else:
-        return render(request, 'store/home.html', {'products': products, 'form': form })
 
 def contact(request):
     form = ContactUsForm()
     if request.method == 'POST':
-        form = ContactUsForm(request.POST, )
-
-        address = request.POST.get('email')
-        name = request.POST.get('name')
-        message = request.POST.get('message')
-        phone = request.POST.get('phone')
-        service = request.POST.get('service')
-
-        if address and name and message:
-            try:
-                send_mail(f'Inquiry from {name}',f'From: {address}\nName: {name} \nPhone: {phone} \nServices: {service} \nMessage: {message}', DEFAULT_FROM_EMAIL, ['reachus@avadacouture.com', 'avadacouturewebsite@gmail.com'],)
-                messages.success(request, 'Email sent successfully')
-            except Exception as e:
-                messages.error(request, f'Error sending email {e}')
-        else:
-            messages.success(request, 'All fields are required to send us a note except for File')
-
-
+        form = ContactUsForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-
-            # messages.success(request, 'Your messages uploaded successfully!')
-            return render(request, 'home.html', {'form': form})
+            messages.success(request, 'Your messages was sent successfully!')
+            return render(request, 'store/home.html', {'form': form})
+        else:
+            return render(request, 'store/contact.html', {'form': form})
 
     else:
-        return redirect(home)
+        return render(request, 'store/contact.html', {'form': form})
+
 
 def details(request, slug):
     product = Product.objects.get(slug=slug)
