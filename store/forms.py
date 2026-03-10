@@ -8,8 +8,8 @@ class ContactUsForm(forms.ModelForm):
 	email = forms.EmailField(label="", widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'Email'}), required=True)
 	message = forms.CharField(label="", widget=forms.Textarea(attrs={'class':'form-control', 'placeholder':'Type your Message here'}), required=False)
 
-	# service = forms.ChoiceField(label="", widget=forms.CharField(attrs={'class':'form-control', 'placeholder':'Select Service',}), required=False)
+	service = forms.CharField(label="", widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'Name'}), required=True)
 
 	class Meta:
 		model = ContactUs
-		fields = ('name', 'phone', 'email', 'message', )
+		fields = ('name', 'phone', 'email', 'message', 'service' )
