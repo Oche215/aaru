@@ -27,7 +27,7 @@ def home(request):
                 try:
                     send_mail(f'Inquiry from {name}',
                               f'From: {address}\nName: {name} \nPhone: {phone} \nServices: {service} \nMessage: {message}',
-                              DEFAULT_FROM_EMAIL, ['reachus@avadacouture.com', 'avadacouturewebsite@gmail.com'], )
+                              DEFAULT_FROM_EMAIL, ['reachus@avadacouture.com', 'oche215@gmail.com'], )
                     messages.success(request, 'Email sent successfully')
                 except Exception as e:
                     messages.error(request, f'Error sending email {e}')
