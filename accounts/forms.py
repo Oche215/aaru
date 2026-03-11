@@ -98,7 +98,7 @@ class AddProductForm(forms.ModelForm):
 class UpdateProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = ['category', 'name', 'slug', 'description', 'pix', 'manufacturer', 'price', ]
+        fields = ['category', 'code', 'name', 'slug', 'description', 'pix', 'manufacturer', 'price', ]
 
     # Example of custom validation
     def clean_price(self):

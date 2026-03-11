@@ -10,6 +10,9 @@ from .models import UserProfile
 from django.db.models import Count
 from .forms import CustomLoginForm, UserUpdateForm, UserProfileForm, RegistrationForm, AddProductForm
 
+from django.views.generic import UpdateView
+from django.urls import reverse_lazy
+
 
 @login_required
 def accounts(request):
@@ -151,7 +154,18 @@ def product_admin(request):
     else:
         return render(request, 'accounts/product_admin.html', {'products': products, 'form': form})
 
+@login_required
+class UpdateProductView(UpdateView):
+    model = Product
+    template_name = 'accounts/update_product.html'
+    success_url = reverse_lazy('product_admin')  # Redirect after successful update
+    fields = ['category', 'code', 'name', 'slug', 'description', 'pix', 'manufacturer', 'price', ]
 
 
+    # Optional: extra context for template
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['name'] = f"Edit Product: {self.object.name}"
+        return context
 
 
