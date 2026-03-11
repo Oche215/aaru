@@ -1,0 +1,10 @@
+/*--------------------------------------------------------------
+# Hero1 Section
+--------------------------------------------------------------*/
+.brands {
+  padding-top: 40px;
+  position: relative;
+  overflow: hidden;
+  background-color: color-mix(in srgb, var(--accent-color), transparent 95%);
+  padding-bottom: 30px;
+}
