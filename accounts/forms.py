@@ -59,7 +59,7 @@ class AddProductForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(AddProductForm, self).__init__(*args, **kwargs)
-        self.fields["category"].widget.attrs['class'] = 'form-control form-input-field custom-select my-1 mr-sm-2'
+        self.fields["category"].widget.attrs['class'] = 'form-control form-input-field custom-select'
         self.fields["category"].label = ''
         self.fields["category"].empty_label = '-------  Select a Category  -------'
 
@@ -90,7 +90,7 @@ class AddProductForm(forms.ModelForm):
         self.fields["price"].label = ''
 
         self.fields["code"].widget.attrs['class'] = 'form-control form-input-field'
-        self.fields["code"].widget.attrs['placeholder'] = 'Manufacturer'
+        self.fields["code"].widget.attrs['placeholder'] = 'Product Code'
         self.fields["code"].label = ''
 
 
