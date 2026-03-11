@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, HttpResponseRedirect, reverse, HttpResponse
+from django.shortcuts import render, redirect, HttpResponseRedirect, reverse, HttpResponse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
@@ -161,28 +161,41 @@ def product_admin(request):
 class UpdateProductView(UpdateView, View):
     model = Product
     template_name = 'accounts/update_product.html'
-    fields = ['name', 'price', 'description']
+    fields = ['category', 'code', 'name', 'slug', 'description', 'pix', 'manufacturer', 'price', ]
     slug_field = 'slug'
     slug_url_kwarg = 'slug'
     success_url = '/accounts/products/'
 
 
-# class UpdateProductView(UpdateView):
-#     model = Product
-#     form_class = UserUpdateForm
-#     template_name = 'accounts/update_product.html'
-#     slug_field = 'slug'
-#     slug_url_kwarg = 'slug'
-#     success_url = '/accounts/products/'
-
     # Custom init if needed
-    # def __init__(self, *args, **kwargs):
-    #     super().__init__(*args, **kwargs)
-    #
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     context['name'] = f"Edit Product: {self.object.name}"
-    #     return context
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['name'] = f"Edit Product: {self.object.name}"
+        return context
+
+
+def edit_product(request, slug):
+    if request.user.is_authenticated:
+        # Fetch the product or return 404 if not found
+        product = get_object_or_404(Product, slug=slug)
+
+        if request.method == "POST":
+            form = UpdateProductForm(request.POST or None, request.FILES, instance=product)
+            if form.is_valid():
+                form.save()
+                messages.success(request, "Product updated successfully.")
+                return redirect("product_admin", slug=product.slug)
+            else:
+                messages.error(request, "Please correct the errors below.")
+        else:
+            form = UpdateProductForm(instance=product)
+        return render(request, "accounts/update_product.html", {"form": form, "product": product})
+    messages.warning(request, "You must be logged in to edit info!")
+    return redirect("login",)
+
 
 
 
