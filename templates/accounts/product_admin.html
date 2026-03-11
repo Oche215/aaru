@@ -56,7 +56,7 @@
                     <div class="card-header card-header-border-bottom d-flex justify-content-between">
                         <h2>Hoverable Data Table</h2>
 
-                        <a href="{% url 'update_product' %}"
+                        <a href=""
                            class="btn btn-outline-primary btn-sm text-uppercase">
                             <i class=" mdi mdi-link mr-1"></i> Docs
                         </a>
@@ -80,7 +80,7 @@
                                 <tbody>
                                 {% for product in products %}
                                 <tr>
-                                    <td>{{ product.name }}</td>
+                                    <td><a href="{% url 'update_product' product.pk %}">{{ product.name }}</a></td>
                                     <td>{{ product.code }}</td>
                                     <td>{{ product.category }}</td>
                                     <td>{{ product.category.catalog }}</td>

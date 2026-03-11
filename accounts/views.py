@@ -13,6 +13,8 @@ from .forms import CustomLoginForm, UserUpdateForm, UserProfileForm, Registratio
 from django.views.generic import UpdateView
 from django.urls import reverse_lazy
 
+from django.urls import path
+
 
 @login_required
 def accounts(request):
@@ -154,6 +156,7 @@ def product_admin(request):
     else:
         return render(request, 'accounts/product_admin.html', {'products': products, 'form': form})
 
+
 @login_required
 class UpdateProductView(UpdateView):
     model = Product
@@ -161,11 +164,16 @@ class UpdateProductView(UpdateView):
     success_url = reverse_lazy('product_admin')  # Redirect after successful update
     fields = ['category', 'code', 'name', 'slug', 'description', 'pix', 'manufacturer', 'price', ]
 
+    # urlpatterns = [
+    #     path('update_product/<int:pk>/', UpdateProductView.as_view(), name='update_product'),
+    # ]
 
     # Optional: extra context for template
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['name'] = f"Edit Product: {self.object.name}"
         return context
+
+
 
 
