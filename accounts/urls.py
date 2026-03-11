@@ -11,6 +11,6 @@ urlpatterns = [
     path('list_staff/', StaffListView.as_view(), name='list_staff' ),
 
     path('product_admin/', product_admin, name='product_admin'),
-    path('update_product/<slug:slug>/', UpdateProductView.as_view(), name='update_product')
+    path('update_product/<slug:slug>/', UpdateProductView.as_view, name='update_product')
 
 ]
