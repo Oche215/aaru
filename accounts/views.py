@@ -10,7 +10,7 @@ from .models import UserProfile
 from django.db.models import Count
 from .forms import CustomLoginForm, UserUpdateForm, UserProfileForm, RegistrationForm, AddProductForm, UpdateProductForm
 
-from django.views.generic import UpdateView
+from django.views.generic import UpdateView, View
 from django.urls import reverse_lazy
 
 from django.urls import path
@@ -157,13 +157,15 @@ def product_admin(request):
         return render(request, 'accounts/product_admin.html', {'products': products, 'form': form})
 
 
-@login_required
-class UpdateProductView(UpdateView):
+
+class UpdateProductView(UpdateView, View):
     model = Product
-    template_name = 'update_product.html'
+    form_class = UserUpdateForm
+    template_name = 'accounts/update_product.html'
     fields = ['name', 'price', 'description']
     slug_field = 'slug'
     slug_url_kwarg = 'slug'
+    success_url = '/accounts/products/'
 
 
 # class UpdateProductView(UpdateView):
