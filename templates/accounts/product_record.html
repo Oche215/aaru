@@ -53,24 +53,13 @@
             <div class="col-xl-4">
                 <div class="card card-default">
                     <div class="card-header card-header-border-bottom">
-                        <h2>Progress</h2>
+                        <h2>{{ product }}</h2>
                     </div>
 
                     <div class="card-body p-4 py-xl-6 px-xl-2">
-                        <div class="circle circle-lg"
-                             data-size="200"
-                             data-value="0.83"
-                             data-thickness="20"
-                             data-fill="{
-														&quot;color&quot;: &quot;#35D00E&quot;
-													}"
-                        >
-                            <div class="circle-content">
-                                <h6 class="text-uppercase text-dark font-weight-bold">83%</h6>
-
-                                <strong></strong>
-                            </div>
-                        </div>
+                        <img src="{% if product.pix %}{{ product.pix.url }}{% else %}{% static 'assets/img/portfolio/image.jpg' %}{% endif %}"
+                                     class="img-fluid" alt="{{ product.name }}"
+                                     loading="lazy">
                     </div>
                 </div>
             </div>
