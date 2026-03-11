@@ -80,7 +80,7 @@
                                 <tbody>
                                 {% for product in products %}
                                 <tr>
-                                    <td><a href="{% url 'update_product' product.slug %}">{{ product.name }}</a></td>
+                                    <td><a href="{% url 'update_record' product.slug %}">{{ product.name }}</a></td>
                                     <td>{{ product.code }}</td>
                                     <td>{{ product.category }}</td>
                                     <td>{{ product.category.catalog }}</td>
