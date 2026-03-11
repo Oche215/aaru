@@ -160,7 +160,6 @@ def product_admin(request):
 
 class UpdateProductView(UpdateView, View):
     model = Product
-    form_class = UserUpdateForm
     template_name = 'accounts/update_product.html'
     fields = ['name', 'price', 'description']
     slug_field = 'slug'
