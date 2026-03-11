@@ -169,10 +169,10 @@ class UpdateProductView(UpdateView):
     # ]
 
     # Optional: extra context for template
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['name'] = f"Edit Product: {self.object.name}"
-        return context
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['name'] = f"Edit Product: {self.object.name}"
+    #     return context
 
 
 
