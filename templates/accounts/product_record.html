@@ -84,7 +84,7 @@
                                 <p><span class="mt-0 mb-1 font-size-15 text-dark">Added By:</span> <span class="category">{{ product.added_by }}</span></p>
                                 <p><span class="mt-0 mb-1 font-size-15 text-dark">Date Added:</span> <span class="category">{{ product.added_on }}</span></p>
                                 <p><span class="mt-0 mb-1 font-size-15 text-dark">Date Modified:</span> <span class="category">{{ product.modified_on }}</span></p>
-                                <p><span class="mt-0 mb-1 font-size-15 text-dark">Modified By:</span> <span class="category">{{ product.added_on }}</span></p>
+                                <p><span class="mt-0 mb-1 font-size-15 text-dark">Modified By:</span> <span class="category">{{ product.modified_by }}</span></p>
                                 <p><span class="mt-0 mb-1 font-size-15 text-dark">Manufactured By:</span> <span class="category">{{ product.manufacturer }}</span></p>
 
                             </div>
@@ -94,7 +94,13 @@
                         </div>
 
                     </div>
-                    <div class="mt-3"></div>
+                    <div class="mt-3">
+                        <div class="card-body">
+                            <button type="button" class="mb-1 btn btn-outline-secondary">Secondary</button>
+                            <button type="button" class="mb-1 btn btn-outline-danger">Danger</button>
+					</div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -578,25 +584,6 @@
     </div> <!-- End Content -->
 </div> <!-- End Content Wrapper -->
 
-
-<!-- Footer -->
-<footer class="footer mt-auto">
-    <div class="copyright bg-white">
-        <p>
-            Copyright &copy; <span id="copy-year"></span> a template by <a class="text-primary"
-                                                                           href="https://themefisher.com"
-                                                                           target="_blank">Themefisher</a>.
-        </p>
-    </div>
-    <script>
-        var d = new Date();
-        var year = d.getFullYear();
-        document.getElementById("copy-year").innerHTML = year;
-    </script>
-</footer>
-
-</div> <!-- End Page Wrapper -->
-</div> <!-- End Wrapper -->
 {% endblock content %}
 
 {% block script %}
