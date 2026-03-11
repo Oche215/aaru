@@ -8,7 +8,7 @@ from django.contrib.auth.views import LoginView, TemplateView
 from store.models import Product, Catalog, Category
 from .models import UserProfile
 from django.db.models import Count
-from .forms import CustomLoginForm, UserUpdateForm, UserProfileForm, RegistrationForm, AddProductForm
+from .forms import CustomLoginForm, UserUpdateForm, UserProfileForm, RegistrationForm, AddProductForm, UpdateProductForm
 
 from django.views.generic import UpdateView
 from django.urls import reverse_lazy
@@ -160,19 +160,20 @@ def product_admin(request):
 @login_required
 class UpdateProductView(UpdateView):
     model = Product
+    form_class = UserUpdateForm
     template_name = 'accounts/update_product.html'
-    success_url = reverse_lazy('product_admin')  # Redirect after successful update
-    fields = ['category', 'code', 'name', 'slug', 'description', 'pix', 'manufacturer', 'price', ]
+    slug_field = 'slug'
+    slug_url_kwarg = 'slug'
+    success_url = '/accounts/products/'
 
-    # urlpatterns = [
-    #     path('update_product/<int:pk>/', UpdateProductView.as_view(), name='update_product'),
-    # ]
+    # Custom init if needed
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
 
-    # Optional: extra context for template
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     context['name'] = f"Edit Product: {self.object.name}"
-    #     return context
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['name'] = f"Edit Product: {self.object.name}"
+        return context
 
 
 
