@@ -187,7 +187,7 @@ def edit_product(request, slug):
             if form.is_valid():
                 form.save()
                 messages.success(request, "Product updated successfully.")
-                return redirect("product_admin", slug=product.slug)
+                return redirect("product_admin",)
             else:
                 messages.error(request, "Please correct the errors below.")
         else:
