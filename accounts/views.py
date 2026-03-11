@@ -160,20 +160,28 @@ def product_admin(request):
 @login_required
 class UpdateProductView(UpdateView):
     model = Product
-    form_class = UserUpdateForm
-    template_name = 'accounts/update_product.html'
+    template_name = 'update_product.html'
+    fields = ['name', 'price', 'description']
     slug_field = 'slug'
     slug_url_kwarg = 'slug'
-    success_url = '/accounts/products/'
+
+
+# class UpdateProductView(UpdateView):
+#     model = Product
+#     form_class = UserUpdateForm
+#     template_name = 'accounts/update_product.html'
+#     slug_field = 'slug'
+#     slug_url_kwarg = 'slug'
+#     success_url = '/accounts/products/'
 
     # Custom init if needed
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['name'] = f"Edit Product: {self.object.name}"
-        return context
+    # def __init__(self, *args, **kwargs):
+    #     super().__init__(*args, **kwargs)
+    #
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['name'] = f"Edit Product: {self.object.name}"
+    #     return context
 
 
 
