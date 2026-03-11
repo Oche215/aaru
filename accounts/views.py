@@ -149,7 +149,7 @@ def product_admin(request):
 
         if form.is_valid():
             form.save()
-            messages.success(request, f"PRODUCT: {name} has been saved successfully!")
+            messages.success(request, f"PRODUCT: {name} has been added successfully!")
             return render(request, 'accounts/product_admin.html', {'products': products, 'form': form })
 
         return render(request, 'accounts/product_admin.html', {'products': products, 'form': form})
@@ -185,8 +185,9 @@ def edit_product(request, slug):
         if request.method == "POST":
             form = UpdateProductForm(request.POST or None, request.FILES, instance=product)
             if form.is_valid():
+                name = request.POST.get('name')
                 form.save()
-                messages.success(request, "Product updated successfully.")
+                messages.success(request, f"PRODUCT: {name} was updated successfully!")
                 return redirect("product_admin",)
             else:
                 messages.error(request, "Please correct the errors below.")
@@ -195,6 +196,11 @@ def edit_product(request, slug):
         return render(request, "accounts/update_product.html", {"form": form, "product": product})
     messages.warning(request, "You must be logged in to edit info!")
     return redirect("login",)
+
+def product_record(request, slug):
+    product = get_object_or_404(Product, slug=slug)
+    return render(request, "accounts/product_record.html", {"product": product})
+
 
 
 

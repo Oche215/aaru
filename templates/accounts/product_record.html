@@ -1,0 +1,87 @@
+{% extends "crm/base.html" %}
+
+{% load static %}
+{% load humanize %}
+{% load crispy_forms_tags %}
+
+
+{% block link %}
+<!-- No Extra plugin used -->
+<link href="{% static 'crm/assets/plugins/jvectormap/jquery-jvectormap-2.0.3.css' %}" rel='stylesheet'>
+<link href="{% static 'crm/assets/plugins/daterangepicker/daterangepicker.css' %}" rel='stylesheet'>
+<link href="{% static 'crm/assets/plugins/toastr/toastr.min.css' }" rel='stylesheet'>
+{% endblock link %}
+
+{% block content %}
+
+<!-- ====================================
+          ——— CONTENT WRAPPER
+          ===================================== -->
+<div class="content-wrapper">
+    <div class="content">
+
+        <div class="breadcrumb-wrapper breadcrumb-contacts">
+            <div>
+                <h1>Update Product</h1>
+
+
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb p-0">
+                        <li class="breadcrumb-item">
+                            <a href="index.html">
+                                <span class="mdi mdi-home"></span>
+                            </a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            app
+                        </li>
+                        <li class="breadcrumb-item" aria-current="page">Update Product</li>
+                    </ol>
+                </nav>
+
+            </div>
+
+            <div>
+                <a href="{% url 'product_admin' %}" class="btn btn-primary bg-gradient">Add Product</a>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="..." class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+  </div>
+</div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
+
+{% block script %}
+
+<!-- Javascript -->
+<script src="{% static 'crm/assets/plugins/charts/Chart.min.js' %}"></script>
+<script src="{% static 'crm/assets/js/chart.js' %}"></script>
+
+<script src="{% static 'crm/assets/plugins/jvectormap/jquery-jvectormap-2.0.3.min.js' %}"></script>
+<script src="{% static 'crm/assets/plugins/jvectormap/jquery-jvectormap-world-mill.js' %}"></script>
+<script src="{% static 'crm/assets/js/vector-map.js' %}"></script>
+
+<script src="{% static 'crm/assets/plugins/daterangepicker/moment.min.js' %}"></script>
+<script src="{% static 'crm/assets/plugins/daterangepicker/daterangepicker.js' %}"></script>
+<script src="{% static 'crm/assets/js/date-range.js' %}"></script>
+
+<script src="{% static 'crm/assets/plugins/toastr/toastr.min.js' %}"></script>
+{% endblock %}
