@@ -8,3 +8,186 @@
   background-color: color-mix(in srgb, var(--accent-color), transparent 95%);
   padding-bottom: 30px;
 }
+
+.brands .badge-wrapper .d-inline-flex {
+  padding: 0.5rem 0.75rem;
+  border-color: color-mix(in srgb, var(--accent-color), transparent 80%);
+}
+
+.brands .badge-wrapper .d-inline-flex .icon-circle {
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background-color: color-mix(in srgb, var(--accent-color), transparent 80%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brands .badge-wrapper .d-inline-flex .icon-circle i {
+  font-size: 0.875rem;
+  color: var(--heading-color);
+}
+
+.brands .badge-wrapper .d-inline-flex .badge-text {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--heading-color);
+}
+
+@media (max-width: 767.98px) {
+  .brands .badge-wrapper .d-inline-flex .badge-text {
+    font-size: 0.75rem;
+  }
+}
+
+.brands .hero-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--heading-color);
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 991.98px) {
+  .brands .hero-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .brands .hero-title {
+    font-size: 1.75rem;
+  }
+}
+
+.brands .hero-description {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--default-color);
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 767.98px) {
+  .brands .hero-description {
+    font-size: 1rem;
+  }
+}
+
+.brands .cta-wrapper .btn-primary {
+  padding: 0.75rem 1.75rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  color: var(--contrast-color);
+}
+
+.brands .cta-wrapper .btn-primary:hover {
+  background-color: color-mix(in srgb, var(--accent-color), #000 10%);
+  border-color: color-mix(in srgb, var(--accent-color), #000 10%);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.brands .hero-image {
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.brands .hero-image:hover {
+  transform: translateY(-5px);
+}
+
+.brands .hero-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.brands .feature-boxes {
+  margin-top: 1rem;
+}
+
+.brands .feature-boxes .feature-box {
+  padding: .5rem;
+  border-radius: 12px;
+  background-color: var(--surface-color);
+  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 80%);
+  height: 100%;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+@media (min-width: 576px) {
+  .brands .feature-boxes .feature-box {
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+.brands .feature-boxes .feature-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.brands .feature-boxes .feature-box .feature-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.brands .feature-boxes .feature-box .feature-icon i {
+  font-size: 1.75rem;
+  color: var(--heading-color);
+}
+
+.brands .feature-boxes .feature-box .feature-content {
+  flex: 1;
+}
+
+.brands .feature-boxes .feature-box .feature-content .feature-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--heading-color);
+  margin-bottom: 0.75rem;
+}
+
+.brands .feature-boxes .feature-box .feature-content .feature-text {
+  font-size: 0.95rem;
+  color: var(--default-color);
+  margin-bottom: 0;
+}
+
+@media (max-width: 767.98px) {
+  .brands .feature-boxes .feature-box {
+    padding: 1.25rem;
+  }
+
+  .brands .feature-boxes .feature-box .feature-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .brands .feature-boxes .feature-box .feature-icon i {
+    font-size: 1.5rem;
+  }
+
+  .brands .feature-boxes .feature-box .feature-title {
+    font-size: 1.125rem;
+  }
+
+  .brands .feature-boxes .feature-box .feature-text {
+    font-size: 0.875rem;
+  }
+}

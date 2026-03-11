@@ -26,6 +26,6 @@ class ContactUsForm(forms.ModelForm):
 		self.fields["message"].widget.attrs['placeholder'] = 'Type your Message here'
 		self.fields["message"].label = ''
 
-		self.fields["service"].widget.attrs['class'] = 'form-control form-input-field custom-select my-1 mr-sm-2'
+		self.fields["service"].widget.attrs['class'] = 'form-control form-input-field custom-select'
 		self.fields["service"].label = ''
 		self.fields["service"].empty_label = '-------  Select a Service  -------'
