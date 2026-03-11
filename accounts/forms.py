@@ -52,6 +52,48 @@ class CustomLoginForm(AuthenticationForm):
     password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control'}))
 
 
+class AddProductForm(forms.ModelForm):
+    class Meta:
+        model = Product
+        fields = ['category', 'code', 'name', 'slug', 'description', 'pix', 'manufacturer', 'price', ]
+
+    def __init__(self, *args, **kwargs):
+        super(AddProductForm, self).__init__(*args, **kwargs)
+        self.fields["category"].widget.attrs['class'] = 'form-control form-input-field custom-select my-1 mr-sm-2'
+        self.fields["category"].label = ''
+        self.fields["category"].empty_label = '-------  Select a Category  -------'
+
+        self.fields["name"].widget.attrs['class'] = 'form-control form-input-field'
+        self.fields["name"].widget.attrs['placeholder'] = 'Name'
+        self.fields["name"].label = ''
+
+        self.fields["slug"].widget.attrs['class'] = 'form-control form-input-field'
+        self.fields["slug"].widget.attrs['placeholder'] = 'Slug'
+        self.fields["slug"].label = ''
+        self.fields["slug"].disabled = True
+
+        self.fields["description"].widget.attrs['class'] = 'form-control form-input-field'
+        self.fields["description"].widget.attrs['placeholder'] = 'Product Description'
+        self.fields["description"].label = ''
+        self.fields["description"].widget.attrs['rows'] = 4
+
+        self.fields["pix"].widget.attrs['class'] = 'form-control'
+        self.fields["pix"].widget.attrs['placeholder'] = 'Product Image'
+        self.fields["pix"].label = ''
+
+        self.fields["manufacturer"].widget.attrs['class'] = 'form-control form-input-field'
+        self.fields["manufacturer"].widget.attrs['placeholder'] = 'Manufacturer'
+        self.fields["manufacturer"].label = ''
+
+        self.fields["price"].widget.attrs['class'] = 'form-control form-input-field'
+        self.fields["price"].widget.attrs['placeholder'] = 'Price'
+        self.fields["price"].label = ''
+
+        self.fields["code"].widget.attrs['class'] = 'form-control form-input-field'
+        self.fields["code"].widget.attrs['placeholder'] = 'Manufacturer'
+        self.fields["code"].label = ''
+
+
 
 class UpdateProductForm(forms.ModelForm):
     class Meta:

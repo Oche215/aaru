@@ -8,7 +8,7 @@ from django.contrib.auth.views import LoginView, TemplateView
 from store.models import Product, Catalog, Category
 from .models import UserProfile
 from django.db.models import Count
-from .forms import CustomLoginForm, UserUpdateForm, UserProfileForm, RegistrationForm
+from .forms import CustomLoginForm, UserUpdateForm, UserProfileForm, RegistrationForm, AddProductForm
 
 
 @login_required
@@ -133,6 +133,23 @@ class StaffListView(TemplateView):
     def get_queryset(self):
         queryset = super().get_queryset()
         return queryset.order_by('-pk')  # Descending order
+
+@login_required
+def product_admin(request):
+    products = Product.objects.all().order_by('-pk')
+    form = AddProductForm()
+    if request.method == "POST":
+        form = AddProductForm(request.POST, request.FILES)
+        name = request.POST.get('name')
+
+        if form.is_valid():
+            form.save()
+            messages.success(request, f"PRODUCT: {name} has been saved successfully!")
+            return render(request, 'accounts/product_admin.html', {'products': products, 'form': form })
+
+        return render(request, 'accounts/product_admin.html', {'products': products, 'form': form})
+    else:
+        return render(request, 'accounts/product_admin.html', {'products': products, 'form': form})
 
 
 

@@ -1,6 +1,5 @@
 from django.urls import path
-from .views import accounts, edit_user, StaffListView, logout_user, CustomLoginView
-
+from .views import accounts, edit_user, StaffListView, logout_user, CustomLoginView, product_admin
 
 urlpatterns = [
     path('', accounts, name='accounts'),
@@ -10,5 +9,7 @@ urlpatterns = [
 
     path('user-profile/', edit_user, name='user-profile' ),
     path('list_staff/', StaffListView.as_view(), name='list_staff' ),
+
+    path('product_admin/', product_admin, name='product_admin')
 
 ]
