@@ -56,7 +56,7 @@
                         <h2>{{ product }}</h2>
                     </div>
 
-                    <div class="card-body p-0 py-xl-1 px-xl-2">
+                    <div class="card-body p-1 py-xl-1 px-xl-2">
                         <img src="{% if product.pix %}{{ product.pix.url }}{% else %}{% static 'assets/img/portfolio/image.jpg' %}{% endif %}"
                                      class="img-fluid" alt="{{ product.name }}"
                                      loading="lazy">
@@ -85,6 +85,8 @@
                                 <p><span class="mt-0 mb-1 fw-semibold font-size-15 text-dark">Date Modified:</span> <span class="category">{{ product.modified_on }}</span></p>
                                 <p><span class="mt-0 mb-1 fw-semibold font-size-15 text-dark">Modified By:</span> <span class="category">{{ product.modified_by }}</span></p>
                                 <p><span class="mt-0 mb-1 fw-semibold font-size-15 text-dark">Manufactured By:</span> <span class="category">{{ product.manufacturer }}</span></p>
+                                <p></p>
+
 
                             </div>
                         </div>
