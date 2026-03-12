@@ -91,7 +91,7 @@
                         </div>
                         <div class="card-footer d-flex justify-content-between">
                             <a href="{% url 'product_admin' %}" type="button" class="mb-1 btn btn-outline-secondary">Back</a>
-                            <a href="{% url 'edit_product' product.slug %}" type="button" class="mb-1 btn btn-outline-danger">Edit</a>
+                            <a href="{% url 'update_product' product.slug %}" type="button" class="mb-1 btn btn-outline-danger">Edit</a>
 
                             <form method="POST" action="{% url 'delete_product' product.slug %}" onsubmit="return confirmDelete();">
                                 {% csrf_token %}
