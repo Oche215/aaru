@@ -302,8 +302,7 @@
                             <ul class="dropdown-menu dropdown-menu-right">
                                 <!-- User image -->
                                 <li class="dropdown-header">
-                                    <img src="{% if user.profile.pix %}{{ user.profile.pix.url }}{% else %}{% static 'crm/assets/img/user/images.jpg' %}{% endif %}"
-                                         alt="Profile Picture" class="user-image">
+                                    <img src="{% if user.profile.pix %}{{ user.profile.pix.url }}{% else %}{% static 'crm/assets/img/user/images.jpg' %}{% endif %}" alt="Profile Picture" class="user-image">
                                     <div class="d-inline-block">
                                         {{ user.username }} <small class="pt-1">{{ user.email }}</small>
                                     </div>
