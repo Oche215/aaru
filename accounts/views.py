@@ -92,23 +92,27 @@ def edit_user(request):
                 return redirect('user-profile')  # Redirect to a profile page
 
         elif 'profile_submit' in request.POST:
+
             form_profile = UserProfileForm(request.POST or None, request.FILES, instance=user_profile)
             if form_profile.is_valid():
-                image_file = form_profile.cleaned_data['pix']
+                updated_profile = form_profile.save(commit=False)
+                user = request.user
 
-                form_profile.save()
-
-                messages.success(request, "Your profile has been updated successfully.")
+                updated_profile.save()
+                messages.success(request, f"{user}: Your profile has been updated successfully!")
                 return redirect('user-profile')  # Redirect to a profile page
+
             else:
-                form = UserUpdateForm(instance=request.user)
+
+                form_profile = UserProfileForm(instance=user_profile)
+
                 for field, errors in form_profile.errors.items():
                     for error in errors:
                         active_tab = request.POST.get('active_tab', 'profile-tab')
                         messages.warning(request, f"{field}: {error}" )
 
-                        return render(request, 'registration/user-profile.html', {'post_data': request.POST, 'form_profile': form_profile, 'form': form, 'user_profile': user_profile, 'active_tab': active_tab})
-                return redirect('user-profile')  # Redirect to a profile page
+                return render(request, 'registration/user-profile.html', {'post_data': request.POST, 'form_profile': form_profile, 'user_profile': user_profile, 'active_tab': active_tab})
+
 
     else:
         form = UserUpdateForm(instance=request.user)
@@ -179,7 +183,6 @@ def edit_product(request, slug):
                 form = UpdateProductForm(instance=product)
         else:
             form = UpdateProductForm(instance=product)
-            # return render(request, "accounts/product_record.html", {"form": form, "product": product})
 
         return render(request, "accounts/update_product.html", {"form": form, "product": product})
 
