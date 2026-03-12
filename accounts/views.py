@@ -179,6 +179,7 @@ def edit_product(request, slug):
                 form = UpdateProductForm(instance=product)
         else:
             form = UpdateProductForm(instance=product)
+            return render(request, "accounts/product_record.html", {"form": form, "product": product})
         return render(request, "accounts/product_admin.html", {"form": form, "product": product})
     messages.warning(request, "You must be logged in to edit info!")
     return redirect("login",)
