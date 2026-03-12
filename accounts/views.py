@@ -167,15 +167,19 @@ def edit_product(request, slug):
         if request.method == "POST":
             form = UpdateProductForm(request.POST or None, request.FILES, instance=product)
             if form.is_valid():
-                name = request.POST.get('name')
-                form.save()
+                updated_product = form.save(commit=False)
+                name = form.cleaned_data.get('name')
+
+                updated_product.save()
                 messages.success(request, f"PRODUCT: {name} was updated successfully!")
-                return redirect("product_admin",)
+                return redirect('product_record', slug=product.slug)
+
             else:
                 messages.error(request, "Please correct the errors below.")
+                form = UpdateProductForm(instance=product)
         else:
             form = UpdateProductForm(instance=product)
-        return render(request, "accounts/update_product.html", {"form": form, "product": product})
+        return render(request, "accounts/product_admin.html", {"form": form, "product": product})
     messages.warning(request, "You must be logged in to edit info!")
     return redirect("login",)
 

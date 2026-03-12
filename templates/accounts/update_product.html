@@ -55,10 +55,10 @@
             <div class="col-lg-6">
                 <div class="card card-default">
                     <div class="card-header card-header-border-bottom bg-primary bg-gradient text-white">
-                        <h2 class="text-white"><span class="mdi mdi-hanger"></span>{{context}} Update Product Page</h2>
+                        <h2 class="text-white"><span class="mdi mdi-hanger"></span> Update Product Page</h2>
                     </div>
                     <div class="card-body p-4">
-                        <form method="POST">{% csrf_token %}
+                        <form method="POST" enctype="multipart/form-data">{% csrf_token %}
                             <div class="row">
                                 <div class="form-group col-md-12 mb-4">
                                     {{ form|crispy }}
