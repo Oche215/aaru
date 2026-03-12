@@ -77,8 +77,7 @@ class AddProductForm(forms.ModelForm):
         self.fields["description"].label = ''
         self.fields["description"].widget.attrs['rows'] = 4
 
-        self.fields["pix"].widget.attrs['class'] = 'form-control'
-        self.fields["pix"].widget.attrs['placeholder'] = 'Product Image'
+        self.fields["pix"].widget.attrs.update({'class': 'form-control', 'placeholder': 'Upload Product Image' })
         self.fields["pix"].label = ''
 
         self.fields["manufacturer"].widget.attrs['class'] = 'form-control form-input-field'
@@ -96,6 +95,7 @@ class AddProductForm(forms.ModelForm):
 
 
 class UpdateProductForm(forms.ModelForm):
+    pix = forms.ImageField(label="Upload Image")
     class Meta:
         model = Product
         fields = ['category', 'code', 'name', 'slug', 'description', 'pix', 'manufacturer', 'price', ]

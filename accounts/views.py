@@ -139,42 +139,24 @@ class StaffListView(TemplateView):
         queryset = super().get_queryset()
         return queryset.order_by('-pk')  # Descending order
 
+
 @login_required
 def product_admin(request):
     products = Product.objects.all().order_by('-pk')
     form = AddProductForm()
     if request.method == "POST":
         form = AddProductForm(request.POST, request.FILES)
-        name = request.POST.get('name')
+        name = request.POST.get('name', '').strip()
 
         if form.is_valid():
             form.save()
             messages.success(request, f"PRODUCT: {name} has been added successfully!")
-            return render(request, 'accounts/product_admin.html', {'products': products, 'form': form })
+            return redirect('product_admin')
+        else:
+            messages.error(request, "There was an error adding the product. Please check the form.")
 
-        return render(request, 'accounts/product_admin.html', {'products': products, 'form': form})
-    else:
-        return render(request, 'accounts/product_admin.html', {'products': products, 'form': form})
+    return render(request, 'accounts/product_admin.html', {'products': products, 'form': form })
 
-
-
-class UpdateProductView(UpdateView, View):
-    model = Product
-    template_name = 'accounts/update_product.html'
-    fields = ['category', 'code', 'name', 'slug', 'description', 'pix', 'manufacturer', 'price', ]
-    slug_field = 'slug'
-    slug_url_kwarg = 'slug'
-    success_url = '/accounts/products/'
-
-
-    # Custom init if needed
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['name'] = f"Edit Product: {self.object.name}"
-        return context
 
 
 def edit_product(request, slug):
