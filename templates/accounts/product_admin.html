@@ -67,6 +67,7 @@
                             <table id="hoverable-data-table" class="table table-hover nowrap" style="width:100%">
                                 <thead>
                                 <tr>
+                                    <th>SN</th>
                                     <th>Product</th>
                                     <th>ID Code</th>
                                     <th>Category</th>
@@ -80,6 +81,7 @@
                                 <tbody>
                                 {% for product in products %}
                                 <tr>
+                                    <td>{{ product.id }}</td>
                                     <td><a href="{% url 'product_record' product.slug %}">{{ product.name }}</a></td>
                                     <td>{{ product.code }}</td>
                                     <td>{{ product.category }}</td>

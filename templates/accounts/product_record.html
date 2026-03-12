@@ -93,7 +93,7 @@
                             <a href="" type="button" class="mb-1 btn btn-outline-secondary">Edit</a>
                             <a href="{% url 'delete_product' product.slug %}" type="button" class="mb-1 btn btn-outline-danger">Delete</a>
 
-                            <form method="POST" action="{% url 'delete_item' item.id %}" onsubmit="return confirmDelete();">
+                            <form method="POST" action="{% url 'delete_product' product.slug %}" onsubmit="return confirmDelete();">
                                 {% csrf_token %}
                                 <button type="submit" class="btn btn-danger">Delete {{ product.name }}</button>
                             </form>
