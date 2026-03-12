@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import accounts, edit_user, StaffListView, logout_user, CustomLoginView, product_admin, edit_product, \
-    product_record
+    product_record, delete_product
 
 urlpatterns = [
     path('', accounts, name='accounts'),
@@ -14,5 +14,6 @@ urlpatterns = [
     path('product_admin/', product_admin, name='product_admin'),
     path('product_record/<slug:slug>/', product_record, name='product_record'),
     path('update_product/<slug:slug>/', edit_product, name='update_product'),
+    path('delete_product/<slug:slug>/', delete_product, name='delete_product'),
 
 ]

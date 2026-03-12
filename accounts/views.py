@@ -179,10 +179,18 @@ def edit_product(request, slug):
     messages.warning(request, "You must be logged in to edit info!")
     return redirect("login",)
 
+@login_required()
 def product_record(request, slug):
     product = get_object_or_404(Product, slug=slug)
     return render(request, "accounts/product_record.html", {"product": product})
 
+@login_required()
+def delete_product(request, slug):
+    product = get_object_or_404(Product, slug=slug)
+    name = product.name
+    product.delete()
+    messages.success(request, f"PRODUCT: {name} was DELETED successfully!")
+    return redirect("product_admin", )
 
 
 
