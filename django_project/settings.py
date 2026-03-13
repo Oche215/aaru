@@ -195,7 +195,8 @@ if not DEBUG:
     }
 
     # Remove local media root when using S3
-    MEDIA_URL = f"https://{os.environ.get('BUCKET_ENDPOINT').split('//')[1]}/{os.environ.get('BUCKET')}/"
+    # MEDIA_URL = f"https://{os.environ.get('BUCKET_ENDPOINT').split('//')[1]}/{os.environ.get('BUCKET')}/"
+    MEDIA_URL = f"https://{os.environ.get('BUCKET_ENDPOINT')}/{os.environ.get('BUCKET')}/"
 else:
     # Local development
     MEDIA_URL = '/media/'
