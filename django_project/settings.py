@@ -152,11 +152,12 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-
 STATICFILES_DIRS = [BASE_DIR/'static']
 
-# MEDIA_URL = '/media/'
+MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
 
 LOGOUT_REDIRECT_URL = "home"
 LOGIN_URL = "/accounts/login/"
@@ -176,37 +177,28 @@ EMAIL_HOST_PASSWORD = 'wjpeajplbbalregt'  # SMTP server password
 DEFAULT_FROM_EMAIL = 'AARU by AVADA <avadacouturewebsite@gmail.com>'  # Default sender email address
 
 # S3 Storage Configuration
-# S3 Storage Configuration
+# S3 Storage for NEW uploads only
 if not DEBUG:
-    BUCKET_ENDPOINT = os.environ.get('BUCKET_ENDPOINT')
-    BUCKET_NAME = os.environ.get('BUCKET')
-
-    if BUCKET_ENDPOINT and BUCKET_NAME:
-        STORAGES = {
-            'default': {
-                'BACKEND': 'storages.backends.s3boto3.S3Boto3Storage',
-                'OPTIONS': {
-                    'access_key': os.environ.get('BUCKET_ACCESS_KEY_ID'),
-                    'secret_key': os.environ.get('BUCKET_SECRET_ACCESS_KEY'),
-                    'storage_bucket_name': BUCKET_NAME,
-                    'region_name': os.environ.get('BUCKET_REGION', 'us-east-1'),
-                    'endpoint_url': BUCKET_ENDPOINT,
-                    'use_ssl': True,
-                }
-            },
-            'staticfiles': {
-                'BACKEND': 'whitenoise.storage.CompressedManifestStaticFilesStorage',
+    STORAGES = {
+        'default': {
+            'BACKEND': 'storages.backends.s3boto3.S3Boto3Storage',
+            'OPTIONS': {
+                'access_key': os.environ.get('BUCKET_ACCESS_KEY_ID'),
+                'secret_key': os.environ.get('BUCKET_SECRET_ACCESS_KEY'),
+                'storage_bucket_name': os.environ.get('BUCKET'),
+                'region_name': os.environ.get('BUCKET_REGION', 'us-east-1'),
+                'endpoint_url': os.environ.get('BUCKET_ENDPOINT'),
+                'use_ssl': True,
             }
+        },
+        'staticfiles': {
+            'BACKEND': 'whitenoise.storage.CompressedManifestStaticFilesStorage',
         }
-        MEDIA_URL = f"https://{BUCKET_ENDPOINT}/{BUCKET_NAME}/"
-    else:
-        # Fallback if bucket vars not set
-        MEDIA_URL = '/media/'
-        MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+    }
+    MEDIA_URL = f"https://{os.environ.get('BUCKET_ENDPOINT')}/{os.environ.get('BUCKET')}/"
 else:
     MEDIA_URL = '/media/'
     MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
 
 
 
