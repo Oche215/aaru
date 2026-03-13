@@ -31,7 +31,7 @@ load_dotenv()
 SECRET_KEY = 'django-insecure-^19%8(99$@zvb^p=^rpq6$l!0)vk6q5h(ic0ngg^f$1c0w*pqh'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['avadacouture.com', 'aaru-production.up.railway.app', 'https://aaru-production.up.railway.app', '127.0.0.1']
 CSRF_TRUSTED_ORIGINS = ['https://avadacouture.com/', 'https://aaru-production.up.railway.app', 'https://127.0.0.1', 'https://*.avadacouture.com/']
@@ -174,6 +174,32 @@ EMAIL_USE_TLS = True  # True for TLS, False for SSL
 EMAIL_HOST_USER = 'avadacouturewebsite@gmail.com'  # SMTP server username
 EMAIL_HOST_PASSWORD = 'wjpeajplbbalregt'  # SMTP server password
 DEFAULT_FROM_EMAIL = 'AARU by AVADA <avadacouturewebsite@gmail.com>'  # Default sender email address
+
+# S3 Storage Configuration
+if not DEBUG:
+    STORAGES = {
+        'default': {
+            'BACKEND': 'storages.backends.s3boto3.S3Boto3Storage',
+            'OPTIONS': {
+                'access_key': os.environ.get('BUCKET_ACCESS_KEY_ID'),
+                'secret_key': os.environ.get('BUCKET_SECRET_ACCESS_KEY'),
+                'storage_bucket_name': os.environ.get('BUCKET'),
+                'region_name': os.environ.get('BUCKET_REGION'),
+                'endpoint_url': os.environ.get('BUCKET_ENDPOINT'),
+                'use_ssl': True,
+            }
+        },
+        'staticfiles': {
+            'BACKEND': 'whitenoise.storage.CompressedManifestStaticFilesStorage',
+        }
+    }
+
+    # Remove local media root when using S3
+    MEDIA_URL = f"https://{os.environ.get('BUCKET_ENDPOINT').split('//')[1]}/{os.environ.get('BUCKET')}/"
+else:
+    # Local development
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 
