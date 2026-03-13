@@ -31,7 +31,7 @@ load_dotenv()
 SECRET_KEY = 'django-insecure-^19%8(99$@zvb^p=^rpq6$l!0)vk6q5h(ic0ngg^f$1c0w*pqh'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['avadacouture.com', 'aaru-production.up.railway.app', 'https://aaru-production.up.railway.app', '127.0.0.1']
 CSRF_TRUSTED_ORIGINS = ['https://avadacouture.com/', 'https://aaru-production.up.railway.app', 'https://127.0.0.1', 'https://*.avadacouture.com/']
@@ -155,7 +155,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATICFILES_DIRS = [BASE_DIR/'static']
 
 # MEDIA_URL = f"https://{os.environ.get('BUCKET_ENDPOINT')}/{os.environ.get('BUCKET')}/"
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 
