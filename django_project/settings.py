@@ -184,7 +184,7 @@ if not DEBUG:
                 'access_key': os.environ.get('BUCKET_ACCESS_KEY_ID'),
                 'secret_key': os.environ.get('BUCKET_SECRET_ACCESS_KEY'),
                 'storage_bucket_name': os.environ.get('BUCKET'),
-                'region_name': os.environ.get('BUCKET_REGION'),
+                'region_name': os.environ.get('BUCKET_REGION', 'us-east-1'),  # Add default
                 'endpoint_url': os.environ.get('BUCKET_ENDPOINT'),
                 'use_ssl': True,
             }
@@ -194,13 +194,12 @@ if not DEBUG:
         }
     }
 
-    # Remove local media root when using S3
-    # MEDIA_URL = f"https://{os.environ.get('BUCKET_ENDPOINT').split('//')[1]}/{os.environ.get('BUCKET')}/"
     MEDIA_URL = f"https://{os.environ.get('BUCKET_ENDPOINT')}/{os.environ.get('BUCKET')}/"
 else:
-    # Local development
     MEDIA_URL = '/media/'
     MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
 
 
 
