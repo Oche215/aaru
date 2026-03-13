@@ -31,7 +31,7 @@ load_dotenv()
 SECRET_KEY = 'django-insecure-^19%8(99$@zvb^p=^rpq6$l!0)vk6q5h(ic0ngg^f$1c0w*pqh'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['avadacouture.com', 'aaru-production.up.railway.app', 'https://aaru-production.up.railway.app', '127.0.0.1']
 CSRF_TRUSTED_ORIGINS = ['https://avadacouture.com/', 'https://aaru-production.up.railway.app', 'https://127.0.0.1', 'https://*.avadacouture.com/']
@@ -154,7 +154,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATICFILES_DIRS = [BASE_DIR/'static']
 
-MEDIA_URL = f"https://{os.environ.get('BUCKET_ENDPOINT')}/{os.environ.get('BUCKET')}/"
+# MEDIA_URL = f"https://{os.environ.get('BUCKET_ENDPOINT')}/{os.environ.get('BUCKET')}/"
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
@@ -178,22 +178,22 @@ DEFAULT_FROM_EMAIL = 'AARU by AVADA <avadacouturewebsite@gmail.com>'  # Default 
 
 # S3 Storage Configuration
 # S3 Storage for NEW uploads only
-STORAGES = {
-    'default': {
-        'BACKEND': 'storages.backends.s3boto3.S3Boto3Storage',
-        'OPTIONS': {
-            'access_key': os.environ.get('BUCKET_ACCESS_KEY_ID'),
-            'secret_key': os.environ.get('BUCKET_SECRET_ACCESS_KEY'),
-            'storage_bucket_name': os.environ.get('BUCKET'),
-            'region_name': os.environ.get('BUCKET_REGION', 'us-east-1'),
-            'endpoint_url': os.environ.get('BUCKET_ENDPOINT'),
-            'use_ssl': True,
-        }
-    },
-    'staticfiles': {
-        'BACKEND': 'whitenoise.storage.CompressedManifestStaticFilesStorage',
-    }
-}
+# STORAGES = {
+#     'default': {
+#         'BACKEND': 'storages.backends.s3boto3.S3Boto3Storage',
+#         'OPTIONS': {
+#             'access_key': os.environ.get('BUCKET_ACCESS_KEY_ID'),
+#             'secret_key': os.environ.get('BUCKET_SECRET_ACCESS_KEY'),
+#             'storage_bucket_name': os.environ.get('BUCKET'),
+#             'region_name': os.environ.get('BUCKET_REGION', 'us-east-1'),
+#             'endpoint_url': os.environ.get('BUCKET_ENDPOINT'),
+#             'use_ssl': True,
+#         }
+#     },
+#     'staticfiles': {
+#         'BACKEND': 'whitenoise.storage.CompressedManifestStaticFilesStorage',
+#     }
+# }
 
 
 
@@ -219,6 +219,30 @@ STORAGES = {
 # else:
 #     MEDIA_URL = '/media/'
 #     MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+# S3 Storage for NEW uploads only
+if not DEBUG:
+    STORAGES = {
+        'default': {
+            'BACKEND': 'storages.backends.s3boto3.S3Boto3Storage',
+            'OPTIONS': {
+                'access_key': os.environ.get('BUCKET_ACCESS_KEY_ID'),
+                'secret_key': os.environ.get('BUCKET_SECRET_ACCESS_KEY'),
+                'storage_bucket_name': os.environ.get('BUCKET'),
+                'region_name': os.environ.get('BUCKET_REGION', 'us-east-1'),
+                'endpoint_url': os.environ.get('BUCKET_ENDPOINT'),
+                'use_ssl': True,
+            }
+        },
+        'staticfiles': {
+            'BACKEND': 'whitenoise.storage.CompressedManifestStaticFilesStorage',
+        }
+    }
+    MEDIA_URL = f"https://{os.environ.get('BUCKET_ENDPOINT')}/{os.environ.get('BUCKET')}/"
+else:
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 
