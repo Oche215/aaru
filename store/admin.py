@@ -4,14 +4,6 @@ from .models import Product, Catalog, Category, ContactUs, Service
 
 
 # Register your models here.
-class MyModelAdminForm(forms.ModelForm):
-    class Meta:
-        model = Product
-        fields = '__all__'
-        widgets = {
-            'pix': forms.ClearableFileInput(attrs={'accept': 'image/*', 'class': 'custom-file-input'})
-        }
-
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):

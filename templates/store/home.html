@@ -134,46 +134,106 @@
     </section><!-- /Portfolio Section -->
 
     <!-- Contact Section -->
-    <section class="brand section">
+    <section id="contact" class="contact section">
+
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+            <div class="feature-icon me-sm-4 mb-4 mb-sm-0">
+                        <img src="{% static 'assets/img/logo/logo-top.png' %}" alt="">
+                    </div>
+
+            <h2>Contact</h2>
+            <p>Connect With Us</p>
+        </div><!-- End Section Title -->
 
         <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-            <div class="row feature-boxes">
-                <div class="col-lg-4 mb-1" data-aos="fade-up" data-aos-delay="200">
-                    <div class="feature-box">
-                        <div class="feature-icon me-sm-4 mb-2 mb-sm-0">
-                            <i class="bi bi-gear"></i>
+            <div class="row gy-4 mb-5">
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="info-card">
+                        <div class="icon-box">
+                            <i class="bi bi-geo-alt"></i>
                         </div>
-                        <div class="feature-content">
-                            <h1 class="feature-title">Avada Couture</h1>
-                        </div>
+                        <h3>Head Office</h3>
+                        <p>Plot 669, R.I Uzoma street, Wuye, Abuja Nigeria.</p>
+
                     </div>
                 </div>
 
-                <div class="col-lg-4 mb-1" data-aos="fade-up" data-aos-delay="300">
-                    <div class="feature-box">
-                        <div class="feature-icon me-sm-4 mb-2 mb-sm-0">
-                            <i class="bi bi-window"></i>
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="info-card">
+                        <div class="icon-box">
+                            <i class="bi bi-telephone"></i>
                         </div>
-                        <div class="feature-content">
-                            <h1 class="feature-title">Aaru By Avada</h1>
-                        </div>
+                        <h3>Contact Number</h3>
+                        <p>Mobile: +234 811 111 1416<br>
+                            Email: info@avadacouture.com</p>
                     </div>
                 </div>
 
-                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
-                    <div class="feature-box">
-                        <div class="feature-icon me-sm-4 mb-2 mb-sm-0">
-                            <i class="bi bi-headset"></i>
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="info-card">
+                        <div class="icon-box">
+                            <i class="bi bi-clock"></i>
                         </div>
-                        <div class="feature-content">
-                            <h1 class="feature-title">Avada Academy</h1>
-                        </div>
+                        <h3>Opening Hour</h3>
+                        <p>Monday - Saturday: 9AM - 10PM<br>
+                            Sunday: 12NOON - 5PM</p>
                     </div>
                 </div>
             </div>
-        </div><!-- End Section Title -->
 
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="form-wrapper" data-aos="fade-up" data-aos-delay="400">
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-person"></i></span>
+                                        {{form.name}}
+                                    </div>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                                        {{form.email}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-6 form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-phone"></i></span>
+                                        {{form.phone}}
+                                    </div>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-list"></i></span>
+                                        {{ form.service }}
+                                    </div>
+                                </div>
+                                <div class="form-group mt-3">
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-chat-dots"></i></span>
+                                        {{ form.message }}
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="text-center">
+                                    <button type="submit">Submit Message</button>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
     </section><!-- /Contact Section -->
 
 </main>
