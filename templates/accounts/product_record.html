@@ -95,7 +95,7 @@
 
                             <form method="POST" action="{% url 'delete_product' product.slug %}" onsubmit="return confirmDelete();">
                                 {% csrf_token %}
-                                <button type="submit" class="mb-1 btn btn-outline-danger">Delete {{ product.name }}</button>
+                                <button type="submit" class="mb-1 btn btn-outline-danger">Delete <span class="fw-bold">{{ product.name }}</span> </button>
                             </form>
                             <script>
                                 function confirmDelete() {
