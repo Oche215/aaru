@@ -91,15 +91,15 @@
                         </div>
                         <div class="card-footer d-flex justify-content-between">
                             <a href="{% url 'product_admin' %}" type="button" class="mb-1 btn btn-outline-secondary">Back</a>
-                            <a href="{% url 'update_product' product.slug %}" type="button" class="mb-1 btn btn-outline-danger">Edit</a>
+                            <a href="{% url 'update_product' product.slug %}" type="button" class="mb-1 btn btn-outline-primary">Edit</a>
 
                             <form method="POST" action="{% url 'delete_product' product.slug %}" onsubmit="return confirmDelete();">
                                 {% csrf_token %}
-                                <button type="submit" class="btn btn-danger">Delete {{ product.name }}</button>
+                                <button type="submit" class="mb-1 btn btn-outline-danger">Delete {{ product.name }}</button>
                             </form>
                             <script>
                                 function confirmDelete() {
-                                    return confirm("⚠️ Are you sure you want to delete <strong> {{product.name}}</strong>? This action cannot be undone.");
+                                    return confirm("⚠️ Are you sure you want to delete {{product.name}}? This action cannot be undone.");
                                     }
                             </script>
 
