@@ -79,7 +79,6 @@ class AddProductForm(forms.ModelForm):
 
         self.fields["pix"].widget.attrs.update({'class': 'form-control', 'placeholder': 'Upload Product Image' })
         self.fields["pix"].label = ''
-        self.fields['pix'].widget.attrs.update({'accept': 'image/*', })
 
         self.fields["manufacturer"].widget.attrs['class'] = 'form-control form-input-field'
         self.fields["manufacturer"].widget.attrs['placeholder'] = 'Manufacturer'
