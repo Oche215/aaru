@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+{% extends "store/base.html" %}
+
+{% load static %}
+{% load humanize %}
+
+{% block link %}
+<link href="{% static 'assets/css/brand.css' %}" rel="stylesheet">
+{% endblock link %}
+
+{% block content %}
+<main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section">
+        <div class="heading">
+            <div class="container">
+                <div class="row d-flex justify-content-center text-center">
+                    <div class="col-lg-8" style="font-family: 'Poppins';">
+                        <h6 style="letter-spacing: 1.5px; font-weight: bold; font-size: 1rem; text-transform: uppercase;">
+                            Award Winning Fashion Designer</h6>
+                        <h1 class="heading-title" style="color: #d80000;">Welcome to Avada Couture & Academy</h1>
+                        <small class="mb-0">
+                            A visionary fashion brand and academy, crafting exquisite wears with precision and style.
+                            <br>
+                            Elevating the industry by nurturing aspiring designers with cutting-edge training and
+                            creativity.
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- messages -->
+        <div class="container">
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+            <strong>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                     class="bi bi-info-circle" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                    <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+                </svg>
+            </strong><small>{{ message }}</small>
+            <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+
+    </section><!-- /Hero Section -->
+    <br>
+    <br>
+
+    <!-- Portfolio Section -->
+    <section id="product" class="portfolio">
+
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+
+            <div class="feature-icon me-sm-4 mb-4 mb-sm-0">
+                <img src="{% static 'assets/img/logo/logo-top.png' %}" alt="">
+            </div>
+
+
+            <h2>Product Catalogue</h2>
+            <p>View by Categories</p>
+
+        </div><!-- End Section Title -->
+
+        <div class="container position-sticky" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+
+                <div class="portfolio-filters-container" data-aos="fade-up" data-aos-delay="200">
+                    <ul class="portfolio-filters isotope-filters">
+                        <li data-filter="*" class="filter-active">All Work</li>
+                        <li data-filter=".filter-Boubou">BOUBOU</li>
+                        <li data-filter=".filter-Abaya">ABAYA</li>
+                        <!--                        <li data-filter=".filter-Batik">BATIK</li>-->
+                        <!--                        <li data-filter=".filter-Buba">BUBA</li>-->
+                        <!--                        <li data-filter=".filter-Dashiki">DASHIKI</li>-->
+                        <!--                        <li data-filter=".filter-Dirndl">DIRNDL</li>-->
+                        <li data-filter=".filter-Kaftan">KAFTAN</li>
+                        <!--                        <li data-filter=".filter-Kimono">KIMONO</li>-->
+                        <!--                        <li data-filter=".filter-Sari">SARI</li>-->
+                        <!--                        <li data-filter=".filter-'Salwar Kameez'">SALWAR KAMEEZ</li>-->
+                    </ul>
+                </div>
+
+                <div class="row g-4 isotope-container" data-aos="fade-up" data-aos-delay="300">
+                    {% for product in products %}
+                    <div class="col-lg-4 col-md-4 portfolio-item isotope-item filter-{{product.category}}">
+                        <div class="portfolio-card">
+                            <div class="portfolio-image">
+                                <img src="{% if product.pix %}{% url 'product-image' product.id %}{% else %}{% static 'assets/img/portfolio/image.jpg' %}{% endif %}"
+                                     class="img-fluid" alt="{{ product.name }}"
+                                     loading="lazy">
+                                <div class="portfolio-overlay">
+                                    <div class="portfolio-actions">
+                                        <a href="{% if product.pix %}{{% url 'product-image' product.id %}{% else %}{% static 'assets/img/portfolio/image.jpg' %}{% endif %}"
+                                           class="glightbox preview-link" data-gallery="portfolio-gallery-web"><i
+                                                class="bi bi-eye"></i></a>
+                                        <a href="{% url 'product-details' product.slug %}" class="details-link"><i
+                                                class="bi bi-arrow-right"></i></a>
+                                        <a href="" class="details-link"><i class="bi bi-cart4"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="portfolio-content">
+                                <span class="category">{{ product.category }}</span>
+                                <h3>{{ product.name }}</h3>
+                                <div class="row">
+                                    <div class="col">
+                                        <p>{{ product.category.catalog }}</p>
+                                    </div>
+                                    <div class="col text-end">
+                                        <p><span
+                                                style="text-decoration-line: line-through; text-decoration-style: double;">N</span>{{ product.price|intcomma }}</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div><!-- End Portfolio Item -->
+                    {% endfor %}
+
+                </div><!-- End Portfolio Container -->
+
+            </div>
+
+        </div>
+
+    </section><!-- /Portfolio Section -->
+
+    <!-- Contact Section -->
+    <section class="brand section">
+
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="row feature-boxes">
+                <div class="col-lg-4 mb-1" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-box">
+                        <div class="feature-icon me-sm-4 mb-2 mb-sm-0">
+                            <i class="bi bi-gear"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h1 class="feature-title">Avada Couture</h1>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mb-1" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-box">
+                        <div class="feature-icon me-sm-4 mb-2 mb-sm-0">
+                            <i class="bi bi-window"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h1 class="feature-title">Aaru By Avada</h1>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-box">
+                        <div class="feature-icon me-sm-4 mb-2 mb-sm-0">
+                            <i class="bi bi-headset"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h1 class="feature-title">Avada Academy</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- End Section Title -->
+
+    </section><!-- /Contact Section -->
+
+</main>
+
+{% endblock content %}
