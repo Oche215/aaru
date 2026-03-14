@@ -98,7 +98,7 @@
                                      loading="lazy">
                                 <div class="portfolio-overlay">
                                     <div class="portfolio-actions">
-                                        <a href="{% if product.pix %}{{% url 'product-image' product.id %}{% else %}{% static 'assets/img/portfolio/image.jpg' %}{% endif %}"
+                                        <a href="{% if product.pix %}{% url 'product-image' product.id %}{% else %}{% static 'assets/img/portfolio/image.jpg' %}{% endif %}"
                                            class="glightbox preview-link" data-gallery="portfolio-gallery-web"><i
                                                 class="bi bi-eye"></i></a>
                                         <a href="{% url 'product-details' product.slug %}" class="details-link"><i

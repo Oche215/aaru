@@ -102,3 +102,10 @@ def index(request):
 
     return render(request, 'store/index.html', {'products': products, })
 
+
+def serve_image(request, id):
+    product = Product.objects.get(id=id)
+    if product.pix:
+        return HttpResponse(product.pix.read(), content_type='image/jpeg')
+    return HttpResponse(status=404)
+
