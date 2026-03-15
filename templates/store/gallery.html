@@ -5,340 +5,387 @@
 {% load humanize %}
 
 {% block content %}
-  <main class="main">
+<main class="main">
 
     <!-- Page Title -->
     <div class="page-title">
-<!--      <div class="heading">-->
-<!--        <div class="container">-->
-<!--          <div class="row d-flex justify-content-center text-center">-->
-<!--            <div class="col-lg-8">-->
-<!--              <h1 class="heading-title">Product Details</h1>-->
-<!--              <p class="mb-0">-->
-<!--                {{ product.name }}-->
-<!--              </p>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-      <nav class="breadcrumbs">
-        <div class="container">
-          <ol>
-            <li><a href="{% url 'home' %}">Home</a></li>
-            <li class="current">Gallery</li>
-          </ol>
+        <!--      <div class="heading">-->
+        <!--        <div class="container">-->
+        <!--          <div class="row d-flex justify-content-center text-center">-->
+        <!--            <div class="col-lg-8">-->
+        <!--              <h1 class="heading-title">Product Details</h1>-->
+        <!--              <p class="mb-0">-->
+        <!--                {{ product.name }}-->
+        <!--              </p>-->
+        <!--            </div>-->
+        <!--          </div>-->
+        <!--        </div>-->
+        <!--      </div>-->
+        <nav class="breadcrumbs">
+            <div class="container">
+                <ol>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li class="current">Gallery</li>
+                </ol>
 
-        </div>
-      </nav>
+            </div>
+        </nav>
     </div><!-- End Page Title -->
 
     <!-- Services Section -->
     <section id="services" class="services section">
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Gallery</h2>
-      </div><!-- End Section Title -->
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+            <h2>Gallery</h2>
+        </div><!-- End Section Title -->
 
-      <main class="container">
-        <div class="row mb-2">
-        <div class="col-md-6">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" >
-            <div class="col p-4 d-flex flex-column position-static">
-              <div class="col ratio ratio-16x9 d-flex flex-column position-relative">
-                <iframe src="https://www.youtube.com/embed/2wXDjjy40MY?si=B9x6M--iFY4zBdHi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-              </div>
+        <main class="container">
+            <div class="row mb-2">
+                <div class="col-md-6">
+                    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                        <div class="col p-4 d-flex flex-column position-static">
+                            <div class="col ratio ratio-16x9 d-flex flex-column position-relative">
+                                <iframe src="https://www.youtube.com/embed/2wXDjjy40MY?si=B9x6M--iFY4zBdHi"
+                                        title="YouTube video player" frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="col-auto d-none d-lg-block">
+                            <svg
+                                    aria-label="Placeholder: Thumbnail"
+                                    class="bd-placeholder-img"
+                                    height="250"
+                                    preserveAspectRatio="xMidYMid slice"
+                                    role="img"
+                                    width="200"
+                                    xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <title>Avada Channel</title>
+                                <rect width="100%" height="100%" fill="#55595c"></rect>
+                                <text class="d-inline-block mb-2 text-primary-emphasis" x="30%" y="50%" fill="#eceeef"
+                                      dy=".3em">
+                                    Avada Channel
+                                </text>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                        <div class="col ratio ratio-16x9 d-flex flex-column position-relative">
+                            <iframe src="https://www.youtube.com/embed/2wXDjjy40MY?si=B9x6M--iFY4zBdHi"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <div class="col-auto d-none d-lg-block">
+                            <svg
+                                    aria-label="Placeholder: Thumbnail"
+                                    class="bd-placeholder-img"
+                                    height="250"
+                                    preserveAspectRatio="xMidYMid slice"
+                                    role="img"
+                                    width="200"
+                                    xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <title>Avada Channel</title>
+                                <rect width="100%" height="100%" fill="#55595c"></rect>
+                                <text class="d-inline-block mb-2 text-primary-emphasis" x="40%" y="50%" fill="#eceeef"
+                                      dy=".3em">Aaru by AVADA
+                                </text>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                        <div class="col ratio ratio-16x9 d-flex flex-column position-relative">
+                            <iframe src="https://www.youtube.com/embed/2wXDjjy40MY?si=B9x6M--iFY4zBdHi"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <div class="col-auto d-none d-lg-block">
+                            <svg
+                                    aria-label="Placeholder: Thumbnail"
+                                    class="bd-placeholder-img"
+                                    height="250"
+                                    preserveAspectRatio="xMidYMid slice"
+                                    role="img"
+                                    width="200"
+                                    xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <title>Avada Channel</title>
+                                <rect width="100%" height="100%" fill="#55595c"></rect>
+                                <text class="d-inline-block mb-2 text-primary-emphasis" x="50%" y="50%" fill="#eceeef"
+                                      dy=".3em">Aaru by AVADA
+                                </text>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                        <div class="col ratio ratio-16x9 d-flex flex-column position-relative">
+                            <iframe src="https://www.youtube.com/embed/2wXDjjy40MY?si=B9x6M--iFY4zBdHi"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <div class="col-auto d-none d-lg-block">
+                            <svg
+                                    aria-label="Placeholder: Thumbnail"
+                                    class="bd-placeholder-img"
+                                    height="250"
+                                    preserveAspectRatio="xMidYMid slice"
+                                    role="img"
+                                    width="200"
+                                    xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <title>Avada Channel</title>
+                                <rect width="100%" height="100%" fill="#55595c"></rect>
+                                <text class="d-inline-block mb-2 text-primary-emphasis" x="50%" y="50%" fill="#eceeef"
+                                      dy=".3em">Aaru by AVADA
+                                </text>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                        <div class="col ratio ratio-16x9 d-flex flex-column position-relative">
+                            <iframe src="https://www.youtube.com/embed/2wXDjjy40MY?si=B9x6M--iFY4zBdHi"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <div class="col-auto d-none d-lg-block">
+                            <svg
+                                    aria-label="Placeholder: Thumbnail"
+                                    class="bd-placeholder-img"
+                                    height="250"
+                                    preserveAspectRatio="xMidYMid slice"
+                                    role="img"
+                                    width="200"
+                                    xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <title>Avada Channel</title>
+                                <rect width="100%" height="100%" fill="#55595c"></rect>
+                                <text class="d-inline-block mb-2 text-primary-emphasis" x="50%" y="50%" fill="#eceeef"
+                                      dy=".3em">Aaru by AVADA
+                                </text>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-auto d-none d-lg-block">
-              <svg
-                aria-label="Placeholder: Thumbnail"
-                class="bd-placeholder-img"
-                height="250"
-                preserveAspectRatio="xMidYMid slice"
-                role="img"
-                width="200"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>Avada Channel</title>
-                <rect width="100%" height="100%" fill="#55595c"></rect>
-                <text class="d-inline-block mb-2 text-primary-emphasis" x="50%" y="50%" fill="#eceeef" dy=".3em">
-                  World
-                </text>
-              </svg>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" >
-            <div class="col ratio ratio-16x9 d-flex flex-column position-relative">
-              <iframe src="https://www.youtube.com/embed/2wXDjjy40MY?si=B9x6M--iFY4zBdHi" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <div class="col-auto d-none d-lg-block">
-              <svg
-                aria-label="Placeholder: Thumbnail"
-                class="bd-placeholder-img"
-                height="250"
-                preserveAspectRatio="xMidYMid slice"
-                role="img"
-                width="200"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>Avada Channel</title>
-                <rect width="100%" height="100%" fill="#55595c"></rect>
-                <text class="d-inline-block mb-2 text-primary-emphasis" x="50%" y="50%" fill="#eceeef" dy=".3em">Aaru by AVADA</text>
-              </svg>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" >
-            <div class="col ratio ratio-16x9 d-flex flex-column position-relative">
-              <iframe src="https://www.youtube.com/embed/2wXDjjy40MY?si=B9x6M--iFY4zBdHi" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <div class="col-auto d-none d-lg-block">
-              <svg
-                aria-label="Placeholder: Thumbnail"
-                class="bd-placeholder-img"
-                height="250"
-                preserveAspectRatio="xMidYMid slice"
-                role="img"
-                width="200"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>Avada Channel</title>
-                <rect width="100%" height="100%" fill="#55595c"></rect>
-                <text class="d-inline-block mb-2 text-primary-emphasis" x="50%" y="50%" fill="#eceeef" dy=".3em">Aaru by AVADA</text>
-              </svg>
-            </div>
-          </div>
-        </div>
-          <div class="col-md-6">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" >
-            <div class="col ratio ratio-16x9 d-flex flex-column position-relative">
-              <iframe src="https://www.youtube.com/embed/2wXDjjy40MY?si=B9x6M--iFY4zBdHi" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <div class="col-auto d-none d-lg-block">
-              <svg
-                aria-label="Placeholder: Thumbnail"
-                class="bd-placeholder-img"
-                height="250"
-                preserveAspectRatio="xMidYMid slice"
-                role="img"
-                width="200"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>Avada Channel</title>
-                <rect width="100%" height="100%" fill="#55595c"></rect>
-                <text class="d-inline-block mb-2 text-primary-emphasis" x="50%" y="50%" fill="#eceeef" dy=".3em">Aaru by AVADA</text>
-              </svg>
-            </div>
-          </div>
-        </div>
-          <div class="col-md-6">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" >
-            <div class="col ratio ratio-16x9 d-flex flex-column position-relative">
-              <iframe src="https://www.youtube.com/embed/2wXDjjy40MY?si=B9x6M--iFY4zBdHi" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <div class="col-auto d-none d-lg-block">
-              <svg
-                aria-label="Placeholder: Thumbnail"
-                class="bd-placeholder-img"
-                height="250"
-                preserveAspectRatio="xMidYMid slice"
-                role="img"
-                width="200"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>Avada Channel</title>
-                <rect width="100%" height="100%" fill="#55595c"></rect>
-                <text class="d-inline-block mb-2 text-primary-emphasis" x="50%" y="50%" fill="#eceeef" dy=".3em">Aaru by AVADA</text>
-              </svg>
-            </div>
-          </div>
-        </div>
-      </div>
-      </main>
+        </main>
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="row justify-content-center g-5">
-          <div class="col-md-6">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" >
-            <div class="col p-4 d-flex flex-column position-static">
-              <div class="col ratio ratio-16x9 d-flex flex-column position-relative">
-                <iframe src="https://www.youtube.com/embed/2wXDjjy40MY?si=B9x6M--iFY4zBdHi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-              </div>
+            <div class="row justify-content-center g-5">
+                <div class="col-md-6">
+                    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                        <div class="col p-4 d-flex flex-column position-static">
+                            <div class="col ratio ratio-16x9 d-flex flex-column position-relative">
+                                <iframe src="https://www.youtube.com/embed/2wXDjjy40MY?si=B9x6M--iFY4zBdHi"
+                                        title="YouTube video player" frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="col-auto d-none d-lg-block">
+                            <svg
+                                    aria-label="Placeholder: Thumbnail"
+                                    class="bd-placeholder-img"
+                                    height="250"
+                                    preserveAspectRatio="xMidYMid slice"
+                                    role="img"
+                                    width="200"
+                                    xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <title>Avada Channel</title>
+                                <rect width="100%" height="100%" fill="#55595c"></rect>
+                                <text class="d-inline-block mb-2 text-primary-emphasis" x="50%" y="50%" fill="#eceeef"
+                                      dy=".3em">
+                                    World
+                                </text>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                        <div class="col ratio ratio-16x9 d-flex flex-column position-relative">
+                            <iframe src="https://www.youtube.com/embed/2wXDjjy40MY?si=B9x6M--iFY4zBdHi"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <div class="col-auto d-none d-lg-block">
+                            <svg
+                                    aria-label="Placeholder: Thumbnail"
+                                    class="bd-placeholder-img"
+                                    height="250"
+                                    preserveAspectRatio="xMidYMid slice"
+                                    role="img"
+                                    width="200"
+                                    xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <title>Avada Channel</title>
+                                <rect width="100%" height="100%" fill="#55595c"></rect>
+                                <text class="d-inline-block mb-2 text-primary-emphasis" x="50%" y="50%" fill="#eceeef"
+                                      dy=".3em">Aaru by AVADA
+                                </text>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                        <div class="col ratio ratio-16x9 d-flex flex-column position-relative">
+                            <iframe src="https://www.youtube.com/embed/2wXDjjy40MY?si=B9x6M--iFY4zBdHi"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <div class="col-auto d-none d-lg-block">
+                            <svg
+                                    aria-label="Placeholder: Thumbnail"
+                                    class="bd-placeholder-img"
+                                    height="250"
+                                    preserveAspectRatio="xMidYMid slice"
+                                    role="img"
+                                    width="200"
+                                    xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <title>Avada Channel</title>
+                                <rect width="100%" height="100%" fill="#55595c"></rect>
+                                <text class="d-inline-block mb-2 text-primary-emphasis" x="50%" y="50%" fill="#eceeef"
+                                      dy=".3em">Aaru by AVADA
+                                </text>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                        <div class="col ratio ratio-16x9 d-flex flex-column position-relative">
+                            <iframe src="https://www.youtube.com/embed/2wXDjjy40MY?si=B9x6M--iFY4zBdHi"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <div class="col-auto d-none d-lg-block">
+                            <svg
+                                    aria-label="Placeholder: Thumbnail"
+                                    class="bd-placeholder-img"
+                                    height="250"
+                                    preserveAspectRatio="xMidYMid slice"
+                                    role="img"
+                                    width="200"
+                                    xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <title>Avada Channel</title>
+                                <rect width="100%" height="100%" fill="#55595c"></rect>
+                                <text class="d-inline-block mb-2 text-primary-emphasis" x="50%" y="50%" fill="#eceeef"
+                                      dy=".3em">Aaru by AVADA
+                                </text>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                        <div class="col ratio ratio-16x9 d-flex flex-column position-relative">
+                            <iframe src="https://www.youtube.com/embed/2wXDjjy40MY?si=B9x6M--iFY4zBdHi"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                        <div class="col-auto d-none d-lg-block">
+                            <svg
+                                    aria-label="Placeholder: Thumbnail"
+                                    class="bd-placeholder-img"
+                                    height="250"
+                                    preserveAspectRatio="xMidYMid slice"
+                                    role="img"
+                                    width="200"
+                                    xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <title>Avada Channel</title>
+                                <rect width="100%" height="100%" fill="#55595c"></rect>
+                                <text class="d-inline-block mb-2 text-primary-emphasis" x="50%" y="50%" fill="#eceeef"
+                                      dy=".3em">Aaru by AVADA
+                                </text>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            <div class="col-auto d-none d-lg-block">
-              <svg
-                aria-label="Placeholder: Thumbnail"
-                class="bd-placeholder-img"
-                height="250"
-                preserveAspectRatio="xMidYMid slice"
-                role="img"
-                width="200"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>Avada Channel</title>
-                <rect width="100%" height="100%" fill="#55595c"></rect>
-                <text class="d-inline-block mb-2 text-primary-emphasis" x="50%" y="50%" fill="#eceeef" dy=".3em">
-                  World
-                </text>
-              </svg>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" >
-            <div class="col ratio ratio-16x9 d-flex flex-column position-relative">
-              <iframe src="https://www.youtube.com/embed/2wXDjjy40MY?si=B9x6M--iFY4zBdHi" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <div class="col-auto d-none d-lg-block">
-              <svg
-                aria-label="Placeholder: Thumbnail"
-                class="bd-placeholder-img"
-                height="250"
-                preserveAspectRatio="xMidYMid slice"
-                role="img"
-                width="200"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>Avada Channel</title>
-                <rect width="100%" height="100%" fill="#55595c"></rect>
-                <text class="d-inline-block mb-2 text-primary-emphasis" x="50%" y="50%" fill="#eceeef" dy=".3em">Aaru by AVADA</text>
-              </svg>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" >
-            <div class="col ratio ratio-16x9 d-flex flex-column position-relative">
-              <iframe src="https://www.youtube.com/embed/2wXDjjy40MY?si=B9x6M--iFY4zBdHi" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <div class="col-auto d-none d-lg-block">
-              <svg
-                aria-label="Placeholder: Thumbnail"
-                class="bd-placeholder-img"
-                height="250"
-                preserveAspectRatio="xMidYMid slice"
-                role="img"
-                width="200"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>Avada Channel</title>
-                <rect width="100%" height="100%" fill="#55595c"></rect>
-                <text class="d-inline-block mb-2 text-primary-emphasis" x="50%" y="50%" fill="#eceeef" dy=".3em">Aaru by AVADA</text>
-              </svg>
-            </div>
-          </div>
-        </div>
-          <div class="col-md-6">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" >
-            <div class="col ratio ratio-16x9 d-flex flex-column position-relative">
-              <iframe src="https://www.youtube.com/embed/2wXDjjy40MY?si=B9x6M--iFY4zBdHi" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <div class="col-auto d-none d-lg-block">
-              <svg
-                aria-label="Placeholder: Thumbnail"
-                class="bd-placeholder-img"
-                height="250"
-                preserveAspectRatio="xMidYMid slice"
-                role="img"
-                width="200"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>Avada Channel</title>
-                <rect width="100%" height="100%" fill="#55595c"></rect>
-                <text class="d-inline-block mb-2 text-primary-emphasis" x="50%" y="50%" fill="#eceeef" dy=".3em">Aaru by AVADA</text>
-              </svg>
-            </div>
-          </div>
-        </div>
-          <div class="col-md-6">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" >
-            <div class="col ratio ratio-16x9 d-flex flex-column position-relative">
-              <iframe src="https://www.youtube.com/embed/2wXDjjy40MY?si=B9x6M--iFY4zBdHi" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <div class="col-auto d-none d-lg-block">
-              <svg
-                aria-label="Placeholder: Thumbnail"
-                class="bd-placeholder-img"
-                height="250"
-                preserveAspectRatio="xMidYMid slice"
-                role="img"
-                width="200"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>Avada Channel</title>
-                <rect width="100%" height="100%" fill="#55595c"></rect>
-                <text class="d-inline-block mb-2 text-primary-emphasis" x="50%" y="50%" fill="#eceeef" dy=".3em">Aaru by AVADA</text>
-              </svg>
-            </div>
-          </div>
-        </div>
 
         </div>
-
-      </div>
 
     </section><!-- /Services Section -->
 
 
-
-  </main>
+</main>
 {% endblock %}
 
 {% block script %}
 <script>
-  function resizeIframe() {
-    try {
-      const iframe = document.getElementById('myIframe');
-      const doc = iframe.contentWindow.document;
+    function resizeIframe() {
+      try {
+        const iframe = document.getElementById('myIframe');
+        const doc = iframe.contentWindow.document;
 
-      // Adjust height and width based on content
-      iframe.style.height = doc.documentElement.scrollHeight + 'px';
-      iframe.style.width = doc.documentElement.scrollWidth + 'px';
-    } catch (error) {
-      console.error("Unable to access iframe content (possible cross-origin issue).", error);
+        // Adjust height and width based on content
+        iframe.style.height = doc.documentElement.scrollHeight + 'px';
+        iframe.style.width = doc.documentElement.scrollWidth + 'px';
+      } catch (error) {
+        console.error("Unable to access iframe content (possible cross-origin issue).", error);
+      }
     }
-  }
 
-  // Resize when iframe loads
-  document.getElementById('myIframe').addEventListener('load', resizeIframe);
+    // Resize when iframe loads
+    document.getElementById('myIframe').addEventListener('load', resizeIframe);
 </script>
 
 <script>
-  // Load YouTube IFrame API
-  let tag = document.createElement('script');
-  tag.src = "https://www.youtube.com/iframe_api";
-  document.body.appendChild(tag);
+    // Load YouTube IFrame API
+    let tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    document.body.appendChild(tag);
 
-  let players = [];
+    let players = [];
 
-  // Called by YouTube API when ready
-  function onYouTubeIframeAPIReady() {
-    document.querySelectorAll('iframe').forEach((iframe, index) => {
-      players[index] = new YT.Player(iframe, {
-        events: {
-          'onStateChange': (event) => handleStateChange(event, index)
-        }
-      });
-    });
-  }
-
-  function handleStateChange(event, activeIndex) {
-    if (event.data === YT.PlayerState.PLAYING) {
-      // Enable controls for the active video
-      players[activeIndex].setOption('playerVars', { controls: 1 });
-
-      // Pause and disable controls for all other videos
-      players.forEach((player, i) => {
-        if (i !== activeIndex) {
-          player.pauseVideo();
-          player.setOption('playerVars', { controls: 0 });
-        }
+    // Called by YouTube API when ready
+    function onYouTubeIframeAPIReady() {
+      document.querySelectorAll('iframe').forEach((iframe, index) => {
+        players[index] = new YT.Player(iframe, {
+          events: {
+            'onStateChange': (event) => handleStateChange(event, index)
+          }
+        });
       });
     }
-  }
+
+    function handleStateChange(event, activeIndex) {
+      if (event.data === YT.PlayerState.PLAYING) {
+        // Enable controls for the active video
+        players[activeIndex].setOption('playerVars', { controls: 1 });
+
+        // Pause and disable controls for all other videos
+        players.forEach((player, i) => {
+          if (i !== activeIndex) {
+            player.pauseVideo();
+            player.setOption('playerVars', { controls: 0 });
+          }
+        });
+      }
+    }
 </script>
 {% endblock %}
