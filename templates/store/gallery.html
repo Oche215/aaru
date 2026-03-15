@@ -45,7 +45,7 @@
                 <div class="col-md-4">
                     <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                         <div class="col ratio ratio-9x16 d-flex flex-column position-relative">
-                             <iframe src="https://www.youtube.com/embed/g2JpGfZ2Xsw?si=B9x6M--iFY4zBdHi"
+                             <iframe src="https://www.youtube.com/embed/g2JpGfZ2Xsw?si=B9x6M--iFY4zBdHi?enablejsapi=1"
                                     title="YouTube video player" frameborder="0"
                                     allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
                                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -62,12 +62,13 @@
                             >
                                 <title>Avada Channel</title>
                                 <rect width="100%" height="100%" fill="#55595c"></rect>
-                                <text class="d-inline-block mb-2 text-primary-emphasis" x="20%" y="40%" fill="#eceeef"
+                                <text class="d-inline-block mb-2 text-primary-emphasis" x="15%" y="40%" fill="#eceeef"
+                                      dy=".3em">Salah Collections
+                                </text>
+                                <text class="d-inline-block mb-2 text-primary-emphasis" x="20%" y="80%" fill="#eceeef"
                                       dy=".3em">Aaru by AVADA
                                 </text>
-                                <a href="{% url 'home' %}" class="logo d-flex align-items-center me-auto me-xl-0">
-                                    <img src="{% static 'assets/img/logo/logo-top.png' %}" alt="">
-                                </a>
+
                             </svg>
                         </div>
                     </div>
@@ -75,7 +76,7 @@
                 <div class="col-md-4">
                     <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                         <div class="col ratio ratio-9x16 d-flex flex-column position-relative">
-                             <iframe src="https://www.youtube.com/embed/0CwU057LsvY?si=B9x6M--iFY4zBdHi"
+                             <iframe src="https://www.youtube.com/embed/0CwU057LsvY?si=B9x6M--iFY4zBdHi?enablejsapi=1"
                                     title="YouTube video player" frameborder="0"
                                     allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
                                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -102,7 +103,7 @@
                 <div class="col-md-4">
                     <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                         <div class="col ratio ratio-9x16 d-flex flex-column position-relative">
-                             <iframe src="https://www.youtube.com/embed/6jkj5t0j_Qg?si=B9x6M--iFY4zBdHi"
+                             <iframe src="https://www.youtube.com/embed/6jkj5t0j_Qg?si=B9x6M--iFY4zBdHi?enablejsapi=1"
                                     title="YouTube video player" frameborder="0"
                                     allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
                                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -129,7 +130,7 @@
                 <div class="col-md-4">
                     <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                         <div class="col ratio ratio-9x16 d-flex flex-column position-relative">
-                             <iframe src="https://www.youtube.com/embed/HAgG7jTgtq4?si=B9x6M--iFY4zBdHi"
+                             <iframe src="https://www.youtube.com/embed/HAgG7jTgtq4?si=B9x6M--iFY4zBdHi?enablejsapi=1"
                                     title="YouTube video player" frameborder="0"
                                     allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
                                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -307,40 +308,24 @@
 
     // Resize when iframe loads
     document.getElementById('myIframe').addEventListener('load', resizeIframe);
+
+
+    // Get all <video> elements
+const videos = document.querySelectorAll('video');
+
+// Pause all <video> elements except for the one that started playing
+function pauseOtherVideos({ target }) {
+  for (const video of videos) {
+    if (video !== target) {
+      video.pause();
+    }
+  }
+}
+
+// Listen for the 'play' event on all the <video> elements
+for (const video of videos) {
+  video.addEventListener('play', pauseOtherVideos);
+}
 </script>
 
-<script>
-    // Load YouTube IFrame API
-    let tag = document.createElement('script');
-    tag.src = "https://www.youtube.com/iframe_api";
-    document.body.appendChild(tag);
-
-    let players = [];
-
-    // Called by YouTube API when ready
-    function onYouTubeIframeAPIReady() {
-      document.querySelectorAll('iframe').forEach((iframe, index) => {
-        players[index] = new YT.Player(iframe, {
-          events: {
-            'onStateChange': (event) => handleStateChange(event, index)
-          }
-        });
-      });
-    }
-
-    function handleStateChange(event, activeIndex) {
-      if (event.data === YT.PlayerState.PLAYING) {
-        // Enable controls for the active video
-        players[activeIndex].setOption('playerVars', { controls: 1 });
-
-        // Pause and disable controls for all other videos
-        players.forEach((player, i) => {
-          if (i !== activeIndex) {
-            player.pauseVideo();
-            player.setOption('playerVars', { controls: 0 });
-          }
-        });
-      }
-    }
-</script>
 {% endblock %}
