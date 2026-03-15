@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% extends "store/base.html" %}
+
+{% load static %}
+{% load humanize %}
+
+{% block content %}
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title">
+<!--      <div class="heading">-->
+<!--        <div class="container">-->
+<!--          <div class="row d-flex justify-content-center text-center">-->
+<!--            <div class="col-lg-8">-->
+<!--              <h1 class="heading-title">Product Details</h1>-->
+<!--              <p class="mb-0">-->
+<!--                {{ product.name }}-->
+<!--              </p>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+      <nav class="breadcrumbs">
+        <div class="container">
+          <ol>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li class="current">Gallery</li>
+          </ol>
+
+        </div>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <!-- Services Section -->
+    <section id="services" class="services section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Gallery</h2>
+      </div><!-- End Section Title -->
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/2wXDjjy40MY?si=B9x6M--iFY4zBdHi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row justify-content-center g-5">
+
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/2wXDjjy40MY?si=B9x6M--iFY4zBdHi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Services Section -->
+
+
+
+  </main>
+{% endblock %}

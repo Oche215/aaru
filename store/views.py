@@ -89,3 +89,8 @@ def serve_image(request, id):
         return HttpResponse(product.pix.read(), content_type='image/jpeg')
     return HttpResponse(status=404)
 
+
+def gallery(request):
+
+    return render(request, 'store/gallery.html', )
+

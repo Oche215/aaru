@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import home, details, services, about, contact, get_product_image, index, serve_image
+from .views import home, details, services, about, contact, get_product_image, index, serve_image, gallery
 
 urlpatterns = [
     path('', home, name='home'),
@@ -13,5 +13,7 @@ urlpatterns = [
     path('product/<int:product_id>/image/', get_product_image, name='product-image'),
 
     path('image/<int:id>/', serve_image, name='serve_image'),
+
+    path('gallery/', gallery, name='gallery'),
 
 ]
