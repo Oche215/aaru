@@ -46,7 +46,11 @@
           <div
             class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
           >
-              <iframe src="https://www.youtube.com/embed/2wXDjjy40MY?si=B9x6M--iFY4zBdHi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="col p-4 d-flex flex-column position-static">
+              <strong class="d-inline-block mb-2 text-primary-emphasis"
+                >World</strong
+              >
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/2wXDjjy40MY?si=B9x6M--iFY4zBdHi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
             <div class="col-auto d-none d-lg-block">
               <svg
@@ -126,4 +130,24 @@
 
 
   </main>
+{% endblock %}
+
+{% block script %}
+<script>
+  function resizeIframe() {
+    try {
+      const iframe = document.getElementById('myIframe');
+      const doc = iframe.contentWindow.document;
+
+      // Adjust height and width based on content
+      iframe.style.height = doc.documentElement.scrollHeight + 'px';
+      iframe.style.width = doc.documentElement.scrollWidth + 'px';
+    } catch (error) {
+      console.error("Unable to access iframe content (possible cross-origin issue).", error);
+    }
+  }
+
+  // Resize when iframe loads
+  document.getElementById('myIframe').addEventListener('load', resizeIframe);
+</script>
 {% endblock %}
