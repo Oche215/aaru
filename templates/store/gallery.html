@@ -47,9 +47,7 @@
             class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
           >
             <div class="col p-4 d-flex flex-column position-static">
-              <strong class="d-inline-block mb-2 text-primary-emphasis"
-                >World</strong
-              >
+
               <div class="col ratio ratio-16x9 d-flex flex-column position-relative">
               <iframe src="https://www.youtube.com/embed/2wXDjjy40MY?si=B9x6M--iFY4zBdHi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
               </div>
@@ -66,7 +64,9 @@
               >
                 <title>Placeholder</title>
                 <rect width="100%" height="100%" fill="#55595c"></rect>
-                <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+                <text class="d-inline-block mb-2 text-primary-emphasis" x="50%" y="50%" fill="#eceeef" dy=".3em">
+                  World
+                </text>
               </svg>
             </div>
           </div>
@@ -171,5 +171,40 @@
 
   // Resize when iframe loads
   document.getElementById('myIframe').addEventListener('load', resizeIframe);
+</script>
+
+<script>
+  // Load YouTube IFrame API
+  let tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+  document.body.appendChild(tag);
+
+  let players = [];
+
+  // Called by YouTube API when ready
+  function onYouTubeIframeAPIReady() {
+    document.querySelectorAll('iframe').forEach((iframe, index) => {
+      players[index] = new YT.Player(iframe, {
+        events: {
+          'onStateChange': (event) => handleStateChange(event, index)
+        }
+      });
+    });
+  }
+
+  function handleStateChange(event, activeIndex) {
+    if (event.data === YT.PlayerState.PLAYING) {
+      // Enable controls for the active video
+      players[activeIndex].setOption('playerVars', { controls: 1 });
+
+      // Pause and disable controls for all other videos
+      players.forEach((player, i) => {
+        if (i !== activeIndex) {
+          player.pauseVideo();
+          player.setOption('playerVars', { controls: 0 });
+        }
+      });
+    }
+  }
 </script>
 {% endblock %}
