@@ -410,48 +410,48 @@
 {% endblock %}
 
 {% block script %}
-<script>
-    function resizeIframe() {
-      try {
-        const iframe = document.getElementById('myIframe');
-        const doc = iframe.contentWindow.document;
+<!--<script>-->
+<!--    function resizeIframe() {-->
+<!--      try {-->
+<!--        const iframe = document.getElementById('myIframe');-->
+<!--        const doc = iframe.contentWindow.document;-->
 
-        // Adjust height and width based on content
-        iframe.style.height = doc.documentElement.scrollHeight + 'px';
-        iframe.style.width = doc.documentElement.scrollWidth + 'px';
-      } catch (error) {
-        console.error("Unable to access iframe content (possible cross-origin issue).", error);
-      }
-    }
+<!--        // Adjust height and width based on content-->
+<!--        iframe.style.height = doc.documentElement.scrollHeight + 'px';-->
+<!--        iframe.style.width = doc.documentElement.scrollWidth + 'px';-->
+<!--      } catch (error) {-->
+<!--        console.error("Unable to access iframe content (possible cross-origin issue).", error);-->
+<!--      }-->
+<!--    }-->
 
-    // Resize when iframe loads
-    document.getElementById('myIframe').addEventListener('load', resizeIframe);
+<!--    // Resize when iframe loads-->
+<!--    document.getElementById('myIframe').addEventListener('load', resizeIframe);-->
 
 
-    // Get all <video> elements
-const videos = document.querySelectorAll('video');
+<!--    // Get all <video> elements-->
+<!--const videos = document.querySelectorAll('video');-->
 
-// Pause all <video> elements except for the one that started playing
-function pauseOtherVideos({ target }) {
-  for (const video of videos) {
-    if (video !== target) {
-      video.pause();
-    }
-  }
-}
+<!--// Pause all <video> elements except for the one that started playing-->
+<!--function pauseOtherVideos({ target }) {-->
+<!--  for (const video of videos) {-->
+<!--    if (video !== target) {-->
+<!--      video.pause();-->
+<!--    }-->
+<!--  }-->
+<!--}-->
 
-// Listen for the 'play' event on all the <video> elements
-for (const video of videos) {
-  video.addEventListener('play', pauseOtherVideos);
-}
-    // modal script
-    const myModal = document.getElementById('myModal')
-    const myInput = document.getElementById('myInput')
+<!--// Listen for the 'play' event on all the <video> elements-->
+<!--for (const video of videos) {-->
+<!--  video.addEventListener('play', pauseOtherVideos);-->
+<!--}-->
+<!--    // modal script-->
+<!--    const myModal = document.getElementById('myModal')-->
+<!--    const myInput = document.getElementById('myInput')-->
 
-    myModal.addEventListener('shown.bs.modal', () => {
-        myInput.focus()
+<!--    myModal.addEventListener('shown.bs.modal', () => {-->
+<!--        myInput.focus()-->
 
-        })
-</script>
+<!--        })-->
+<!--</script>-->
 
 {% endblock %}
