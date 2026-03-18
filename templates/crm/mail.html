@@ -28,12 +28,12 @@
                         </form>
 
                         <div class="overflow-auto h-100" >
-                            <ul class="list-unstyled border-top mb-0" id="chat-left-content" data-simplebar>
+                            <ul class="list-unstyled border-top mb-0" id="myTab" role="tablist" data-simplebar>
 
                             {% for mail in mails %}
-                            <li>
+                            <li class="nav-item">
 
-                                <a href="#{{mail.id}}" class="media media-message" id="{{mail.id}}-tab" role="tab" aria-controls="{{mail.id}}" aria-selected="true">
+                                <a href="#{{mail.id}}" class="media media-message nav-link" id="{{mail.id}}-tab" role="tab" aria-controls="{{mail.id}}" data-toggle="tab" aria-selected="false">
                                     <div class="d-flex rounded-circle align-items-center justify-content-center mr-3 media-icon iconbox-45 bg-success text-white">
                                         <i class="mdi mdi-email-outline font-size-20"></i>
                                         <span class="status away"></span>
@@ -80,10 +80,15 @@
                             </div>
                         </div>
 
-                        <div class="tab-content chat-right-content" id="chat-right-content" data-simplebar>
+                        <div class="tab-content chat-right-content" id="myTabContent" data-simplebar>
                             {% for mail in mails %}
-                            <div class="tab-content overflow-auto h-100" >
-                            <div class="media media-chat media-left tab-pane fade" id="{{mail.id}}" role="tabpanel" aria-labelledby="{{mail.id}}-tab">
+
+                            <div class="tab-pane fade" id="{{mail.id}}" role="tabpanel" aria-labelledby="{{mail.id}}-tab">
+                                <div class="tab-widget ">
+
+<!--                            <div class="overflow-auto h-100" >-->
+
+                            <div class="media media-chat media-left" >
                                 <i class="mdi mdi-stack-exchange font-size-20"></i>
                                 <div class="media-body">
                                     <p class="message w-50"><strong>Name</strong> : {{ mail.name }}</p>
@@ -94,6 +99,8 @@
                                     <div class="date-time">{{ mail.date_created }}</div>
                                 </div>
                             </div>
+<!--                            </div>-->
+                                </div>
                             </div>
                             {% endfor %}
 
