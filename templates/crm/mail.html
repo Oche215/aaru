@@ -19,7 +19,7 @@
     <div class="content">
         <div class="card card-default mb-0">
             <div class="row bg-white no-gutters chat">
-                <div class="col-lg-5 col-xl-4">
+                <div class="col-lg-5 col-xl-4 overflow-auto" style="height: 200px;">
                     <!-- Chat Left Side -->
                     <div class="chat-left-side ">
 
@@ -27,7 +27,7 @@
                             <input type="text" class="form-control" placeholder="Search...">
                         </form>
 
-                        <ul class="list-unstyled border-top mb-0 col-md-6 overflow-auto" style="height: 200px;" id="chat-left-content" data-simplebar>
+                        <ul class="list-unstyled border-top mb-0" id="chat-left-content" data-simplebar>
                             {% for mail in mails %}
                             <li>
                                 <a href="#" class="media media-message">
