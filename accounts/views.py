@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 
 from django.contrib.auth.views import LoginView, TemplateView
-from store.models import Product, Catalog, Category
+from store.models import Product, Catalog, Category, ContactUs
 from .models import UserProfile
 from django.db.models import Count
 from .forms import CustomLoginForm, UserUpdateForm, UserProfileForm, RegistrationForm, AddProductForm, UpdateProductForm
@@ -19,6 +19,16 @@ class RegistrationView(CreateView):
     form_class = RegistrationForm
     success_url = reverse_lazy("list_staff")
     template_name = "registration/register.html"
+
+
+def mail(request):
+    if request.user.is_authenticated:
+        mails = ContactUs.objects.all()
+        total = mails.count()
+        return render(request, '', {'mails': mails, 'total': total})
+    else:
+        messages.warning(request, 'You must be logged in to view this page')
+        redirect('login')
 
 
 @login_required
