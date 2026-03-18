@@ -43,7 +43,7 @@
                                             <p class="last-msg">{{ mail.service }}.</p>
                                         </div>
 
-                                        <span class="date">{{ mail.date_created }}</span>
+                                        <span class="date w-25">{{ mail.date_created }}</span>
 
                                     </div>
                                 </a>
@@ -80,13 +80,15 @@
                         </div>
 
                         <div class="chat-right-content" id="chat-right-content" data-simplebar>
+                            {% for mail in mails %}
                             <div class="media media-chat media-left">
-                                <img class="rounded-circle mr-3" src="assets/img/user/u2.jpg" alt="Image">
+                                from
                                 <div class="media-body">
                                     <p class="message">Lorem ipsum dolor sit amet.</p>
                                     <div class="date-time">27-07-2019, 1.03 PM</div>
                                 </div>
                             </div>
+                            {% endfor %}
 
                             <div class="media media-chat media-right">
                                 <div class="media-body">
@@ -96,49 +98,6 @@
                                 <img class="rounded-circle ml-3" src="assets/img/user/u4.jpg" alt="Image">
                             </div>
 
-                            <div class="media media-chat media-left">
-                                <img class="rounded-circle mr-3" src="assets/img/user/u2.jpg" alt="Image">
-                                <div class="media-body">
-                                    <p class="message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
-                                        dolor, exercitationem
-                                        earum natus doloremque explicabo.</p>
-                                    <p class="message">Accusamus laborum explicabo illum asperiores provident dolore
-                                        perferendis cumque
-                                        incidunt possimus quia! Deleniti minus</p>
-                                    <div class="date-time">27-07-2019, 1.03 PM</div>
-                                </div>
-                            </div>
-
-                            <div class="media media-chat media-right">
-                                <div class="media-body">
-                                    <p class="message">Lorem ipsum dolor sit amet.</p>
-                                    <div class="date-time">27-07-2019, 1.03 PM</div>
-                                </div>
-                                <img class="rounded-circle ml-3" src="assets/img/user/u4.jpg" alt="Image">
-                            </div>
-
-                            <div class="media media-chat media-left">
-                                <img class="rounded-circle mr-3" src="assets/img/user/u2.jpg" alt="Image">
-                                <div class="media-body">
-                                    <p class="message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
-                                        dolor, exercitationem
-                                        earum natus
-                                        doloremque explicabo.</p>
-                                    <p class="message">Accusamus laborum explicabo illum asperiores provident dolore
-                                        perferendis cumque
-                                        incidunt
-                                        possimus quia! Deleniti minus</p>
-                                    <div class="date-time">27-07-2019, 1.03 PM</div>
-                                </div>
-                            </div>
-
-                            <div class="media media-chat media-right">
-                                <div class="media-body">
-                                    <p class="message">Lorem ipsum dolor sit amet.</p>
-                                    <div class="date-time">27-07-2019, 1.03 PM</div>
-                                </div>
-                                <img class="rounded-circle ml-3" src="assets/img/user/u4.jpg" alt="Image">
-                            </div>
 
                         </div>
 
