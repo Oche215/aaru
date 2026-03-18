@@ -32,6 +32,17 @@ def mail(request):
         redirect('login')
 
 
+def email(request):
+
+    if request.user.is_authenticated:
+        mails = ContactUs.objects.all().order_by('-pk')
+        total = mails.count()
+        return render(request, 'accounts/email.html', {'mails': mails, 'total': total})
+    else:
+        messages.warning(request, 'You must be logged in to view this page')
+        redirect('login')
+
+
 @login_required
 def accounts(request):
     catalogs = Catalog.objects.all()

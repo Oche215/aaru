@@ -1,0 +1,118 @@
+{% extends "crm/base.html" %}
+
+{% load static %}
+{% load humanize %}
+
+{% block link %}
+<!-- No Extra plugin used -->
+<link href="{% static 'crm/assets/plugins/jvectormap/jquery-jvectormap-2.0.3.css' %}" rel='stylesheet'>
+<link href="{% static 'crm/assets/plugins/daterangepicker/daterangepicker.css' %}" rel='stylesheet'>
+<link href="{% static 'crm/assets/plugins/toastr/toastr.min.css' %}" rel='stylesheet'>
+{% endblock link %}
+
+{% block content %}
+
+<!-- ====================================
+  ——— CONTENT WRAPPER
+  ===================================== -->
+
+
+<div class="content-wrapper">
+    <div class="content">
+
+        <!-- Top Statistics -->
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card card-default">
+                    <div class="card-header card-header-border-bottom">
+                        <h2>Vertical Tabs</h2>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="row ">
+                            <div class="col-sm-4">
+                                <ul class="nav nav-tabs nav-stacked flex-column">
+                                    <li class="nav-item">
+                                        <a href="#vtab1" class="nav-link active" data-toggle="tab" aria-expanded="true">
+                                            <i class="mdi mdi-home"></i> Home</a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a href="#vtab2" class="nav-link" data-toggle="tab" aria-expanded="false">
+                                            <i class="mdi mdi-account"></i> Profile</a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a href="#vtab3" class="nav-link" data-toggle="tab">
+                                            <i class="mdi mdi-phone"></i> Contact</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="tab-content col-sm-8 ">
+                                <div class="tab-pane fade active show" id="vtab1" aria-expanded="true">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor
+                                    incididunt ut
+                                    labore et dolore magna aliqua.
+                                    Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+                                    ea commodo
+                                    consequat. Duis
+                                    aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                                    nulla
+                                    pariatur.
+                                </div>
+
+                                <div class="tab-pane fade" id="vtab2" aria-expanded="false">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor
+                                    incididunt ut
+                                    labore et dolore magna aliqua.
+                                    Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+                                    ea commodo
+                                    consequat. Duis
+                                    aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                                    nulla
+                                    pariatur.
+                                </div>
+
+                                <div class="tab-pane fade" id="vtab3" aria-expanded="false">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor
+                                    incididunt ut
+                                    labore et dolore magna aliqua.
+                                    Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+                                    ea commodo
+                                    consequat. Duis
+                                    aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                                    nulla
+                                    pariatur.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div> <!-- End Content -->
+</div> <!-- End Content Wrapper -->
+
+
+{% endblock content %}
+
+{% block script %}
+
+<!-- Javascript -->
+<script src="{% static 'crm/assets/plugins/charts/Chart.min.js' %}"></script>
+<script src="{% static 'crm/assets/js/chart.js' %}"></script>
+
+<script src="{% static 'crm/assets/plugins/jvectormap/jquery-jvectormap-2.0.3.min.js' %}"></script>
+<script src="{% static 'crm/assets/plugins/jvectormap/jquery-jvectormap-world-mill.js' %}"></script>
+<script src="{% static 'crm/assets/js/vector-map.js' %}"></script>
+
+<script src="{% static 'crm/assets/plugins/daterangepicker/moment.min.js' %}"></script>
+<script src="{% static 'crm/assets/plugins/daterangepicker/daterangepicker.js' %}"></script>
+<script src="{% static 'crm/assets/js/date-range.js' %}"></script>
+
+<script src="{% static 'crm/assets/plugins/toastr/toastr.min.js' %}"></script>
+{% endblock %}
