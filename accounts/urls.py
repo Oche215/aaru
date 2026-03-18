@@ -1,6 +1,8 @@
 from django.urls import path
+
+from store.views import add_product
 from .views import accounts, edit_user, StaffListView, logout_user, CustomLoginView, product_admin, edit_product, \
-    product_record, delete_product
+    product_record, delete_product, AddProductView
 
 urlpatterns = [
     path('', accounts, name='accounts'),
@@ -12,6 +14,7 @@ urlpatterns = [
     path('list_staff/', StaffListView.as_view(), name='list_staff' ),
 
     path('product_admin/', product_admin, name='product_admin'),
+    path('add_product/', AddProductView.as_view(), name='add_product'),
     path('product_record/<slug:slug>/', product_record, name='product_record'),
     path('update_product/<slug:slug>/', edit_product, name='update_product'),
     path('delete_product/<slug:slug>/', delete_product, name='delete_product'),

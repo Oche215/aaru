@@ -38,13 +38,13 @@
                   <ul class="collapse " id="app" data-parent="#sidebar-menu">
                     <div class="sub-menu">
                       <li class="">
-                        <a class="sidenav-item-link" href="{% url 'accounts' %}">
+                        <a class="sidenav-item-link" href="{% url 'add_product' %}">
                           <span class="nav-text">Add Product</span>
                         </a>
                       </li>
 
                       <li class="">
-                        <a class="sidenav-item-link" href="{% url 'accounts' %}">
+                        <a class="sidenav-item-link" href="{% url 'product_admin' %}">
                           <span class="nav-text">List Products</span>
                         </a>
                       </li>
@@ -55,17 +55,14 @@
                         </a>
                       </li>
 
-                      <li class="">
-                        <a class="sidenav-item-link" href="#">
-                          <span class="nav-text"> Form </span>
-                        </a>
-                      </li>
+                     {% if user.is_staff %}
 
                       <li class="">
-                        <a class="sidenav-item-link" href="{% url 'accounts' %}">
+                        <a class="sidenav-item-link" href="{% url 'list_staff' %}">
                           <span class="nav-text">Staff List</span>
                         </a>
                       </li>
+                      {% endif %}
                     </div>
                   </ul>
                 </li>

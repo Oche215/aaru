@@ -10,7 +10,7 @@ from .models import UserProfile
 from django.db.models import Count
 from .forms import CustomLoginForm, UserUpdateForm, UserProfileForm, RegistrationForm, AddProductForm, UpdateProductForm
 
-from django.views.generic import UpdateView, View
+from django.views.generic import UpdateView, CreateView
 from django.urls import reverse_lazy
 
 from django.urls import path
@@ -202,6 +202,14 @@ def delete_product(request, slug):
     messages.success(request, f"PRODUCT: {name} was DELETED successfully!")
     return redirect("product_admin", )
 
+class AddProductView(CreateView):
+    form_class = AddProductForm
+    success_url = reverse_lazy("list_products")
+    template_name = "accounts/add_product.html"
+
+    def form_valid(self, form):
+        # You can add extra logic here before saving
+        return super().form_valid(form)
 
 
 
