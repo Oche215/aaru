@@ -28,6 +28,7 @@
         </form>
 
         <ul class="list-unstyled border-top mb-0" id="chat-left-content" data-simplebar>
+            {% for mail in mails %}
           <li>
             <a href="#" class="media media-message">
               <div class="position-relative mr-3">
@@ -36,18 +37,17 @@
               </div>
               <div class="media-body d-flex justify-content-between">
                 <div class="message-contents">
-                  <h4 class="title">Aaren</h4>
-                  <p class="last-msg">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam itaque doloremque
-                    odio,
-                    eligendi delectus vitae.</p>
+                  <h4 class="title">{{mail.name}}</h4>
+                  <p class="last-msg">{{ mail.service }}.</p>
                 </div>
 
-                <span class="date">12 Jun</span>
+                <span class="date">{{ mail.date_created }}</span>
 
               </div>
             </a>
           </li>
           <li>
+              {% endfor %}
             <a href="#" class="media media-message media-active">
               <div class="position-relative mr-3">
                 <img class="rounded-circle" src="assets/img/user/u2.jpg" alt="Image">
