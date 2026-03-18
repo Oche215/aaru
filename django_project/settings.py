@@ -176,50 +176,6 @@ EMAIL_HOST_USER = 'avadacouturewebsite@gmail.com'  # SMTP server username
 EMAIL_HOST_PASSWORD = 'wjpeajplbbalregt'  # SMTP server password
 DEFAULT_FROM_EMAIL = 'AARU by AVADA <avadacouturewebsite@gmail.com>'  # Default sender email address
 
-# S3 Storage Configuration
-# S3 Storage for NEW uploads only
-# STORAGES = {
-#     'default': {
-#         'BACKEND': 'storages.backends.s3boto3.S3Boto3Storage',
-#         'OPTIONS': {
-#             'access_key': os.environ.get('BUCKET_ACCESS_KEY_ID'),
-#             'secret_key': os.environ.get('BUCKET_SECRET_ACCESS_KEY'),
-#             'storage_bucket_name': os.environ.get('BUCKET'),
-#             'region_name': os.environ.get('BUCKET_REGION', 'us-east-1'),
-#             'endpoint_url': os.environ.get('BUCKET_ENDPOINT'),
-#             'use_ssl': True,
-#         }
-#     },
-#     'staticfiles': {
-#         'BACKEND': 'whitenoise.storage.CompressedManifestStaticFilesStorage',
-#     }
-# }
-
-
-
-
-# if not DEBUG:
-#     STORAGES = {
-#         'default': {
-#             'BACKEND': 'storages.backends.s3boto3.S3Boto3Storage',
-#             'OPTIONS': {
-#                 'access_key': os.environ.get('BUCKET_ACCESS_KEY_ID'),
-#                 'secret_key': os.environ.get('BUCKET_SECRET_ACCESS_KEY'),
-#                 'storage_bucket_name': os.environ.get('BUCKET'),
-#                 'region_name': os.environ.get('BUCKET_REGION', 'us-east-1'),
-#                 'endpoint_url': os.environ.get('BUCKET_ENDPOINT'),
-#                 'use_ssl': True,
-#             }
-#         },
-#         'staticfiles': {
-#             'BACKEND': 'whitenoise.storage.CompressedManifestStaticFilesStorage',
-#         }
-#     }
-#     MEDIA_URL = f"https://{os.environ.get('BUCKET_ENDPOINT')}/{os.environ.get('BUCKET')}/"
-# else:
-#     MEDIA_URL = '/media/'
-#     MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
 
 # S3 Storage for NEW uploads only
 if not DEBUG:
