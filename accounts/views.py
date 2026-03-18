@@ -15,6 +15,11 @@ from django.urls import reverse_lazy
 
 from django.urls import path
 
+class RegistrationView(CreateView):
+    form_class = RegistrationForm
+    success_url = reverse_lazy("list_staff")
+    template_name = "registration/register.html"
+
 
 @login_required
 def accounts(request):
