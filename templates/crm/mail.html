@@ -58,11 +58,11 @@
                 <div class="col-lg-7 col-xl-8">
                     <!-- Chats -->
                     <div class="chat-right-side">
-                        <div class="media media-chat align-items-center mb-0 media-chat-header" href="#">
-                            <img class="rounded-circle mr-3" src="assets/img/user/u2.jpg" alt="Image">
+                        <div class="media media-chat align-items-center mb-0 media-chat-header" >
+                            <i class="mdi mdi-email-outline font-size-20"></i>
                             <div class="media-body w-100">
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <h3 class="heading-title mb-0"><a href="#">Leon Battista</a></h3>
+                                    <h3 class="heading-title mb-0"><a href="#">No. of Mail: {{ total }}</a></h3>
                                     <div class="dropdown">
                                         <a class="dropdown-toggle icon-burger-mini" href="#" role="button"
                                            id="dropdownMenuLink"
@@ -85,12 +85,12 @@
                             <div class="media media-chat media-left">
                                 from
                                 <div class="media-body">
-                                    <p class="message w-50">Name: {{ mail.name }}</p>
-                                    <p class="message w-50">Email: {{ mail.email }}</p>
-                                    <p class="message">{{ mail.phone }}</p>
+                                    <p class="message w-50"><strong>Name</strong> : {{ mail.name }}</p>
+                                    <p class="message w-50"><strong>Email</strong> : {{ mail.email }}</p>
+                                    <p class="message"><strong>Phone</strong> : {{ mail.phone }}</p>
                                     <p class="message w-50">Date: {{ mail.date_created }}</p>
-                                    <p class="message">{{ mail.message }}</p>
-                                    <div class="date-time">{{ mail.date_created }}</div>
+                                    <p class="message"><strong>Message</strong> : {{ mail.message }}</p>
+<!--                                    <div class="date-time">{{ mail.date_created }}</div>-->
                                 </div>
                             </div>
                             </div>
