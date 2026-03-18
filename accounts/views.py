@@ -22,6 +22,7 @@ class RegistrationView(CreateView):
 
 
 def mail(request):
+
     if request.user.is_authenticated:
         mails = ContactUs.objects.all().order_by('-pk')
         total = mails.count()

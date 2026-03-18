@@ -32,7 +32,8 @@
 
                             {% for mail in mails %}
                             <li>
-                                <a href="#" class="media media-message">
+
+                                <a href="#{{mail.id}}" class="media media-message" id="{{mail.id}}-tab" role="tab" aria-controls="{{mail.id}}" aria-selected="true">
                                     <div class="d-flex rounded-circle align-items-center justify-content-center mr-3 media-icon iconbox-45 bg-success text-white">
                                         <i class="mdi mdi-email-outline font-size-20"></i>
                                         <span class="status away"></span>
@@ -82,8 +83,8 @@
                         <div class="chat-right-content" id="chat-right-content" data-simplebar>
                             {% for mail in mails %}
                             <div class="overflow-auto h-100" >
-                            <div class="media media-chat media-left">
-                                from
+                            <div class="media media-chat media-left tab-pane fade" id="{{mail.id}}" role="tabpanel" aria-labelledby="{{mail.id}}-tab">
+                                <i class="mdi mdi-stack-exchange font-size-20"></i>
                                 <div class="media-body">
                                     <p class="message w-50"><strong>Name</strong> : {{ mail.name }}</p>
                                     <p class="message w-50"><strong>Email</strong> : {{ mail.email }}</p>

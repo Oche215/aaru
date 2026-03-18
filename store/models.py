@@ -98,6 +98,7 @@ class ContactUs(models.Model):
     )
     message = models.TextField(max_length=360, blank=True)
     service = models.ForeignKey('Service', related_name='services', on_delete=models.CASCADE)
+    link = models.PositiveIntegerField(blank=True, null=True)
 
     class Meta:
         verbose_name_plural = 'Contact Us'
