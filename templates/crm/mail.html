@@ -8,9 +8,6 @@
 <link href="{% static 'crm/assets/plugins/jvectormap/jquery-jvectormap-2.0.3.css' %}" rel='stylesheet'>
 <link href="{% static 'crm/assets/plugins/daterangepicker/daterangepicker.css' %}" rel='stylesheet'>
 <link href="{% static 'crm/assets/plugins/toastr/toastr.min.css' %}" rel='stylesheet'>
-
-    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
 {% endblock link %}
 
 {% block content %}
@@ -31,14 +28,11 @@
                         </form>
 
                         <div class="overflow-auto h-100" >
-                            <ul class="list-unstyled border-top mb-0 portfolio-filters isotope-filters" id="chat-left-content" data-simplebar>
+                            <ul class="list-unstyled border-top mb-0" id="chat-left-content" data-simplebar>
 
                             {% for mail in mails %}
-
-                            <li data-filter=".filter-{{mail.id}}" class="{% if mail.last %}filter-active{% endif %}">
-                                <div class="isotope-layout" data-default-filter=".filter-{{mail.last.id }}" data-layout="masonry" data-sort="original-order">
-
-
+                            <li>
+                                <a href="#" class="media media-message">
                                     <div class="d-flex rounded-circle align-items-center justify-content-center mr-3 media-icon iconbox-45 bg-success text-white">
                                         <i class="mdi mdi-email-outline font-size-20"></i>
                                         <span class="status away"></span>
@@ -52,8 +46,7 @@
                                         <span class="date w-25">{{ mail.date_created }}</span>
 
                                     </div>
-
-                                </div>
+                                </a>
                             </li>
                             {% endfor %}
 
@@ -69,7 +62,7 @@
                             <img class="rounded-circle mr-3" src="assets/img/user/u2.jpg" alt="Image">
                             <div class="media-body w-100">
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <h3 class="heading-title mb-0"><a href="#">No. of Mail: {{ total }}</a></h3>
+                                    <h3 class="heading-title mb-0"><a href="#">Leon Battista</a></h3>
                                     <div class="dropdown">
                                         <a class="dropdown-toggle icon-burger-mini" href="#" role="button"
                                            id="dropdownMenuLink"
@@ -88,19 +81,17 @@
 
                         <div class="chat-right-content" id="chat-right-content" data-simplebar>
                             {% for mail in mails %}
-                            <div class="portfolio-item isotope-item filter-{{mail.id}}">
                             <div class="overflow-auto h-100" >
                             <div class="media media-chat media-left">
                                 from
                                 <div class="media-body">
                                     <p class="message w-50">Name: {{ mail.name }}</p>
                                     <p class="message w-50">Email: {{ mail.email }}</p>
-                                    <p class="message w-50"><strong>Phone:</strong>{{ mail.phone }}</p>
+                                    <p class="message">{{ mail.phone }}</p>
                                     <p class="message w-50">Date: {{ mail.date_created }}</p>
                                     <p class="message">{{ mail.message }}</p>
                                     <div class="date-time">{{ mail.date_created }}</div>
                                 </div>
-                            </div>
                             </div>
                             </div>
                             {% endfor %}
@@ -144,6 +135,4 @@
 <script src="{% static 'crm/assets/js/date-range.js' %}"></script>
 
 <script src="{% static 'crm/assets/plugins/toastr/toastr.min.js' %}"></script>
-
-<script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
 {% endblock %}
