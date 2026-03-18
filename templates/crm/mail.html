@@ -85,11 +85,12 @@
                             <div class="media media-chat media-left">
                                 from
                                 <div class="media-body">
-                                    <p class="message">{{ mail.name }}</p>
-                                    <p class="message">{{ mail.email }}</p>
+                                    <p class="message w-50">Name: {{ mail.name }}</p>
+                                    <p class="message w-50">Email: {{ mail.email }}</p>
                                     <p class="message">{{ mail.phone }}</p>
-                                    <div class="date-time">{{ mail.date_created }}</div>
+                                    <p class="message w-50">Date: {{ mail.date_created }}</p>
                                     <p class="message">{{ mail.message }}</p>
+                                    <div class="date-time">{{ mail.date_created }}</div>
                                 </div>
                             </div>
                             </div>
