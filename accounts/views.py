@@ -25,7 +25,7 @@ def mail(request):
     if request.user.is_authenticated:
         mails = ContactUs.objects.all()
         total = mails.count()
-        return render(request, '', {'mails': mails, 'total': total})
+        return render(request, 'crm/mail.html', {'mails': mails, 'total': total})
     else:
         messages.warning(request, 'You must be logged in to view this page')
         redirect('login')
