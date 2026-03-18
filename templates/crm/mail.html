@@ -81,29 +81,27 @@
 
                         <div class="chat-right-content" id="chat-right-content" data-simplebar>
                             {% for mail in mails %}
+                            <div class="overflow-auto h-100" >
                             <div class="media media-chat media-left">
                                 from
                                 <div class="media-body">
-                                    <p class="message">Lorem ipsum dolor sit amet.</p>
-                                    <div class="date-time">27-07-2019, 1.03 PM</div>
+                                    <p class="message">{{ mail.email }}</p>
+                                    <div class="date-time">{{ mail.date_created }}</div>
                                 </div>
+                            </div>
                             </div>
                             {% endfor %}
 
-                            <div class="media media-chat media-right">
-                                <div class="media-body">
-                                    <p class="message">Consectetur adipisicing elit Odio ex.</p>
-                                    <div class="date-time">27-07-2019, 1.03 PM</div>
-                                </div>
-                                <img class="rounded-circle ml-3" src="assets/img/user/u4.jpg" alt="Image">
-                            </div>
+<!--                            <div class="media media-chat media-right">-->
+<!--                                <div class="media-body">-->
+<!--                                    <p class="message">Consectetur adipisicing elit Odio ex.</p>-->
+<!--                                    <div class="date-time">27-07-2019, 1.03 PM</div>-->
+<!--                                </div>-->
+<!--                                <img class="rounded-circle ml-3" src="assets/img/user/u4.jpg" alt="Image">-->
+<!--                            </div>-->
 
 
                         </div>
-
-                        <form class="px-5 pb-3">
-                            <input type="text" class="form-control mb-3" placeholder="Type your message here">
-                        </form>
                     </div>
 
                 </div>
