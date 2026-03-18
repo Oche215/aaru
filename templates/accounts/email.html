@@ -117,6 +117,7 @@
 				<div class="row ">
 					<div class="col-sm-4">
 						<ul class="nav nav-pills nav-stacked flex-column">
+                            {% for mail in mails %}
 							<li class="nav-item">
 								<a href="#vtab4" class="nav-link active" data-toggle="tab" aria-expanded="true">
                                     <div class="d-flex rounded-circle align-items-center justify-content-center mr-3 media-icon iconbox-45 bg-success text-white">
@@ -131,6 +132,7 @@
                                             </div>
                                 </a>
 							</li>
+                            {% endfor %}
 
 							<li class="nav-item">
 								<a href="#vtab5" class="nav-link" data-toggle="tab" aria-expanded="false">
