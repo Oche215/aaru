@@ -28,15 +28,13 @@
                         </form>
 
                         <div class="overflow-auto h-100" >
-                            <ul class="list-unstyled border-top mb-0" id="chat-left-content" data-simplebar>
+                            <ul class="list-unstyled border-top mb-0 portfolio-filters isotope-filters" id="chat-left-content" data-simplebar>
 
                             {% for mail in mails %}
 
-                            <li>
+                            <li data-filter=".filter-{{mail.name}}" class="filter-{% if mail.last %}active{% endif %}">
                                 <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-                                         <div class="portfolio-filters-container" data-aos="fade-up" data-aos-delay="100">
-                                             <ul class="portfolio-filters isotope-filters">
-                                                 <li data-filter="*" class="filter-{% if mail.last %}active{% endif %}">
+
 
                                     <div class="d-flex rounded-circle align-items-center justify-content-center mr-3 media-icon iconbox-45 bg-success text-white">
                                         <i class="mdi mdi-email-outline font-size-20"></i>
@@ -51,9 +49,7 @@
                                         <span class="date w-25">{{ mail.date_created }}</span>
 
                                     </div>
-                                </li>
-                                             </ul>
-                                         </div>
+
                                 </div>
                             </li>
                             {% endfor %}
@@ -89,7 +85,7 @@
 
                         <div class="chat-right-content" id="chat-right-content" data-simplebar>
                             {% for mail in mails %}
-                            <div class="col-lg-4 col-md-4 portfolio-item isotope-item filter-{{mail.name}}">
+                            <div class="portfolio-item isotope-item filter-{{mail.name}}">
                             <div class="overflow-auto h-100" >
                             <div class="media media-chat media-left">
                                 from
