@@ -138,15 +138,6 @@
                             </li>
                             {% endfor %}
 
-							<li class="nav-item">
-								<a href="#vtab5" class="nav-link" data-toggle="tab" aria-expanded="false">
-									<i class="mr-1 fa fa-user"></i> Profile</a>
-							</li>
-
-							<li class="nav-item">
-								<a href="#vtab6" class="nav-link" data-toggle="tab">
-									<i class="mr-1 fa fa-phone"></i> Contact</a>
-							</li>
 						</ul>
 					</div>
 
@@ -154,7 +145,7 @@
 
 					<div class="tab-content col-sm-7 ">
                         {% for mail in mails %}
-                        {% if mail.first %}
+                        {% if forloop.last %}
 						<div class="tab-pane fade active show" id="{{mail.id}}"  aria-expanded="true">
                             {{ mail.message }}
 						</div>
@@ -165,17 +156,6 @@
                          {% endif %}
                         {% endfor %}
 
-						<div class="tab-pane fade" id="vtab5" aria-expanded="false">
-							Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-							Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-							aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-						</div>
-
-						<div class="tab-pane fade" id="vtab6" aria-expanded="false">
-							Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-							Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-							aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-						</div>
 					</div>
 				</div>
 			</div>
