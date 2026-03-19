@@ -22,71 +22,13 @@
 
         <!-- Top Statistics -->
 
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card card-default">
-                    <div class="card-header card-header-border-bottom">
-                        <h2>Vertical Tabs</h2>
-                    </div>
-
-                    <div class="card-body">
-                        <div class="row ">
-                            <div class="col-sm-4">
-                                <ul class="nav nav-tabs nav-stacked flex-column">
-                                    <li class="nav-item">
-                                        <a href="#vtab1" class="nav-link active" data-toggle="tab" aria-expanded="true">
-                                            <div class="d-flex rounded-circle align-items-center justify-content-center mr-3 media-icon iconbox-45 bg-success text-white">
-                                                <i class="mdi mdi-email-outline font-size-20 fs-4"></i>
-                                                <span class="status away"></span>
-                                            </div>
-                                            <div class="media-body d-flex justify-content-between">
-                                        <div class="message-contents">
-                                            <h4 class="title">{{mail.name}}</h4>
-                                            <p class="last-msg">{{ mail.service }}.</p>
-                                        </div>
-
-                                        <span class="date w-25">{{ mail.date_created }}</span>
-
-                                    </div>
-                                        </a>
-                                    </li>
-
-                                    <li class="nav-item">
-                                        <a href="#vtab2" class="nav-link" data-toggle="tab" aria-expanded="false">
-                                            <i class="mdi mdi-account"></i> Profile</a>
-                                    </li>
-
-                                    <li class="nav-item">
-                                        <a href="#vtab3" class="nav-link" data-toggle="tab">
-                                            <i class="mdi mdi-phone"></i> Contact</a>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div class="tab-content col-sm-8 ">
-                                <div class="tab-pane fade active show" id="vtab1" aria-expanded="true">
-                                    tab-1
-                                </div>
-
-                                <div class="tab-pane fade" id="vtab2" aria-expanded="false">
-                                    tab-2
-                                </div>
-
-                                <div class="tab-pane fade" id="vtab3" aria-expanded="false">
-                                    tab-3
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <div class="row">
              <div class="col-lg-12">
 		<div class="card card-default">
 			<div class="card-header card-header-border-bottom">
-				<h2>Vertical Fill Tabs</h2>
+				<h2>Messages from Prospective Customer: {{total}}</h2>
+                 <h3 class="heading-title mb-0"><a href="#"><i class="mdi mdi-email-outline font-size-20"></i>: {{ total }}</a></h3>
 			</div>
 
 			<div class="card-body">
@@ -123,11 +65,31 @@
                         {% for mail in mails %}
                         {% if forloop.first %}
 						<div class="tab-pane fade active show" id="etab-{{mail.id}}"  aria-expanded="true">
-                            {{ mail.message }}
+                           <div class="media media-chat media-left" >
+                                <i class="mdi mdi-stack-exchange font-size-20"></i>
+                                <div class="media-body">
+                                    <p class="message w-50"><strong>Name</strong> : {{ mail.name }}</p>
+                                    <p class="message w-50"><strong>Email</strong> : {{ mail.email }}</p>
+                                    <p class="message"><strong>Phone</strong> : {{ mail.phone }}</p>
+                                    <p class="message w-50"><strong>Date</strong> : {{ mail.date_created }}</p>
+                                    <p class="message"><strong>Message</strong> : {{ mail.message }}</p>
+                                    <div class="date-time">{{ mail.date_created }}</div>
+                                </div>
+                            </div>
 						</div>
                         {% else %}
                         <div class="tab-pane fade" id="etab-{{mail.id}}" aria-expanded="false">
-                            {{ mail.message }}
+                            <div class="media media-chat media-left" >
+                                <i class="mdi mdi-stack-exchange font-size-20"></i>
+                                <div class="media-body">
+                                    <p class="message w-50"><strong>Name</strong> : {{ mail.name }}</p>
+                                    <p class="message w-50"><strong>Email</strong> : {{ mail.email }}</p>
+                                    <p class="message"><strong>Phone</strong> : {{ mail.phone }}</p>
+                                    <p class="message w-50"><strong>Date</strong> : {{ mail.date_created }}</p>
+                                    <p class="message"><strong>Message</strong> : {{ mail.message }}</p>
+                                    <div class="date-time">{{ mail.date_created }}</div>
+                                </div>
+                            </div>
 						</div>
                          {% endif %}
                         {% endfor %}
