@@ -27,8 +27,7 @@
              <div class="col-lg-12">
 		<div class="card card-default">
 			<div class="card-header card-header-border-bottom">
-				<h2>Messages from Prospective Customer: {{total}}</h2>
-                 <h3 class="heading-title mb-0"><a href="#"><i class="mdi mdi-email-outline font-size-20"></i>: {{ total }}</a></h3>
+				<h2><i class="mdi mdi-email-outline font-size-20"></i> Messages from Prospective Customer: {{total}}</h2>
 			</div>
 
 			<div class="card-body">
@@ -74,7 +73,7 @@
                                     <p class="message "><strong>Email</strong> : {{ mail.email }}</p>
                                     <p class="message"><strong>Phone</strong> : {{ mail.phone }}</p>
                                     <p class="message "><strong>Date</strong> : {{ mail.date_created }}</p>
-                                    <p class="message"><strong>Message</strong> : {{ mail.message }}</p>
+                                    <p class="message w-75"><strong>Message</strong> : {{ mail.message }}</p>
                                     <div class="date-time">{{ mail.date_created }}</div>
                                 </div>
                             </div>
@@ -90,7 +89,7 @@
                                     <p class="message"><strong>Email</strong> : {{ mail.email }}</p>
                                     <p class="message"><strong>Phone</strong> : {{ mail.phone }}</p>
                                     <p class="message"><strong>Date</strong> : {{ mail.date_created }}</p>
-                                    <p class="message"><strong>Message</strong> : {{ mail.message }}</p>
+                                    <p class="message w-75"><strong>Message</strong> : {{ mail.message }}</p>
                                     <div class="date-time">{{ mail.date_created }}</div>
                                 </div>
                             </div>
