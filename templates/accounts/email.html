@@ -150,10 +150,19 @@
 						</ul>
 					</div>
 
+
+
 					<div class="tab-content col-sm-7 ">
-						<div class="tab-pane fade active show" id="{{mail.id}}" aria-expanded="true">
+                        {% for mail in mails %}
+                        {% if mail.first %}
+						<div class="tab-pane fade active show" id="{{mail.id}}"  aria-expanded="true">
                             {{ mail.message }}
 						</div>
+                        {% else %}
+                        <div class="tab-pane fade active show" id="{{mail.id}}" aria-expanded="true">
+                            {{ mail.message }}
+						</div>
+                        {% endfor %}
 
 						<div class="tab-pane fade" id="vtab5" aria-expanded="false">
 							Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
