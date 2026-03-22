@@ -131,7 +131,7 @@
                         {% for product in products %}
                       <div class="media d-flex mb-5">
                         <div class="media-image align-self-center mr-3 rounded">
-                          <a href="#"><img src="{% if product.pix %}{{ product.pix.url }}{% else %}{% static 'images/portfolio/portfolio-img-1.jpg' %}{% endif %}" alt="Profile Picture" class="user-image"></a>
+                          <a href="#"><img src="{% if product.pix %}{{ product.pix.url }}{% else %}{% static 'images/portfolio/portfolio-img-1.jpg' %}{% endif %}" alt="Profile Picture" width="90" class="user-image rounded"></a>
 
                         </div>
                         <div class="media-body align-self-center">
