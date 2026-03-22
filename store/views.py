@@ -98,6 +98,7 @@ def gallery(request):
 
 class ProductDetailView(HitCountDetailView):
     model = Product
+    context_object_name = 'product'
     template_name = 'store/details.html'
     count_hit = True
 
