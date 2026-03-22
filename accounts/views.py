@@ -42,6 +42,14 @@ def email(request):
         messages.warning(request, 'You must be logged in to view this page')
         redirect('login')
 
+@login_required()
+def delete_message(request, pk):
+    item = get_object_or_404(ContactUs, id=pk)
+    name = item.name
+    item.delete()
+    messages.success(request, f"MESSAGE: {name} was DELETED successfully!")
+    return redirect("email", )
+
 
 @login_required
 def accounts(request):
