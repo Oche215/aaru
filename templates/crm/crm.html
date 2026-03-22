@@ -55,7 +55,7 @@
                 <div class="card card-table-border-none">
                     <div class="card-header justify-content-between">
                         <h2>Products by Catalog: {{total_products}}</h2>
-                        <p>Total hits: {{ hitcount.total_hits }}</p>
+
 
                         <div>
                             <button class="text-black-50 mr-2 font-size-20"><i class="mdi mdi-cached"></i></button>
@@ -89,6 +89,10 @@
                                     {% endif %}
 
                                 </td>
+
+                                <td class="text-center"><p>Total hits: {{ hitcount.total_hits }}</p></td>
+
+
 
                             </tr>
                             {% endfor %}
@@ -127,7 +131,8 @@
                         {% for product in products %}
                       <div class="media d-flex mb-5">
                         <div class="media-image align-self-center mr-3 rounded">
-                          <a href="#"><img src="{{ product.pix.url }}" width="90" alt="image" class="rounded"></a>
+                          <a href="#"><img src="{% if product.pix %}{{ product.pix.url }}{% else %}{% static 'images/portfolio/portfolio-img-1.jpg' %}{% endif %}" alt="Profile Picture" class="user-image"></a>
+
                         </div>
                         <div class="media-body align-self-center">
                           <a href="#"><h6 class="mb-3 text-dark font-weight-medium"> {{ product.name }}</h6></a>
