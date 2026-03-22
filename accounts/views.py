@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.db.models import F
 
 from django.contrib.auth.views import LoginView, TemplateView
 from store.models import Product, Catalog, Category, ContactUs
@@ -224,10 +225,15 @@ def edit_product(request, slug):
     messages.warning(request, "You must be logged in to edit info!")
     return redirect("login",)
 
+
 @login_required()
 def product_record(request, slug):
     product = get_object_or_404(Product, slug=slug)
+
+    Product.objects.filter(slug=slug).update(hits=F('hits') + 1)
+
     return render(request, "accounts/product_record.html", {"product": product})
+
 
 @login_required()
 def delete_product(request, slug):
