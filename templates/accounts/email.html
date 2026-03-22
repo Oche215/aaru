@@ -65,6 +65,20 @@
                         {% for mail in mails %}
                         {% if forloop.first %}
 						<div class="tab-pane fade active show" id="etab-{{mail.id}}"  aria-expanded="true">
+
+                            <div class="dropdown show d-inline-block widget-dropdown">
+                                <a class="dropdown-toggle icon-burger-mini" href="#" role="button" id="dropdown-{{mail.id}}" data-toggle="dropdown" aria-haspopup="true"
+                                  aria-expanded="false" data-display="static"></a>
+                                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-{{mail.id}}">
+                                  <li class="dropdown-item">
+                                    <a href="#">View</a>
+                                  </li>
+                                  <li class="dropdown-item">
+                                    <a href="#">Remove</a>
+                                  </li>
+                                </ul>
+                              </div>
+
                            <div class="media media-chat media-left" >
                                 <div class="d-flex rounded-circle align-items-center justify-content-center mr-3 media-icon iconbox-45 bg-warning text-white">
                                     <i class="mdi mdi-stack-exchange font-size-20"></i>
