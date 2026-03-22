@@ -6,6 +6,7 @@ from django.core.mail import send_mail
 from django_project.settings import DEFAULT_FROM_EMAIL
 
 from django.http import HttpResponse
+from hitcount.views import HitCountDetailView
 from django.views.decorators.http import condition
 
 # Create your views here.
@@ -93,4 +94,10 @@ def serve_image(request, id):
 def gallery(request):
 
     return render(request, 'store/gallery.html', )
+
+
+class ProductDetailView(HitCountDetailView):
+    model = Product
+    template_name = 'store/details.html'
+    count_hit = True
 

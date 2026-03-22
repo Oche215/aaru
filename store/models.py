@@ -38,6 +38,7 @@ class Product(models.Model):
     manufacturer = models.CharField(max_length=120)
 
     barcode_img = models.ImageField(upload_to='barcodes/', blank=True, null=True)
+    hits = models.PositiveIntegerField(default=0)
 
     def __str__(self):
         return self.name

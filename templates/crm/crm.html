@@ -2,6 +2,7 @@
 
 {% load static %}
 {% load humanize %}
+{% load hitcount_tags %}
 
 {% block link %}
 <!-- No Extra plugin used -->
@@ -33,6 +34,7 @@
                         <h2 class="mb-1"> {{ value }}</h2>
 
                         <p>{{ key }}</p>
+                        <p>Views: {% get_hit_count for object %}</p>
 
 
                         <div class="chartjs-wrapper">
@@ -53,6 +55,7 @@
                 <div class="card card-table-border-none">
                     <div class="card-header justify-content-between">
                         <h2>Products by Catalog: {{total_products}}</h2>
+                        <p>Total hits: {{ hitcount.total_hits }}</p>
                         <div>
                             <button class="text-black-50 mr-2 font-size-20"><i class="mdi mdi-cached"></i></button>
                             <div class="dropdown show d-inline-block widget-dropdown">

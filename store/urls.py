@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import home, details, services, about, contact, get_product_image, index, serve_image, gallery
+from .views import home, details, services, about, contact, get_product_image, index, serve_image, gallery, ProductDetailView
 from accounts.views import delete_message
 
 urlpatterns = [
@@ -17,5 +17,8 @@ urlpatterns = [
     path('image/<int:id>/', serve_image, name='serve_image'),
 
     path('gallery/', gallery, name='gallery'),
+
+    path('post/<int:pk>/', ProductDetailView.as_view(), name='post-detail'),
+    path('details/<slug:slug>', ProductDetailView.as_view(), name='product-details'),
 
 ]
