@@ -76,11 +76,6 @@
                             <tbody>
                            {% for key, value, percent in context2 %}
                             <tr>
-
-                                <td class="text-dark">{{ key }}</td>
-
-                                <td class="text-center">{{ value }}</td>
-
                                 <td class="text-right"> {{  percent|floatformat:1  }}%
                                     {% if percent > 50 %}
                                     <i class="mdi mdi-arrow-up-bold text-success pl-1 font-size-12"></i>
@@ -89,12 +84,18 @@
                                     {% endif %}
 
                                 </td>
-
-                                <td class="text-center"><p>Total hits: {{ hitcount.total_hits }}</p></td>
-
-
-
                             </tr>
+                           <tr>
+                               <td class="text-dark">{{ key }}</td>
+                           </tr>
+                           <tr>
+                                <td class="text-center">{{ value }}</td>
+                           </tr>
+                                <tr>
+                               <td class="text-center"><p>Total hits: {{ hitcount.total_hits }}</p></td>
+                           </tr>
+
+
                             {% endfor %}
 
                             </tbody>
