@@ -1,3 +1,4 @@
+from django.contrib.gis.geoip2 import GeoIP2
 from django.shortcuts import render, redirect, HttpResponseRedirect, reverse, HttpResponse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth import login, logout
@@ -252,6 +253,6 @@ class AddProductView(CreateView):
         # You can add extra logic here before saving
         return super().form_valid(form)
 
-
-
+g = GeoIP2()
+country = g.country('8.8.8.8') # Returns {'country_code': 'US', 'country_name': 'United States'}
 

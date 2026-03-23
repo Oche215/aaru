@@ -8,6 +8,7 @@ from django_project.settings import DEFAULT_FROM_EMAIL
 from django.http import HttpResponse
 from hitcount.views import HitCountDetailView
 from django.views.decorators.http import condition
+from django.contrib.gis.geoip2 import GeoIP2
 
 # Create your views here.
 
@@ -101,6 +102,9 @@ class ProductDetailView(HitCountDetailView):
     context_object_name = 'product'
     template_name = 'store/details.html'
     count_hit = True
+
+    g = GeoIP2()
+    country = g.country('8.8.8.8')  # Returns {'country_code': 'US', 'country_name': 'United States'}
 
 def order(request, slug):
     product = Product.objects.get(slug=slug)

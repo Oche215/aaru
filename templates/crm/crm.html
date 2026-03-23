@@ -84,6 +84,14 @@
                             <td class="text-right">{{ hitcount.total_hits }} <i class="mdi mdi-arrow-up-bold text-success pl-1 font-size-12"></i> </td>
                           </tr>
 
+                         {% for hit in hitcount.hits.all %}
+                        <tr>
+                            <td class="text-dark">IP Address:</td>
+                            <td class="text-center"></td>
+                            <td class="text-right">{{ hit.ip }} <i class="mdi mdi-arrow-up-bold text-success pl-1 font-size-12"></i> </td>
+                          </tr>
+                        {% endfor %}
+
                         </tbody>
                       </table>
 
