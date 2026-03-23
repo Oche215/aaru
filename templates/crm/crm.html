@@ -62,7 +62,7 @@
                         </div>
                     </div>
 
-                    <div class="card-body py-0 compact-units" data-simplebar style="height: 384px;">
+                    <div class="card-body py-0 compact-units p-3 border" data-simplebar style="height: 384px;">
                       <table class="table ">
                         <tbody>
                          {% for key, value, percent in context2 %}
@@ -115,7 +115,8 @@
                         <div class="media-body align-self-center">
                           <a href="#"><h6 class="mb-3 text-dark font-weight-medium"> {{ product.name }}</h6></a>
                           <p class="float-md-right"><span class="text-dark mr-2">{% get_hit_count for product %}</span>Views</p>
-                            <h6 class="text-secondary "> {{ product.price|intcomma }}</h6>
+                            <p>{{ product.price|intcomma }}</p>
+
 
                         </div>
                       </div>
