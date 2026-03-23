@@ -68,7 +68,7 @@
                          {% for key, value, percent in context2 %}
                           <tr>
                             <td class="text-dark">{{ key }}</td>
-                            <td class="text-center">9</td>
+                            <td class="text-center"></td>
                             <td class="text-right">{{  percent|floatformat:1  }}%
                                  {% if percent > 50 %}
                                     <i class="mdi mdi-arrow-up-bold text-success pl-1 font-size-12"></i>
@@ -80,7 +80,7 @@
                           {% endfor %}
                           <tr>
                             <td class="text-dark">T-Views</td>
-                            <td class="text-center">6</td>
+                            <td class="text-center"></td>
                             <td class="text-right">{{ hitcount.total_hits }} <i class="mdi mdi-arrow-up-bold text-success pl-1 font-size-12"></i> </td>
                           </tr>
 
@@ -141,7 +141,8 @@
 
             </div>
 
-			</div>
+
+
 
 
 
