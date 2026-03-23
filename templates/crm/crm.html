@@ -61,6 +61,39 @@
                             <button class="text-black-50 mr-2 font-size-20"><i class="mdi mdi-cached"></i></button>
                         </div>
                     </div>
+
+                    <div class="card-body py-0 compact-units" data-simplebar style="height: 384px;">
+                      <table class="table ">
+                        <tbody>
+                         {% for key, value, percent in context2 %}
+                          <tr>
+                            <td class="text-dark">{{ key }}</td>
+                            <td class="text-center">9</td>
+                            <td class="text-right">{{  percent|floatformat:1  }}%
+                                 {% if percent > 50 %}
+                                    <i class="mdi mdi-arrow-up-bold text-success pl-1 font-size-12"></i>
+                                    {% else %}
+                                    <i class="mdi mdi-arrow-down-bold text-danger pl-1 font-size-12"></i>
+                                    {% endif %}
+                                </td>
+                          </tr>
+                          {% endfor %}
+                          <tr>
+                            <td class="text-dark">T-Views</td>
+                            <td class="text-center">6</td>
+                            <td class="text-right">{{ hitcount.total_hits }} <i class="mdi mdi-arrow-up-bold text-success pl-1 font-size-12"></i> </td>
+                          </tr>
+
+                        </tbody>
+                      </table>
+
+                    </div>
+                    <div class="card-footer bg-white py-4">
+                      <a href="#" class="btn-link py-3 text-uppercase">Total Views: {{ hitcount.total_hits }}</a>
+                    </div>
+                  </div>
+
+
                     <div class="card-body py-0 compact-units" data-simplebar style="height: 700px;">
                         <table class="table ">
                             <tbody>
@@ -88,7 +121,7 @@
 
                     </div>
                     <div class="card-footer bg-white py-4">
-                        <a href="#" class="btn-link py-3 text-uppercase">{{ hitcount.total_hits }}</a>
+                        <a href="#" class="btn-link py-3 text-uppercase"></a>
                     </div>
                 </div>
 
