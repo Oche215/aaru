@@ -103,8 +103,9 @@ class ProductDetailView(HitCountDetailView):
     template_name = 'store/details.html'
     count_hit = True
 
-    g = GeoIP2()
-    country = g.country('8.8.8.8')  # Returns {'country_code': 'US', 'country_name': 'United States'}
+
+g = GeoIP2()
+country = g.country('8.8.8.8')  # Returns {'country_code': 'US', 'country_name': 'United States'}
 
 def order(request, slug):
     product = Product.objects.get(slug=slug)

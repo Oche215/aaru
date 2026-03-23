@@ -253,6 +253,3 @@ class AddProductView(CreateView):
         # You can add extra logic here before saving
         return super().form_valid(form)
 
-g = GeoIP2()
-country = g.country('8.8.8.8') # Returns {'country_code': 'US', 'country_name': 'United States'}
-
