@@ -14,7 +14,7 @@
             <div class="container">
                 <ol>
                     <li><a href="{% url 'home' %}">Home</a></li>
-                    <li class="current">Contact</li>
+                    <li class="current">Order</li>
                 </ol>
 
             </div>
@@ -32,32 +32,34 @@
                     <div class="content-block">
                         <h6 class="subtitle">For this Order</h6>
                         <h2 class="title">Contact your Order manager</h2>
-                        <div class="portfolio-card">
-                            <div class="portfolio-image">
+                        <div class="row portfolio-card">
+                            <div class="col">
+                                <div class="portfolio-image">
                                 <img src="{% if product.pix %}{{ product.pix.url }}{% else %}{% static 'assets/img/portfolio/image.jpg' %}{% endif %}"
                                      class="img-fluid" alt="{{ product.name }}"
-                                     loading="lazy" width="120">
+                                     loading="lazy" width="360">
                             </div>
-                            <div class="portfolio-content">
+                            </div>
+                            <div class="col">
+                                <div class="portfolio-content">
                                 <span class="category">{{ product.category }}</span>
-                                <h3>{{ product.name }}</h3>
+                                <h5>{{ product.name }}</h5>
                                 <div class="row">
                                     <div class="col">
                                         <p>{{ product.category.catalog }}</p>
                                     </div>
                                     <div class="col text-end">
                                         <p><span
-                                                style="text-decoration-line: line-through; text-decoration-style: double;">N</span>{{
-                                            product.price|intcomma }}</p>
+                                                style="text-decoration-line: line-through; text-decoration-style: double;">N</span>{{ product.price|intcomma }}</p>
                                     </div>
                                 </div>
 
                             </div>
+                            </div>
+
                         </div>
                         <p class="description">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt diam et
-                            gravida consequat. Sed nec mauris quis lacus commodo lobortis. Suspendisse euismod commodo
-                            sem, in finibus purus bibendum et. Morbi eu neque sed velit convallis vestibulum a vel odio.
+                            {{ product.description }}
                         </p>
                         <div class="button-wrapper">
                             <a class="btn" href="{% url 'home' %}#product"><span>Back to Catalogue</span></a>
