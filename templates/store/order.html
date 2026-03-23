@@ -37,17 +37,6 @@
                                 <img src="{% if product.pix %}{{ product.pix.url }}{% else %}{% static 'assets/img/portfolio/image.jpg' %}{% endif %}"
                                      class="img-fluid" alt="{{ product.name }}"
                                      loading="lazy" width="120">
-                                <div class="portfolio-overlay">
-                                    <div class="portfolio-actions">
-                                        <a href="{% if product.pix %}{{ product.pix.url }}{% else %}{% static 'assets/img/portfolio/image.jpg' %}{% endif %}"
-                                           class="glightbox preview-link" data-gallery="portfolio-gallery-web"><i
-                                                class="bi bi-eye"></i></a>
-                                        <a href="{% url 'product-details' product.slug %}" class="details-link"><i
-                                                class="bi bi-arrow-right"></i></a>
-                                        <a href="{% url 'order' product.slug %}" class="details-link"><i
-                                                class="bi bi-cart4"></i></a>
-                                    </div>
-                                </div>
                             </div>
                             <div class="portfolio-content">
                                 <span class="category">{{ product.category }}</span>
