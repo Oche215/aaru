@@ -75,27 +75,10 @@
 
                                 </td>
                             </tr>
-                           <tr>
+                           <tr>No.
                                 <td class="text-center">{{ value }}</td>
                            </tr>
-                                <tr>Total hits:
-                               <td class="text-center"> {{ hitcount.total_hits }}</td>
-                           </tr>
-                           <tr>
-                               <td >
-                              <div class="media">
-                                <div class="media-image mr-3 rounded-circle">
-                                  <a href="profile.html"><img class="rounded-circle w-45" src="assets/img/user/u1.jpg" alt="customer image"></a>
-                                </div>
-                                <div class="media-body align-self-center">
-                                  <a href="profile.html"><h6 class="mt-0 text-dark font-weight-medium">Selena Wagner</h6></a>
-                                  <small>@selena.oi</small>
-                                </div>
-                              </div>
-                            </td>
-                            <td >2 Orders</td>
-                            <td class="text-dark d-none d-md-block">$150</td>
-                           </tr>
+
 
 
                             {% endfor %}
@@ -105,7 +88,7 @@
 
                     </div>
                     <div class="card-footer bg-white py-4">
-                        <a href="#" class="btn-link py-3 text-uppercase">View Report</a>
+                        <a href="#" class="btn-link py-3 text-uppercase">{{ hitcount.total_hits }}</a>
                     </div>
                 </div>
 
