@@ -5,39 +5,38 @@
 {% load humanize %}
 
 {% block content %}
-  <main class="main">
+<main class="main">
 
     <!-- Page Title -->
     <div class="page-title">
 
-      <nav class="breadcrumbs">
-        <div class="container">
-          <ol>
-            <li><a href="{% url 'home' %}">Home</a></li>
-            <li class="current">Contact</li>
-          </ol>
+        <nav class="breadcrumbs">
+            <div class="container">
+                <ol>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li class="current">Contact</li>
+                </ol>
 
-        </div>
-      </nav>
+            </div>
+        </nav>
     </div><!-- End Page Title -->
 
 
-
-      <!-- Services Alt Section -->
+    <!-- Services Alt Section -->
     <section id="services-alt" class="services-alt section">
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="row">
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="content-block">
-              <h6 class="subtitle">For this Order</h6>
-              <h2 class="title">Contact your Order manager</h2>
-                <div class="portfolio-card">
+            <div class="row">
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="content-block">
+                        <h6 class="subtitle">For this Order</h6>
+                        <h2 class="title">Contact your Order manager</h2>
+                        <div class="portfolio-card">
                             <div class="portfolio-image">
                                 <img src="{% if product.pix %}{{ product.pix.url }}{% else %}{% static 'assets/img/portfolio/image.jpg' %}{% endif %}"
                                      class="img-fluid" alt="{{ product.name }}"
-                                     loading="lazy">
+                                     loading="lazy" width="120">
                                 <div class="portfolio-overlay">
                                     <div class="portfolio-actions">
                                         <a href="{% if product.pix %}{{ product.pix.url }}{% else %}{% static 'assets/img/portfolio/image.jpg' %}{% endif %}"
@@ -45,7 +44,8 @@
                                                 class="bi bi-eye"></i></a>
                                         <a href="{% url 'product-details' product.slug %}" class="details-link"><i
                                                 class="bi bi-arrow-right"></i></a>
-                                        <a href="{% url 'order' product.slug %}" class="details-link"><i class="bi bi-cart4"></i></a>
+                                        <a href="{% url 'order' product.slug %}" class="details-link"><i
+                                                class="bi bi-cart4"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -58,51 +58,53 @@
                                     </div>
                                     <div class="col text-end">
                                         <p><span
-                                                style="text-decoration-line: line-through; text-decoration-style: double;">N</span>{{ product.price|intcomma }}</p>
+                                                style="text-decoration-line: line-through; text-decoration-style: double;">N</span>{{
+                                            product.price|intcomma }}</p>
                                     </div>
                                 </div>
 
                             </div>
                         </div>
-              <p class="description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt diam et gravida consequat. Sed nec mauris quis lacus commodo lobortis. Suspendisse euismod commodo sem, in finibus purus bibendum et. Morbi eu neque sed velit convallis vestibulum a vel odio.
-              </p>
-              <div class="button-wrapper">
-                <a class="btn" href="{% url 'home' %}#product"><span>Back to Catalogue</span></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="services-list">
-              <div class="service-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="400">
-                <div class="service-icon">
-                  <i class="bi bi-phone"></i>
+                        <p class="description">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt diam et
+                            gravida consequat. Sed nec mauris quis lacus commodo lobortis. Suspendisse euismod commodo
+                            sem, in finibus purus bibendum et. Morbi eu neque sed velit convallis vestibulum a vel odio.
+                        </p>
+                        <div class="button-wrapper">
+                            <a class="btn" href="{% url 'home' %}#product"><span>Back to Catalogue</span></a>
+                        </div>
+                    </div>
                 </div>
-                <div class="service-content">
-                  <h4><a href="service-details.html">Call Now</a></h4>
-                  <p>+234 8111 111 417.</p>
-                </div>
-              </div><!-- End Service Item -->
+                <div class="col-lg-6">
+                    <div class="services-list">
+                        <div class="service-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="400">
+                            <div class="service-icon">
+                                <i class="bi bi-phone"></i>
+                            </div>
+                            <div class="service-content">
+                                <h4><a href="service-details.html">Call Now</a></h4>
+                                <p>+234 8111 111 417.</p>
+                            </div>
+                        </div><!-- End Service Item -->
 
-              <div class="service-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="500">
-                <div class="service-icon">
-                    <i class="bi bi-bank"></i>
+                        <div class="service-item d-flex align-items-center" data-aos="fade-up" data-aos-delay="500">
+                            <div class="service-icon">
+                                <i class="bi bi-bank"></i>
+                            </div>
+                            <div class="service-content">
+                                <h4><a href="service-details.html">Visit Our Showroom</a></h4>
+                                <p>Mall of Dubai, Shop GF-BO6 <br>
+                                    Gimbia Street, Area 11, Garki Abuja.</p>
+                            </div>
+                        </div><!-- End Service Item -->
+                    </div>
                 </div>
-                <div class="service-content">
-                  <h4><a href="service-details.html">Visit Our Showroom</a></h4>
-                  <p>Mall of Dubai, Shop GF-BO6 <br>
-                      Gimbia Street, Area 11, Garki Abuja.</p>
-                </div>
-              </div><!-- End Service Item -->
             </div>
-          </div>
+
         </div>
-
-      </div>
 
     </section><!-- /Services Alt Section -->
 
 
-
-  </main>
+</main>
 {% endblock %}
