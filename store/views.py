@@ -102,3 +102,7 @@ class ProductDetailView(HitCountDetailView):
     template_name = 'store/details.html'
     count_hit = True
 
+def order(request, slug):
+    product = Product.objects.get(slug=slug)
+
+    return render(request, 'store/order.html', {'product': product,})

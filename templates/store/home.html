@@ -103,7 +103,7 @@
                                                 class="bi bi-eye"></i></a>
                                         <a href="{% url 'product-details' product.slug %}" class="details-link"><i
                                                 class="bi bi-arrow-right"></i></a>
-                                        <a href="" class="details-link"><i class="bi bi-cart4"></i></a>
+                                        <a href="{% url 'order' product.slug %}" class="details-link"><i class="bi bi-cart4"></i></a>
                                     </div>
                                 </div>
                             </div>

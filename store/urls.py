@@ -1,5 +1,6 @@
 from django.urls import path
-from .views import home, details, services, about, contact, get_product_image, index, serve_image, gallery, ProductDetailView
+from .views import home, details, services, about, contact, get_product_image, index, serve_image, gallery, \
+    ProductDetailView, order
 from accounts.views import delete_message
 
 urlpatterns = [
@@ -18,6 +19,6 @@ urlpatterns = [
 
     path('gallery/', gallery, name='gallery'),
 
-    # path('post/<int:pk>/', ProductDetailView.as_view(), name='post-detail'),
+    path('order/<slug:slug>', order, name='order'),
 
 ]
