@@ -107,7 +107,7 @@
                         <div class="card-body py-0">
 
                         {% for product in products %}
-                      <div class="media d-flex mb-3">
+                      <div class="media d-flex mb-5">
                         <div class="media-image align-self-center mr-3 rounded">
                           <a href="#"><img src="{% if product.pix %}{{ product.pix.url }}{% else %}{% static 'images/portfolio/portfolio-img-1.jpg' %}{% endif %}" alt="Profile Picture" width="90" class="user-image rounded"></a>
 
@@ -123,11 +123,11 @@
                         </div>
 
                       </div>
+                    <div class="card-footer bg-white py-4">
+                <a href="#" class="btn-link py-3 text-uppercase">Total Views: {{ hitcount.total_hits }}</a>
+            </div>
                   </div>
 
-            </div>
-            <div class="card-footer bg-white py-4">
-                <a href="#" class="btn-link py-3 text-uppercase">Total Views: {{ hitcount.total_hits }}</a>
             </div>
 
         </div>
