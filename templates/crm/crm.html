@@ -103,11 +103,11 @@
                       <h2>Top Products</h2>
 
                     </div>
-                    <div class="my-scrollable-div p-2 border" style="height: 384px; overflow-y: auto;" >
+                    <div class="my-scrollable-div p-3 border" style="height: 384px; overflow-y: auto;" >
                         <div class="card-body py-0">
 
                         {% for product in products %}
-                      <div class="media d-flex mb-5">
+                      <div class="media d-flex mb-3">
                         <div class="media-image align-self-center mr-3 rounded">
                           <a href="#"><img src="{% if product.pix %}{{ product.pix.url }}{% else %}{% static 'images/portfolio/portfolio-img-1.jpg' %}{% endif %}" alt="Profile Picture" width="90" class="user-image rounded"></a>
 
@@ -115,7 +115,7 @@
                         <div class="media-body align-self-center">
                           <a href="#"><h6 class="mb-3 text-dark font-weight-medium"> {{ product.name }}</h6></a>
                           <p class="float-md-right"><span class="text-dark mr-2">{% get_hit_count for product %}</span>Views</p>
-                            <a href="#"><h6 class="mb-3 text-dark font-weight-medium"> {{ product.price }}</h6></a>
+                            <h6 class="text-secondary "> {{ product.price|intcomma }}</h6>
 
                         </div>
                       </div>
