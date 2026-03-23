@@ -89,7 +89,7 @@
 
                     </div>
                     <div class="card-footer bg-white py-4">
-                      <a href="#" class="btn-link py-3 text-uppercase">Total Views: {{ hitcount.total_hits }}</a>
+                      <a href="#" class="btn-link py-3 text-uppercase">Total Views:{% for product in products %} {{ hitcount.total_hits }}{% endfor %}</a>
                     </div>
                   </div>
 
