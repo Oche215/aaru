@@ -54,7 +54,7 @@
                     </div>
                     <div class="col">
                         <div class="d-flex justify-content-end mt-1">
-                        <a href="#" class="btn btn-primary btn-sm bg-gradient">Add to Cart</a>
+                        <a href="{% url 'order' product.slug %}" class="btn btn-primary btn-sm bg-gradient">Add to Cart</a>
                         &nbsp;&nbsp;&nbsp;
                         <a href="{% url 'home' %}#product" class="btn btn-secondary btn-sm bg-gradient">Continue Shopping</a>
                     </div>
