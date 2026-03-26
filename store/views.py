@@ -110,4 +110,7 @@ def order(request, slug):
 
 
 def custom_page_not_found_view(request, exception):
-    return render(request, "store/404.html", {}, status=404)
+    return render(request, "store/404.html", status=404)
+
+def error_500(request):
+    return render(request, 'store/404.html', status=500)

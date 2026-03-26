@@ -1,3 +1,4 @@
+from django.conf.urls import handler500
 from django.urls import path
 
 import store.views
@@ -6,6 +7,8 @@ from .views import home, details, services, about, contact, get_product_image, i
 from accounts.views import delete_message
 
 handler404 = 'store.views.custom_page_not_found_view'
+
+handler5001 = 'store.views.error_500'
 
 urlpatterns = [
     path('', home, name='home'),
