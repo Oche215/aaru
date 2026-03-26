@@ -8,7 +8,7 @@ from accounts.views import delete_message
 
 handler404 = 'store.views.custom_page_not_found_view'
 
-handler5001 = 'store.views.error_500'
+handler500 = 'store.views.error_500'
 
 urlpatterns = [
     path('', home, name='home'),
