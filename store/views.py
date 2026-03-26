@@ -107,3 +107,7 @@ def order(request, slug):
     product = Product.objects.get(slug=slug)
 
     return render(request, 'store/order.html', {'product': product,})
+
+
+def custom_page_not_found_view(request, exception):
+    return render(request, "store/404.html", {}, status=404)
