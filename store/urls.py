@@ -5,6 +5,8 @@ from .views import home, details, services, about, contact, get_product_image, i
     ProductDetailView, order
 from accounts.views import delete_message
 
+handler404 = 'store.views.custom_page_not_found_view'
+
 urlpatterns = [
     path('', home, name='home'),
     path('details/<slug:slug>', ProductDetailView.as_view(), name='product-details'),
@@ -24,5 +26,3 @@ urlpatterns = [
     path('order/<slug:slug>', order, name='order'),
 
 ]
-
-handler404 = 'store.views.custom_page_not_found_view'
