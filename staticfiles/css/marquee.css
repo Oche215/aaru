@@ -1,0 +1,20 @@
+/* ////////////////////////////////////////////////
+ *  Marquee
+ * //////////////////////////////////////////////// */
+.marquee {
+  overflow: hidden;
+  width: 100%;
+}
+
+.marquee__inner {
+  display: inline-flex;
+  position: relative;
+  white-space: nowrap;
+}
+
+.marquee__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-right: var(--space-lg);
+}
