@@ -80,8 +80,10 @@
                           <tr>
                             <td class="text-dark">T-Views</td>
                             <td class="text-center"></td>
-                              {% get_hit_count for product.name %}
+                              {% for product in products %}
+                              {% get_hit_count for product.name as hits %}
                             <td class="text-right">{{ hitcount.total_hits }} <i class="mdi mdi-arrow-up-bold text-success pl-1 font-size-12"></i> </td>
+                              {% endfor %}
                           </tr>
 
                          {% for hit in hitcount.hits.all %}
