@@ -13,6 +13,7 @@ from .forms import CustomLoginForm, UserUpdateForm, UserProfileForm, Registratio
 
 from django.views.generic import UpdateView, CreateView
 from django.urls import reverse_lazy
+from hitcount.models import HitCountBase
 
 from django.urls import path
 
@@ -62,6 +63,7 @@ def accounts(request):
 
     catalog = catalogs.annotate(count=Count('name'))
     product = products.annotate(count=Count('category'))
+    grand_total = HitCountBase.objects.all().annotate(count=Count('hits'))
 
     category_counts = []
     for cat in category:
@@ -89,12 +91,12 @@ def accounts(request):
         messages.success(request, 'You have been successfully logged in')
         return render(request, 'crm/crm.html',
                       {'catalogs': catalogs, 'total': total, 'total_products': total_products, 'products': products,
-                       'catalog': catalog, 'product': product, 'percentage': percent})
+                       'catalog': catalog, 'product': product, 'percentage': percent, 'grand_total': grand_total})
     else:
         return render(request, 'crm/crm.html',
                       {'catalogs': catalogs, 'total': total, 'total_products': total_products, 'products': products,
                        'catalog': catalog, 'product': product, 'context': context, 'context2': context2,
-                       'percent': percent})
+                       'percent': percent, 'grand_total': grand_total})
 
 
 class CustomLoginView(LoginView):
