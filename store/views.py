@@ -103,6 +103,7 @@ class ProductDetailView(HitCountDetailView):
     count_hit = True
 
 
+
 def order(request, slug):
     product = Product.objects.get(slug=slug)
 
