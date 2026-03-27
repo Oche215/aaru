@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from django.db.models import F
+from django.db.models import F, Sum
 
 from django.contrib.auth.views import LoginView, TemplateView
 from store.models import Product, Catalog, Category, ContactUs
@@ -63,7 +63,7 @@ def accounts(request):
 
     catalog = catalogs.annotate(count=Count('name'))
     product = products.annotate(count=Count('category'))
-    grand_total = HitCount.objects.all().count()
+    grand_total = HitCount.objects.all().aggregate(Sum('hits'))['hits__sum']
 
     category_counts = []
     for cat in category:
