@@ -63,7 +63,7 @@ def accounts(request):
 
     catalog = catalogs.annotate(count=Count('name'))
     product = products.annotate(count=Count('category'))
-    grand_total = HitCount.objects.all().Count()
+    grand_total = HitCount.objects.all().count()
 
     category_counts = []
     for cat in category:
