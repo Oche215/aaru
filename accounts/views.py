@@ -13,7 +13,7 @@ from .forms import CustomLoginForm, UserUpdateForm, UserProfileForm, Registratio
 
 from django.views.generic import UpdateView, CreateView
 from django.urls import reverse_lazy
-from hitcount.models import HitCountBase
+from hitcount.models import HitCountBase, HitCount
 
 from django.urls import path
 
@@ -63,7 +63,7 @@ def accounts(request):
 
     catalog = catalogs.annotate(count=Count('name'))
     product = products.annotate(count=Count('category'))
-    grand_total = HitCountBase.objects.all().annotate(count=Count('hits'))
+    grand_total = HitCount.objects.all().annotate(count=Count('hits'))
 
     category_counts = []
     for cat in category:
