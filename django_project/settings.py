@@ -55,6 +55,8 @@ INSTALLED_APPS = [
     "hitcount",
 
     'whitenoise.runserver_nostatic',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
 
 ]
 
@@ -179,6 +181,8 @@ EMAIL_HOST_USER = 'avadacouturewebsite@gmail.com'  # SMTP server username
 EMAIL_HOST_PASSWORD = 'wjpeajplbbalregt'  # SMTP server password
 DEFAULT_FROM_EMAIL = 'AARU by AVADA <avadacouturewebsite@gmail.com>'  # Default sender email address
 
+
+SITE_ID = 1
 
 # S3 Storage for NEW uploads only
 # if not DEBUG:
