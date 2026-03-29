@@ -15,4 +15,4 @@ class ProductSitemap(Sitemap):
 
     def location(self, item):
         # Pass the required arguments as keyword arguments (kwargs) or args
-        return reverse('product_detail', kwargs={'slug': item.slug})
+        return reverse('product-details', kwargs={'slug': item.slug})
