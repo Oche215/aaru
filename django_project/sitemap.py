@@ -1,5 +1,6 @@
 from django.contrib.sitemaps import Sitemap
 from store.models import Product
+from django.urls import reverse
 
 
 class ProductSitemap(Sitemap):
@@ -11,3 +12,7 @@ class ProductSitemap(Sitemap):
 
     def lastmod(self, obj):
         return obj.modified_on
+
+    def location(self, item):
+        # Pass the required arguments as keyword arguments (kwargs) or args
+        return reverse('product_detail', kwargs={'slug': item.slug})

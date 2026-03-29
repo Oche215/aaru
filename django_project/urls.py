@@ -32,6 +32,6 @@ urlpatterns = [
 
     path('hitcount/', include(('hitcount.urls', 'hitcount'), namespace='hitcount')),
 
-    path('sitemap.xml', sitemap, {'sitemaps': {'product': ProductSitemap }})
+    path('sitemap.xml', sitemap, {'sitemaps': {'product': ProductSitemap }}),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
